@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>development@opacus.co.uk</em:id>
+    <em:type>2</em:type>
+    <em:name>Opacus SugarCRM Thunderbird Plugin</em:name>
+    <em:version>1.3.1</em:version>
+    <em:creator>Mathew Bland, Jonathan Cutting, Opacus Solutions Ltd (C)2009,2010</em:creator>
+    <em:contributor></em:contributor>
+    <em:description>Enables the archiving of emails into SugarCRM from Thunderbird 3 and above.</em:description>
+    <em:aboutURL>chrome://opacusSTP/content/opacusSTP-about.xul</em:aboutURL>
+    <em:optionsURL>chrome://opacusSTP/content/opacusSTP-options.xul</em:optionsURL>
+    <em:targetApplication>
+      <Description>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id> <!-- Thunderbird -->
+        <em:minVersion>3.0</em:minVersion>
+        <em:maxVersion>3.1.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <em:homepageURL>http://www.opacus.co.uk/</em:homepageURL>
+  </Description>
+</RDF>

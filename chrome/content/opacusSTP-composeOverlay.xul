@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/*********************************************************************************
+ * The contents of this file are subject to the Opacus Licence, available at
+ * http://www.opacus.co.uk/licence or available on request.
+ * By installing or using this file, You have unconditionally agreed to the
+ * terms and conditions of the License, and You may not use this file except in
+ * compliance with the License.  Under the terms of the license, You shall not,
+ * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
+ * or otherwise transfer Your rights to the Software. Use of the Software
+ * may be subject to applicable fees and any use of the Software without first
+ * paying applicable fees is strictly prohibited.  You do not have the right to
+ * remove Opacus copyrights from the source code.
+ *
+ * The software is provided "as is", without warranty of any kind, express or
+ * implied, including but not limited to the warranties of merchantability,
+ * fitness for a particular purpose and noninfringement. In no event shall the
+ * authors or copyright holders be liable for any claim, damages or other
+ * liability, whether in an action of contract, tort or otherwise, arising from,
+ * out of or in connection with the software or the use or other dealings in
+ * the software.
+ *
+ * Portions created by Opacus are Copyright (C) 2010 Mathew Bland, Jonathan Cutting
+ * Opacus Ltd.
+ * All Rights Reserved.
+ ********************************************************************************/
+ -->
+<?xml-stylesheet type="text/css" href="chrome://opacusSTP/content/opacusSTP-button.css"?>
+<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<stringbundleset id="stringbundleset">
+<stringbundle id="opacus_strings" src="chrome://opacusSTP/locale/strings.properties"/>
+</stringbundleset>
+<script src="chrome://opacusSTP/content/opacusSTP-compose.js"/>
+<toolbarpalette id="MsgComposeToolbarPalette">
+  <toolbarbutton id="custom-button-1"
+  label="Send+Archive"
+  tooltiptext="Archive to SugarCRM before sending"
+  oncommand="sendObserver.parentWindow.opacusSTP.sendAndArchive(window);"
+  class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
+  />
+</toolbarpalette>
+<toolbarpalette id="MsgComposeToolbarPalette">
+  <toolbarbutton id="custom-button-2"
+  label="Send+AutoArchive"
+  tooltiptext="AutoArchive to SugarCRM while sending"
+  oncommand="if(this.disabled == false){sendObserver.parentWindow.opacusSTP.sendAndAutoArchive(window);}"
+  class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
+  />
+</toolbarpalette>
+</overlay>

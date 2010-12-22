@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*********************************************************************************
+ * The contents of this file are subject to the Opacus Licence, available at
+ * http://www.opacus.co.uk/licence or available on request.
+ * By installing or using this file, You have unconditionally agreed to the
+ * terms and conditions of the License, and You may not use this file except in
+ * compliance with the License.  Under the terms of the license, You shall not,
+ * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
+ * or otherwise transfer Your rights to the Software. Use of the Software
+ * may be subject to applicable fees and any use of the Software without first
+ * paying applicable fees is strictly prohibited.  You do not have the right to
+ * remove Opacus copyrights from the source code.
+ *
+ * The software is provided "as is", without warranty of any kind, express or
+ * implied, including but not limited to the warranties of merchantability,
+ * fitness for a particular purpose and noninfringement. In no event shall the
+ * authors or copyright holders be liable for any claim, damages or other
+ * liability, whether in an action of contract, tort or otherwise, arising from,
+ * out of or in connection with the software or the use or other dealings in
+ * the software.
+ *
+ * Portions created by Opacus are Copyright (C) 2010 Mathew Bland, Jonathan Cutting
+ * Opacus Ltd.
+ * All Rights Reserved.
+ ********************************************************************************/
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://opacusSTP/locale/options.dtd">
+<prefwindow flex="1" id="opacusSTP-preferences" buttons="accept,cancel," onunload="try{opener.opacusSTP.updateServerInfo();}catch(ex){};try{opener.opener.opacusSTP.updateServerInfo();}catch(ex){}" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefwindow.title;">
+  <prefpane flex='1' id="pane1" label="&pane1.title;">
+   <vbox flex="1" width="400">
+    <preferences>
+      	<preference id="sugarcrm_url" name="extensions.opacusSTP.sugarcrm_url" type="unichar"/>
+	<preference id="sugarcrm_username" name="extensions.opacusSTP.sugarcrm_username" type="unichar"/>
+	<preference id="sugarcrm_password" name="extensions.opacusSTP.sugarcrm_password" type="unichar"/>
+	<preference id="opacus_licence_key" name="extensions.opacusSTP.opacus_licence_key" type="unichar"/>
+	<preference id="auto_archive" name="extensions.opacusSTP.auto_archive" type="bool"/>
+	<preference id="auto_archive_attachments" name="extensions.opacusSTP.auto_archive_attachments" type="bool"/>
+	<preference id="opacus_notify" name="extensions.opacusSTP.opacus_notify" type="bool"/>
+	<preference id="opacus_cases" name="extensions.opacusSTP.opacus_cases" type="bool"/>
+    </preferences>
+    <groupbox flex="1">
+    <caption label="&opacus_serverdetails.label;"/>
+    <label accesskey="&sugarcrm_url.accesskey;" control="textsugarcrm_url">&sugarcrm_url.label;</label><textbox id="textsugarcrm_url" preference="sugarcrm_url"/>
+	<label accesskey="&sugarcrm_username.accesskey;" control="textsugarcrm_username">&sugarcrm_username.label;</label><textbox id="textsugarcrm_username" preference="sugarcrm_username"/>
+	<label accesskey="&sugarcrm_password.accesskey;" control="textsugarcrm_password">&sugarcrm_password.label;</label><textbox id="passwordsugarcrm_password" preference="sugarcrm_password" type="password"/>	
+	</groupbox>
+
+    <groupbox flex="1">
+    <caption label="&opacus_licencedetails.label;"/>
+	<label accesskey="&opacus_licence_key.accesskey;" control="textopacus_licence_key">&opacus_licence_key.label;</label><textbox id="textopacus_licence_key" preference="opacus_licence_key"/>	
+	</groupbox>
+
+    <groupbox flex="1">
+    <caption label="&opacus_advanceddetails.label;"/>
+	<checkbox id="checkauto_archive" preference="auto_archive" label="&auto_archive.label;" accesskey="&auto_archive.accesskey;"/>
+	<checkbox id="checkauto_archive_attachments" preference="auto_archive_attachments" label="&auto_archive_attachments.label;" accesskey="&auto_archive_attachments.accesskey;"/>
+	<checkbox id="checkopacus_notify" preference="opacus_notify" label="&opacus_notify.label;" tooltiptext="&opacus_notify.tooltiptext;" accesskey="&opacus_notify.accesskey;"/>
+	<checkbox id="checkopacus_cases" preference="opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
+	</groupbox>
+	</vbox>
+  </prefpane>
+</prefwindow>

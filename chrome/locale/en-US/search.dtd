@@ -1,0 +1,12 @@
+<!ENTITY searchwindow.title "Opacus Search">
+<!ENTITY opacus_search.accesskey "S">
+<!ENTITY opacus_archive.accesskey "A">
+<!ENTITY opacus_cancel.accesskey "C">
+<!ENTITY opacus_archive.label "Archive">
+<!ENTITY opacus_cancel.label "Cancel">
+<!ENTITY opacus_doAttachments.label "Archive Attachments">
+<!ENTITY opacus_modules.label "Modules">
+<!ENTITY opacus_sugarObjects.label "Sugar Objects">
+<!ENTITY opacus_search.label "Search">
+<!ENTITY opacus_searchFor.label "Search For..">
+<!ENTITY opacus_results.label "Results">

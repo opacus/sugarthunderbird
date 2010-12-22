@@ -1,0 +1,22 @@
+<!ENTITY prefwindow.title "Opacus Plugin preferences">
+<!ENTITY pane1.title "Opacus Plugin preferences">
+<!ENTITY sugarcrm_url.label "SugarCRM URL <span style='display:inline;font-size: .8em;font-style:italic;'>e.g. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRM Username">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRM Password">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Opacus Licence Key <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Enable auto archive for inbound mail">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Archive attachments when auto-archiving">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY opacus_notify.label "Enable Opacus new mail notification">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Parse subject line for case numbers">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_serverdetails.label "Server Information">
+<!ENTITY opacus_licencedetails.label "Licence Details">
+<!ENTITY opacus_advanceddetails.label "Advanced Settings">
+<!ENTITY opacus_notify.tooltiptext "Lighweight new mail notification showing subject and author">
