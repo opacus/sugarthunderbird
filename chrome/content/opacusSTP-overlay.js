@@ -44,7 +44,8 @@ var opacusSTP = {
   firstMessageHeader:	'',
   searchChildren	: 0,
   sendAndArchiveStatus: 'unknown',
-  timer : Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer), 
+  timer : Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer),
+  passwordManager: Components.classes["@mozilla.org/login-manager;1"].getService(Components.interfaces.nsILoginManager),
 
   onLoad: function() {
 	// initialization code
@@ -77,7 +78,7 @@ var opacusSTP = {
         Prefs.setCharPref("version",current);  
       } else {
 			// Update the server details from the preferences
-			opacusSTP.updateServerInfo();
+			opacusSTP.updateServerInfo(false);
 	  }	    
     }  
 
@@ -156,7 +157,7 @@ var opacusSTP = {
 
   },
 
-  updateServerInfo: function(){
+  updateServerInfo: function(optionsWindow){
 	opacusSTP.webservice = '';
 	this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
          .getService(Components.interfaces.nsIPrefService)
@@ -165,10 +166,47 @@ var opacusSTP = {
     try{
 		opacusSTP.sugarurl = this.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
 		opacusSTP.sugarcrm_username = this.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
-		opacusSTP.sugarcrm_password = this.prefs.getComplexValue("sugarcrm_password",Components.interfaces.nsIPrefLocalizedString).data;
 		opacusSTP.opacus_notify = this.prefs.getBoolPref("opacus_notify");
 		opacusSTP.opacus_cases = this.prefs.getBoolPref("opacus_cases");
 		opacusSTP.session_id = '';
+		if(optionsWindow){ 
+			var password = optionsWindow.document.getElementById('passwordsugarcrm_password').value;
+			if(password != ''){
+				var nsLoginInfo = new Components.Constructor("@mozilla.org/login-manager/loginInfo;1",  
+										 Components.interfaces.nsILoginInfo,  
+										 "init"); 
+				var sugarLogin = new nsLoginInfo('chrome://opacusSTP',  
+						   null, 'SugarCRM Login',
+						   opacusSTP.sugarcrm_username, password, '', ''); 
+				// Remove old login
+				try {  
+   				   // Find users for this extension   
+				   var logins = opacusSTP.passwordManager.findLogins({}, 'chrome://opacusSTP', '', 'SugarCRM Login');     
+				   for (var i = 0; i < logins.length; i++) {  
+					  if (logins[i].username == opacusSTP.sugarcrm_username) {  
+						 opacusSTP.passwordManager.removeLogin(logins[i]);  
+						 break;  
+					  }  
+				   }  
+				}  
+				catch(ex) {} 
+				// Add new login
+				opacusSTP.passwordManager.addLogin(sugarLogin);
+			}
+		}
+		try {     
+		   // Find users for the given parameters  
+		   var logins = opacusSTP.passwordManager.findLogins({}, 'chrome://opacusSTP', '', 'SugarCRM Login');  
+				
+		   // Find user from returned array of nsILoginInfo objects  
+		   for (var i = 0; i < logins.length; i++) {  
+			  if (logins[i].username == opacusSTP.sugarcrm_username) {  
+				 opacusSTP.sugarcrm_password = logins[i].password;  
+				 break;  
+			  }  
+		   }  
+		}  
+		catch(ex) {}  
 		opacusSTP.webservice = new opacusSTPrest();	
 		opacusSTP.webservice.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
 		var serverEvent = {
@@ -180,7 +218,7 @@ var opacusSTP = {
 		opacusSTP.timer.initWithCallback(serverEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 	}
 	catch(ex){}
-	return true;
+	return false;
   },
 
   sendAndArchive: function(composeWindow){
