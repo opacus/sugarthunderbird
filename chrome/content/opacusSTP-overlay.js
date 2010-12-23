@@ -1,27 +1,25 @@
-/*********************************************************************************
- * The contents of this file are subject to the Opacus Licence, available at
- * http://www.opacus.co.uk/licence or available on request.
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software. Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove Opacus copyrights from the source code.
- *
- * The software is provided "as is", without warranty of any kind, express or
- * implied, including but not limited to the warranties of merchantability,
- * fitness for a particular purpose and noninfringement. In no event shall the
- * authors or copyright holders be liable for any claim, damages or other
- * liability, whether in an action of contract, tort or otherwise, arising from,
- * out of or in connection with the software or the use or other dealings in
- * the software.
- *
- * Portions created by Opacus are Copyright (C) 2010 Mathew Bland, Jonathan Cutting
+/**********************************************************************
+ * Portions written by Opacus (C) Mathew Bland, Jonathan Cutting,
  * Opacus Ltd.
- * All Rights Reserved.
- ********************************************************************************/
+ * 
+ * This file is part of the Opacus SugarCRM Thunderbird Plugin.
+ *
+ * The Opacus SugarCRM Thunderbird Plugin
+ * is free software:you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The Opacus SugarCRM Thunderbird Plugin
+ * is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with the Opacus SugarCRM Thunderbird Plugin.
+ * If not, see <http://www.gnu.org/licenses/>.
+ *********************************************************************/
 var opacusSTP = {
   webservice	:	'',
   sugarurl	:	'',
@@ -52,8 +50,6 @@ var opacusSTP = {
 	// initialization code
 	this.initialized = true;
 	opacusSTP.strings = document.getElementById("opacus_strings");
-	opacusSTP.licence = new opacusSTPlicence();
-	opacusSTP.updateServerInfo();
 	opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
 
 
@@ -67,41 +63,25 @@ var opacusSTP = {
     var current = gExtensionManager.getItemForID("development@opacus.co.uk").version;  
       
     try{  
-    ver = Prefs.getCharPref("version");  
-    firstrun = Prefs.getBoolPref("firstrun");  
+	  ver = Prefs.getCharPref("version");  
+	  firstrun = Prefs.getBoolPref("firstrun");  
     }catch(e){  
       //nothing  
     }finally{  
-      if (firstrun || ver != current){  
+      if (firstrun  || ver != current){ 
         Prefs.setBoolPref("firstrun",false);  
-        Prefs.setCharPref("version",current);  
-      
-		var url = "chrome://opacusSTP/content/version.html";  
-		var tabmail = document.getElementById("tabmail");  
-		if (!tabmail) {  
-		  // Try opening new tabs in an existing 3pane window  
-		  var mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]  
-										  .getService(Components.interfaces.nsIWindowMediator)  
-										  .getMostRecentWindow("mail:3pane");  
-		  if (mail3PaneWindow) {  
-			tabmail = mail3PaneWindow.document.getElementById("tabmail");  
-			mail3PaneWindow.focus();  
-		  }  
-		}  
-		  
-		if (tabmail)  
-		  tabmail.openTab("contentTab", {contentPage: url});  
-		else  
-		  window.openDialog("chrome://messenger/content/", "_blank",  
-							"chrome,dialog=no,all", null,  
-							{ tabType: "contentTab",  
-							  tabParams: {contentPage: url} });       
-      }       
-        
+        Prefs.setCharPref("version",current);
+        opacusSTP.showInfoTab("chrome://opacusSTP/content/version.html");    
+      }             
       if (ver!=current && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
         Prefs.setCharPref("version",current);  
-      }  
+      } else {
+			// Update the server details from the preferences
+			opacusSTP.updateServerInfo();
+	  }	    
     }  
+
+
 
 	// Tags
 	var tagService = Components. classes["@mozilla.org/messenger/tagservice;1"].
@@ -152,27 +132,54 @@ var opacusSTP = {
   	window.openDialog("chrome://opacusSTP/content/opacusSTP-options.xul","","chrome,resizable=yes,titlebar,modal,centerscreen");
   },
 
+  showInfoTab: function(url){ 
+		var tabmail = document.getElementById("tabmail");  
+		if (!tabmail) {  
+		  // Try opening new tabs in an existing 3pane window  
+		  var mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]  
+										  .getService(Components.interfaces.nsIWindowMediator)  
+										  .getMostRecentWindow("mail:3pane");  
+		  if (mail3PaneWindow) {  
+			tabmail = mail3PaneWindow.document.getElementById("tabmail");  
+			mail3PaneWindow.focus();  
+		  }  
+		}  
+		  
+		if (tabmail)  
+		  tabmail.openTab("contentTab", {contentPage: url});  
+		else  
+		  window.openDialog("chrome://messenger/content/", "_blank",  
+							"chrome,dialog=no,all", null,  
+							{ tabType: "contentTab",  
+							  tabParams: {contentPage: url} }); 
+
+
+  },
+
   updateServerInfo: function(){
 	opacusSTP.webservice = '';
 	this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
          .getService(Components.interfaces.nsIPrefService)
          .getBranch("extensions.opacusSTP.");
     this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch);
-	opacusSTP.sugarurl = this.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
-	opacusSTP.sugarcrm_username = this.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
-	opacusSTP.sugarcrm_password = this.prefs.getComplexValue("sugarcrm_password",Components.interfaces.nsIPrefLocalizedString).data;
-	opacusSTP.opacus_notify = this.prefs.getBoolPref("opacus_notify");
-	opacusSTP.opacus_cases = this.prefs.getBoolPref("opacus_cases");
-	opacusSTP.session_id = '';
-	opacusSTP.webservice = new opacusSTPrest();	
-	opacusSTP.webservice.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
-	var serverEvent = {
-		notify: function(timer) {
-			opacusSTP.timer.cancel();
-			opacusSTP.server_info = opacusSTP.webservice.get_server_info();
+    try{
+		opacusSTP.sugarurl = this.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
+		opacusSTP.sugarcrm_username = this.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
+		opacusSTP.sugarcrm_password = this.prefs.getComplexValue("sugarcrm_password",Components.interfaces.nsIPrefLocalizedString).data;
+		opacusSTP.opacus_notify = this.prefs.getBoolPref("opacus_notify");
+		opacusSTP.opacus_cases = this.prefs.getBoolPref("opacus_cases");
+		opacusSTP.session_id = '';
+		opacusSTP.webservice = new opacusSTPrest();	
+		opacusSTP.webservice.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
+		var serverEvent = {
+			notify: function(timer) {
+				opacusSTP.timer.cancel();
+				opacusSTP.server_info = opacusSTP.webservice.get_server_info();
+			}
 		}
+		opacusSTP.timer.initWithCallback(serverEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 	}
-	opacusSTP.timer.initWithCallback(serverEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
+	catch(ex){}
 	return true;
   },
 
@@ -191,31 +198,31 @@ var opacusSTP = {
   },
 
   archive: function() {
-	    // Function called from the main window that pops up the search window
-		this.MessageURIArray = '';
-		try
-		{
-			this.MessageURIArray = gFolderDisplay.selectedMessageUris;
-		}
-		catch (ex){}
+	// Function called from the main window that pops up the search window
+	this.MessageURIArray = '';
+	try
+	{
+		this.MessageURIArray = gFolderDisplay.selectedMessageUris;
+	}
+	catch (ex){}
 
-		if(this.MessageURIArray != null){
-			opacusSTP.webservice.login();
-			this.mails = Array();
-			for(var i=0;i<this.MessageURIArray.length;i++){
-				this.mails[i]		= new opacusSTPMail();
-				this.mails[i].creator	= this;
-				this.mails[i].uri	= this.MessageURIArray[i];
-				this.mails[i].type = 'standard';
-			}
-			this.mails[0].parseHeader();
-			opacusSTP.firstMessageHeader = this.mails[0].msgHeader;
-			this.mails[0].suggestSearch(opacusSTP.firstMessageHeader.folder.displayRecipients);
-			this.searchObject = new opacusSTPsearch(this,this.mails[0].searchSuggestion,this.mails[0].subject);
-			this.searchObject.search();
-		} else {
-			opacusSTP.notifyUser('error',opacusSTP.strings.getString('notifyNoMessages'));
+	if(this.MessageURIArray != null){
+		opacusSTP.webservice.login();
+		this.mails = Array();
+		for(var i=0;i<this.MessageURIArray.length;i++){
+			this.mails[i]		= new opacusSTPMail();
+			this.mails[i].creator	= this;
+			this.mails[i].uri	= this.MessageURIArray[i];
+			this.mails[i].type = 'standard';
 		}
+		this.mails[0].parseHeader();
+		opacusSTP.firstMessageHeader = this.mails[0].msgHeader;
+		this.mails[0].suggestSearch(opacusSTP.firstMessageHeader.folder.displayRecipients);
+		this.searchObject = new opacusSTPsearch(this,this.mails[0].searchSuggestion,this.mails[0].subject);
+		this.searchObject.search();
+	} else {
+		opacusSTP.notifyUser('error',opacusSTP.strings.getString('notifyNoMessages'));
+	}
   },
 
   archiveMails: function() {
@@ -234,14 +241,12 @@ var opacusSTP = {
 		this.mails[i].sugarObjects = sugarObjects;
 		this.mails[i].worker = worker;
 		this.mails[i].doAttachments = doAttachments;
-		if(opacusSTP.licence.check(opacusSTP.sugarurl.toLowerCase()+opacusSTP.sugarcrm_username.toLowerCase())){
-			if(this.mails[i].direction == 'outbound'){
-				this.mails[i].unixTime = Math.round(new Date().getTime() / 1000);
-				this.mails[i].worker.callback = this.mails[i].archive_callback;
-				this.mails[i].worker.archive(this.mails[i]);
-			} else {
-				this.mails[i].archiveMail();
-			}
+		if(this.mails[i].direction == 'outbound'){
+			this.mails[i].unixTime = Math.round(new Date().getTime() / 1000);
+			this.mails[i].worker.callback = this.mails[i].archive_callback;
+			this.mails[i].worker.archive(this.mails[i]);
+		} else {
+			this.mails[i].archiveMail();
 		}
 	}
   },
@@ -261,7 +266,7 @@ var opacusSTP = {
 
 	opacusSTP.notifyUser('notify',totalMails + ' '+
 		opacusSTP.strings.getString('email') +
-		opacusSTP.strings.getString('plural') + ' ' +
+		plural + ' ' +
 		opacusSTP.strings.getString('verifyArchived'));
 	this.searchObject.searchWindowClose();
 

@@ -1,39 +1,89 @@
 <html>
 <head>
-<title>Opacus Update</title>
+<title>Opacus Help</title>
 </head>
 <body>
 <div style='display: block; height:175px;background-image: url("chrome://opacusSTP/content/images/header-bg.png");background-repeat: repeat-x;'>
 <img style='margin: 2em;' src='chrome://opacusSTP/content/images/framework_logo.png' />
 </div>
 <div style='padding: 1em;'>
-<h2>Welcome to the version 1.3.2 of the Opacus SugarCRM Thunderbird Extension</h2>
+<h2>Welcome to the version 1.4 of the Opacus SugarCRM Thunderbird Extension</h2>
 
 <p>Release Notes:</p>
 
 <ul>
 <li>Fixed bug where search window had not authenticated properly with SugarCRM</li>
-<li>Removed Licence Key</li>
 </ul>
 
+<div style='border: 1px solid #DDD;background-color: #f3f3ee; padding:1em; font-size: .9em;'>
+<h3>Opacus News</h3>
 
-
-<h3>Opacus SugarCRM Thunderbird Professional Edition release planned</h3>
-
+<h4>Opacus SugarCRM Thunderbird Professional Edition release planned</h4>
 <p>The upcoming Professional version will include these great features:</p>
-
 <ul>
 <li>Auto archive incoming mail</li>
 <li>Send and auto archive - no need to search</li>
 <li>Contact Synchronisation and SugarCRM address book</li>
 </ul>
 
-<p>Keep an eye on <a href='http://www.sugarexchange.com/'>Sugar Exchange</a>a> for details</p>
+<p>Keep an eye on <a href='http://www.sugarexchange.com/'>Sugar Exchange</a> for details</p>
 
-<h3>Opacus SugarCRM Activities Sync, the perfect partner for Thunderbird and Lightning</h3>
-
+<h4>Opacus SugarCRM Activities Sync, the perfect partner for Thunderbird and Lightning</h4>
 <p>Brings much needed Caldav support to SugarCRM for all your mobile devices and the popular Lightning calendar in Thunderbird</p>
-<p>2001 release planned</p>
+<p>2011 release planned</p>
+
+<p>For more information about these products please contact
+<a href="mailto:support@opacus.co.uk">sales@opacus.co.uk</a> or visit
+<a href='http://www.opacus.co.uk/'>www.opacus.co.uk</a></p>
+</div>
+
+<div style="width: 80%;">
+<h3>Help and Documentation</h3>
+
+<p style='font-style:italic;font-size:.8em;'>Access this page at any time by selecting Help > Opacus Help</p>
+
+<h4>After Installation</h4>
+<p>After installing the plugin, you will need to enter your SugarCRM url, username and password into the settings
+dialog box. Click on Tools, then Opacus SugarCRM Settings. In the URL box put your SugarCRM address, for instance:
+http://sugarserver.com/sugarcrm. Put your username and password in the respective boxes, (the username is not case
+sensitive.)</p>
+
+<p>You can choose here if you would like the a notification when new mail arrives in your Inbox. This uses the
+libnotify library on some Linux distributions which can be more appealing than the default notification.</p>
+
+<p>A further setting allows you to choose whether the subject line of the email is parsed for case numbers.
+The Case module needs to be selected in the Search window for this function to work.</p>
+
+<h4>Additional Buttons</h4>
+<p>Two additional buttons are available for ease of use. The first button can be added to the Thunderbird main
+window and the second, Send and Archive, is for the compose window. Simple right-click on the respective
+toolbars, click Customise and drag the buttons to the toolbars.</p>
+
+<h4>In use</h4>
+<p>To archive one or more emails in a folder, select them and either right-click one of the selected messages
+and choose 'Archive email(s) to SugarCRM', or click the Archive button mentioned above. The search window will
+appear with a search suggestion already in place. You can search for:
+<ul>
+<li>Email addresses</li>
+<li>Case numbers</li>
+<li>First names</li>
+<li>Last names</li>
+<li>Full names (use a single space between first and last)</li>
+<li>Names of SugarCRM Objects, such as the name of an Opportunity</li>
+</ul>
+
+You can use a % as a wildcard, for instance %@mydomain.com will search for all email addresses
+at the domain mydomain.com and Nat% will find Natasha, Natalia, Nathan etc.</p>
+
+<p>Either use the suggested search or input your own, and click Search. The results will be returned from the modules
+selected in the Available Modules pane. Once you have found the record you would like to use, choose whether or not
+to archive the attachments using the checkbox at the bottom of the Search pane, and click Archive. A notification
+will inform you when the archive is complete.</p>
+
+<p>For bug reports or to assist with localization of this Extension, please contact
+<a href="mailto:support@opacus.co.uk">support@opacus.co.uk</a></p>
+
+</div>
 </div>
 </body>
 </html>

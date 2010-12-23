@@ -1,3 +1,4 @@
 <!ENTITY opacus_context.label "Opacus SugarCRM Settings">
 <!ENTITY opacus_context_archive.label "Archive Email(s) to SugarCRM">
+<!ENTITY opacus_help.label "Opacus Help">
 <!ENTITY opacus_context_button.label "Archive">

@@ -5,6 +5,7 @@
     <em:type>2</em:type>
     <em:name>Opacus SugarCRM Thunderbird Plugin</em:name>
     <em:version>1.4</em:version>
+    <em:iconURL>chrome://opacusSTP/content/images/icon.png</em:iconURL>
     <em:creator>Mathew Bland, Jonathan Cutting, Opacus Solutions Ltd (C)2009,2010</em:creator>
     <em:contributor></em:contributor>
     <em:description>Enables the archiving of emails into SugarCRM from Thunderbird 3 and above.</em:description>

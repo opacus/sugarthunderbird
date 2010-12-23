@@ -1,27 +1,25 @@
-/*********************************************************************************
- * The contents of this file are subject to the Opacus Licence, available at
- * http://www.opacus.co.uk/licence or available on request.
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software. Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove Opacus copyrights from the source code.
- *
- * The software is provided "as is", without warranty of any kind, express or
- * implied, including but not limited to the warranties of merchantability,
- * fitness for a particular purpose and noninfringement. In no event shall the
- * authors or copyright holders be liable for any claim, damages or other
- * liability, whether in an action of contract, tort or otherwise, arising from,
- * out of or in connection with the software or the use or other dealings in
- * the software.
- *
- * Portions created by Opacus are Copyright (C) 2010 Mathew Bland, Jonathan Cutting
+/**********************************************************************
+ * Portions written by Opacus (C) Mathew Bland, Jonathan Cutting,
  * Opacus Ltd.
- * All Rights Reserved.
- ********************************************************************************/					
+ * 
+ * This file is part of the Opacus SugarCRM Thunderbird Plugin.
+ *
+ * The Opacus SugarCRM Thunderbird Plugin
+ * is free software:you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The Opacus SugarCRM Thunderbird Plugin
+ * is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with the Opacus SugarCRM Thunderbird Plugin.
+ * If not, see <http://www.gnu.org/licenses/>.
+ *********************************************************************/					
 // Mail Object
 function opacusSTPMail(){
 	this.msgService			= '';
