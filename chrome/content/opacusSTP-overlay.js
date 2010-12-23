@@ -103,8 +103,6 @@ var opacusSTP = {
       }  
     }  
 
-	
-
 	// Tags
 	var tagService = Components. classes["@mozilla.org/messenger/tagservice;1"].
                  getService (Components.interfaces.nsIMsgTagService);
@@ -124,13 +122,9 @@ var opacusSTP = {
 						if(aMsgHdr.folder.server.type != 'rss'){
 							// It's not a newsgroup folder
 							var author = aMsgHdr.mime2DecodedAuthor != '' ? aMsgHdr.mime2DecodedAuthor : aMsgHdr.author;
-							if(opacusSTP.opacus_notify && !opacusSTP.auto_archive){
+							if(opacusSTP.opacus_notify){
 								subject = aMsgHdr.mime2DecodedSubject != '' ? aMsgHdr.mime2DecodedSubject : aMsgHdr.subject;
 								opacusSTP.notifyUser('newmail',subject + "\n" + author);
-							}
-							if(opacusSTP.auto_archive){
-								var autoMail = new opacusSTPMail();
-								autoMail.inboundAutoArchive(aMsgHdr);
 							}
 						}
 					}
@@ -167,9 +161,6 @@ var opacusSTP = {
 	opacusSTP.sugarurl = this.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
 	opacusSTP.sugarcrm_username = this.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
 	opacusSTP.sugarcrm_password = this.prefs.getComplexValue("sugarcrm_password",Components.interfaces.nsIPrefLocalizedString).data;
-	opacusSTP.licence_key = this.prefs.getComplexValue("opacus_licence_key",Components.interfaces.nsIPrefLocalizedString).data.replace(/^\s\s*/,'').replace(/\s\s*$/,'');
-	opacusSTP.auto_archive = this.prefs.getBoolPref("auto_archive");
-	opacusSTP.auto_archive_attachments = this.prefs.getBoolPref("auto_archive_attachments");
 	opacusSTP.opacus_notify = this.prefs.getBoolPref("opacus_notify");
 	opacusSTP.opacus_cases = this.prefs.getBoolPref("opacus_cases");
 	opacusSTP.session_id = '';
@@ -179,9 +170,6 @@ var opacusSTP = {
 		notify: function(timer) {
 			opacusSTP.timer.cancel();
 			opacusSTP.server_info = opacusSTP.webservice.get_server_info();
-			if(!opacusSTP.licence.check(opacusSTP.sugarurl.toLowerCase()+opacusSTP.sugarcrm_username.toLowerCase())){
-				opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoLicence'));
-			}
 		}
 	}
 	opacusSTP.timer.initWithCallback(serverEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
@@ -201,22 +189,9 @@ var opacusSTP = {
 	this.searchObject = new opacusSTPsearch(this,this.mails[0].searchSuggestion,this.mails[0].subject);
 	this.searchObject.search();
   },
-  
-  sendAndAutoArchive: function(composeWindow){
-	composeWindow.document.getElementById('custom-button-2').disabled = true;
-	opacusSTP.webservice.login();
-	opacusSTP.sendAndArchiveStatus = 'unknown';
-	autoOutboundMail = new opacusSTPMail();
-	autoOutboundMail.composeWindow = composeWindow;
-	autoOutboundMail.outboundAutoArchive(composeWindow);
-  },
 
   archive: function() {
 	    // Function called from the main window that pops up the search window
-		if(!opacusSTP.licence.check(opacusSTP.sugarurl.toLowerCase()+opacusSTP.sugarcrm_username.toLowerCase())){
-			opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoLicence'));
-			return;
-		}
 		this.MessageURIArray = '';
 		try
 		{
@@ -272,24 +247,24 @@ var opacusSTP = {
   },
 
   wrapUp: function(type,direction) {
-	if(type == 'standard'){
-		opacusSTP.totalMails--;
-		if(opacusSTP.totalMails > 0){
-			return;
-		}
+
+	opacusSTP.totalMails--;
+	if(opacusSTP.totalMails > 0){
+		return;
 	}
-	var totalMails = (type == 'auto')? 1 : this.mails.length;
+
+	var totalMails = this.mails.length;
 	var plural=opacusSTP.strings.getString('plural');
 	if(totalMails == 1){
 		var plural = '';
 	}
-	if(type != 'auto'){
-		opacusSTP.notifyUser('notify',totalMails + ' '+
-			opacusSTP.strings.getString('email') +
-			opacusSTP.strings.getString('plural') + ' ' +
-			opacusSTP.strings.getString('verifyArchived'));
-		this.searchObject.searchWindowClose();
-	}
+
+	opacusSTP.notifyUser('notify',totalMails + ' '+
+		opacusSTP.strings.getString('email') +
+		opacusSTP.strings.getString('plural') + ' ' +
+		opacusSTP.strings.getString('verifyArchived'));
+	this.searchObject.searchWindowClose();
+
 	if(direction == 'inbound'){
 		try {
 			opacusSTP.firstMessageHeader.folder.addKeywordsToMessages(opacusSTP.mailsToTag,'OpacusArchived');
@@ -357,12 +332,6 @@ var opacusSTP = {
 			case 'newmail' :
 				image = 'chrome://messenger/skin/icons/new-mail-alert.png';
 				title = opacusSTP.strings.getString('newmail');
-				break;
-			case 'auto' :
-				image = (opacusSTP.windows)? 'chrome://global/skin/icons/information-32.png' : 'chrome://global/skin/icons/information-48.png';
-				image = "chrome://global/skin/icons/information-32.png";
-				title = opacusSTP.strings.getString('auto');
-				break;
 			default:
 		}
 		var alertsService = Components.classes["@mozilla.org/alerts-service;1"].  

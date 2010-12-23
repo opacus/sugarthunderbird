@@ -39,12 +39,4 @@
   class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
   />
 </toolbarpalette>
-<toolbarpalette id="MsgComposeToolbarPalette">
-  <toolbarbutton id="custom-button-2"
-  label="Send+AutoArchive"
-  tooltiptext="AutoArchive to SugarCRM while sending"
-  oncommand="if(this.disabled == false){sendObserver.parentWindow.opacusSTP.sendAndAutoArchive(window);}"
-  class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
-  />
-</toolbarpalette>
 </overlay>

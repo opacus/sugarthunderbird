@@ -34,9 +34,6 @@
       	<preference id="sugarcrm_url" name="extensions.opacusSTP.sugarcrm_url" type="unichar"/>
 	<preference id="sugarcrm_username" name="extensions.opacusSTP.sugarcrm_username" type="unichar"/>
 	<preference id="sugarcrm_password" name="extensions.opacusSTP.sugarcrm_password" type="unichar"/>
-	<preference id="opacus_licence_key" name="extensions.opacusSTP.opacus_licence_key" type="unichar"/>
-	<preference id="auto_archive" name="extensions.opacusSTP.auto_archive" type="bool"/>
-	<preference id="auto_archive_attachments" name="extensions.opacusSTP.auto_archive_attachments" type="bool"/>
 	<preference id="opacus_notify" name="extensions.opacusSTP.opacus_notify" type="bool"/>
 	<preference id="opacus_cases" name="extensions.opacusSTP.opacus_cases" type="bool"/>
     </preferences>
@@ -48,14 +45,7 @@
 	</groupbox>
 
     <groupbox flex="1">
-    <caption label="&opacus_licencedetails.label;"/>
-	<label accesskey="&opacus_licence_key.accesskey;" control="textopacus_licence_key">&opacus_licence_key.label;</label><textbox id="textopacus_licence_key" preference="opacus_licence_key"/>	
-	</groupbox>
-
-    <groupbox flex="1">
     <caption label="&opacus_advanceddetails.label;"/>
-	<checkbox id="checkauto_archive" preference="auto_archive" label="&auto_archive.label;" accesskey="&auto_archive.accesskey;"/>
-	<checkbox id="checkauto_archive_attachments" preference="auto_archive_attachments" label="&auto_archive_attachments.label;" accesskey="&auto_archive_attachments.accesskey;"/>
 	<checkbox id="checkopacus_notify" preference="opacus_notify" label="&opacus_notify.label;" tooltiptext="&opacus_notify.tooltiptext;" accesskey="&opacus_notify.accesskey;"/>
 	<checkbox id="checkopacus_cases" preference="opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
 	</groupbox>

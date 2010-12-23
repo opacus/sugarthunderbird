@@ -53,47 +53,6 @@ function opacusSTPMail(){
 	this.outboundAttachments = new Array();
 	this.sugarObjects		= new Array();
 	this.sugarNames			= new Array();
-}
-
-opacusSTPMail.prototype.inboundAutoArchive = function(header){
-	var uri = header.folder.getUriForMsg(header);
-	this.direction = 'inbound';
-	this.type = 'auto';
-	this.msgHeader = header;
-	this.uri = uri;
-	this.auto = true;
-	this.parseHeader();
-	this.sugarObjects = new Array();
-	opacusSTP.firstMessageHeader = header;
-	this.searchSuggestion = this.author;
-	var worker = new opacusSTPrest();
-	worker.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
-	worker.login();
-	this.worker = worker;
-	this.doAttachments = opacusSTP.auto_archive_attachments;
-	var searchObject = new opacusSTPsearch('','','');
-	searchObject.mail = this;
-	if(opacusSTP.licence.check(opacusSTP.sugarurl.toLowerCase()+opacusSTP.sugarcrm_username.toLowerCase())){
-		searchObject.check(searchObject.autoArchiveSearch);
-	}
-};
-
-
-opacusSTPMail.prototype.outboundAutoArchive = function(composeWindow){
-	this.direction = 'outbound';
-	this.type = 'auto';
-	this.populateFromCompose(composeWindow);
-	this.sugarObjects = new Array();
-	var worker = new opacusSTPrest();
-	worker.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
-	worker.login();
-	this.worker = worker;
-	this.doAttachments = opacusSTP.auto_archive_attachments;
-	var searchObject = new opacusSTPsearch('','','');
-	searchObject.mail = this;
-	if(opacusSTP.licence.check(opacusSTP.sugarurl.toLowerCase()+opacusSTP.sugarcrm_username.toLowerCase())){
-		searchObject.check(searchObject.autoArchiveSearch);
-	}
 };
 
 
@@ -225,9 +184,6 @@ opacusSTPMail.prototype.archive_callback = function(response,mailObject){
 			}
 		}
 		if(mailObject.direction == 'outbound'){
-			if(mailObject.type == 'auto'){
-				mailObject.composeWindow.document.getElementById('custom-button-2').disabled = false;
-			}
 			opacusSTP.sendAndArchiveStatus = 'success';
 			mailObject.composeWindow.GenericSendMessage.apply();
 			opacusSTP.sendAndArchiveStatus = 'unknown';

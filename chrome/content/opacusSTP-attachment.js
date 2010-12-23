@@ -49,12 +49,8 @@ opacusSTPAttachment.prototype.clear = function(){
 };
 
 opacusSTPAttachment.prototype.encode = function(){
-	//var contentType = Components.classes["@mozilla.org/mime;1"]
-	//	      .getService(Components.interfaces.nsIMIMEService)
-	//	      .getTypeFromFile(this.nsiFileHandle);
 	var inputStream = Components.classes["@mozilla.org/network/file-input-stream;1"]
 		      .createInstance(Components.interfaces.nsIFileInputStream);
-	// 0x01, 0600 (0x00 breaks windows with file access denied error)
 	inputStream.init(this.nsiFileHandle, 0x01, 0600, 0);
 
 	var stream = Components.classes["@mozilla.org/binaryinputstream;1"]
