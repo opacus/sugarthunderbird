@@ -157,6 +157,10 @@ var opacusSTP = {
 
   },
 
+  fetchPassword: function(optionsWindow){
+	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password;
+  },
+
   updateServerInfo: function(optionsWindow){
 	opacusSTP.webservice = '';
 	this.prefs = Components.classes["@mozilla.org/preferences-service;1"]

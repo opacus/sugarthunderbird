@@ -4,7 +4,7 @@
 <!ENTITY sugarcrm_url.accesskey "U">
 <!ENTITY sugarcrm_username.label "SugarCRM Username">
 <!ENTITY sugarcrm_username.accesskey "S">
-<!ENTITY sugarcrm_password.label "SugarCRM Password <span style='display:inline;font-size: .8em;font-style:italic;'>only fill in to add or change</span>">
+<!ENTITY sugarcrm_password.label "SugarCRM Password">
 <!ENTITY sugarcrm_password.accesskey "W">
 <!ENTITY opacus_licence_key.label "Opacus Licence Key <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
 <!ENTITY opacus_licence_key.accesskey "O">
