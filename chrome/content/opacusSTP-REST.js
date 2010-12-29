@@ -102,7 +102,21 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 	client.onreadystatechange = function(){
 		if(client.readyState == 4) {
 			if(client.status == 200){
-				client.webserviceReference.callback(client.webserviceReference.parseResponse(JSON.parse(client.responseText),client.method),client.extraData);
+				// If we meet a redirect to https, transparently change the server url
+				if(client.channel.URI.spec.indexOf('https://') == 0 && opacusSTP.sugarurl.indexOf('https://') == -1){
+					opacusSTP.sugarurl = opacusSTP.sugarurl.replace('http://','https://');
+					client.webserviceReference.webservice_url = client.channel.URI.spec;
+					client.webserviceReference.get_server_info();
+				} else {
+					try{
+						var parsed = JSON.parse(client.responseText);
+					}
+					catch(ex){
+						opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoConnect'));
+						return;
+					}
+					client.webserviceReference.callback(client.webserviceReference.parseResponse(parsed,client.method),client.extraData);
+				}
 			} else {
 				opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoConnect'));
 			}
