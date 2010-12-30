@@ -145,7 +145,7 @@ opacusSTPsearch.prototype.runSearch = function(searchObject){
 	searchObject.searchString = searchObject.searchWindow.document.getElementById('searchField').value;
 	searchObject.searchWindow.document.getElementById('feedback').setAttribute('mode','undetermined');
 	searchObject.searchWindow.document.getElementById('searchButton').setAttribute('label',opacusSTP.strings.getString('searching'));
-	searchObject.searchString = searchObject.searchString.toLowerCase();
+	searchObject.searchString = searchObject.searchString.toLowerCase().replace("'","\\'");
 	resultList = searchObject.searchWindow.document.getElementById('resultList');
 	while(resultList.childNodes.length >= 3){
         	resultList.removeChild( resultList.lastChild );
@@ -244,7 +244,7 @@ opacusSTPsearch.prototype.createListNode = function(label,id,module)
 	var checkbox = document.createElement('checkbox');
 	checkbox.setAttribute('id',module + ':' + id);
 	checkbox.className='resultTick';
-	checkbox.setAttribute('label','  ' + label);
+	checkbox.setAttribute('label','  ' + label.replace('&#039;',"'"));
 	row.setAttribute('allowevents','true');
 	row.setAttribute('flex','1');
 	cell.setAttribute('flex','1');
