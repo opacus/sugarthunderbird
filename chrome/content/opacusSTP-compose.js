@@ -21,6 +21,35 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *********************************************************************/
 // Compose
+function addSendButton(){
+	var wMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+	this.parentWindow = wMediator.getMostRecentWindow("mail:3pane");
+	if(parentWindow.opacusSTP.prefs.getBoolPref('addButtons') === true){
+		try {
+		  var myId    = "opacusSTP-send"; // ID of button to add
+		  var afterId = "button-send";    // ID of element to insert after
+		  var navBar  = document.getElementById("composeToolbar2");
+		  var curSet  = navBar.currentSet.split(",");
+
+		  if (curSet.indexOf(myId) == -1) {
+			var pos = curSet.indexOf(afterId) + 1 || curSet.length;
+			var set = curSet.slice(0, pos).concat(myId).concat(curSet.slice(pos));
+
+			navBar.setAttribute("currentset", set.join(","));
+			navBar.currentSet = set.join(",");
+			document.persist(navBar.id, "currentset");
+			try {
+			  BrowserToolboxCustomizeDone(true);
+			}
+			catch (e) {}
+		  }
+		}
+		catch(e) {}
+		parentWindow.opacusSTP.prefs.setBoolPref("addButtons",false);
+	}
+}
+
+
 
 function SendObserver() {
 	var wMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
@@ -72,6 +101,7 @@ SendObserver.prototype = {
  * Unregister to prevent memory leaks (as per MDC documentation).
  */
 var sendObserver;
+window.addEventListener('activate', function (e) {addSendButton()}, false);
 window.addEventListener('load', function (e) {if (e.target == document) sendObserver = new SendObserver(); }, true);
 window.addEventListener('unload', function (e) { if (e.target == document) sendObserver.unregister();}, true);
 

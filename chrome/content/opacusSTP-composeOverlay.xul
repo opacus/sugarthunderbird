@@ -30,7 +30,7 @@
 </stringbundleset>
 <script src="chrome://opacusSTP/content/opacusSTP-compose.js"/>
 <toolbarpalette id="MsgComposeToolbarPalette">
-  <toolbarbutton id="custom-button-1"
+  <toolbarbutton id="opacusSTP-send"
   label="Send+Archive"
   tooltiptext="Archive to SugarCRM before sending"
   oncommand="sendObserver.parentWindow.opacusSTP.sendAndArchive(window);"

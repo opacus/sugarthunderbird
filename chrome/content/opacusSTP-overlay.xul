@@ -45,7 +45,7 @@
 	  <menuseparator id="opacusSeperator" insertbefore="mailContext-archive"/>
 </menupopup>
 <toolbarpalette id="MailToolbarPalette">
-  <toolbarbutton id="custom-button-1"
+  <toolbarbutton id="opacusSTP-archive"
   label="&opacus_context_button.label;"
   tooltiptext="&opacus_context_archive.label;"
   oncommand="opacusSTP.archive();"

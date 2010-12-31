@@ -20,8 +20,8 @@
  * along with the Opacus SugarCRM Thunderbird Plugin.
  * If not, see <http://www.gnu.org/licenses/>.
  *********************************************************************/
-#custom-button-1,
-#wrapper-custom-button-1
+#opacusSTP-archive,
+#opacusSTP-send
   {list-style-image: url("chrome://opacusSTP/content/images/button-1.png");}
 
 /* common style for all custom buttons */

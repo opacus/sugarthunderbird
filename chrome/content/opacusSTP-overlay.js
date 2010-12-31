@@ -46,6 +46,10 @@ var opacusSTP = {
   sendAndArchiveStatus: 'unknown',
   timer : Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer),
   passwordManager: Components.classes["@mozilla.org/login-manager;1"].getService(Components.interfaces.nsILoginManager),
+  prefs: Components.classes["@mozilla.org/preferences-service;1"]
+         .getService(Components.interfaces.nsIPrefService)
+         .getBranch("extensions.opacusSTP.")
+         .QueryInterface(Components.interfaces.nsIPrefBranch),
 
   onLoad: function() {
 	// initialization code
@@ -53,25 +57,20 @@ var opacusSTP = {
 	opacusSTP.strings = document.getElementById("opacus_strings");
 	opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
 
-
-	// Pop a tab on update or install to let the user know about Opacus and the update
-	var Prefs = Components.classes["@mozilla.org/preferences-service;1"]  
-                   .getService(Components.interfaces.nsIPrefService);  
-	Prefs = Prefs.getBranch("development@opacus.co.uk"); 
 	var ver = -1, firstrun = true;  
     var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]  
                             .getService(Components.interfaces.nsIExtensionManager);  
     var current = gExtensionManager.getItemForID("development@opacus.co.uk").version;  
       
     try{  
-	  ver = Prefs.getCharPref("version");  
-	  firstrun = Prefs.getBoolPref("firstrun");  
+	  ver = opacusSTP.prefs.getCharPref("version");  
+	  firstrun = opacusSTP.prefs.getBoolPref("firstrun");  
     }catch(e){  
       //nothing  
     }finally{  
       if (firstrun  || ver != current){ 
-        Prefs.setBoolPref("firstrun",false);  
-        Prefs.setCharPref("version",current);
+        opacusSTP.prefs.setBoolPref("firstrun",false);  
+        opacusSTP.prefs.setCharPref("version",current);
         opacusSTP.showInfoTab("chrome://opacusSTP/content/version.html");    
       }             
       if (ver!=current && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
@@ -160,18 +159,38 @@ var opacusSTP = {
   fetchPassword: function(optionsWindow){
 	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password;
   },
+  
+  addButtons: function(){
+	try {
+	  var myId    = "opacusSTP-archive"; // ID of button to add
+	  var afterId = "button-tag";    // ID of element to insert after
+	  var navBar  = document.getElementById("mail-bar3");
+	  var curSet  = navBar.currentSet.split(",");
+
+	  if (curSet.indexOf(myId) == -1) {
+		var pos = curSet.indexOf(afterId) + 1 || curSet.length;
+		var set = curSet.slice(0, pos).concat(myId).concat(curSet.slice(pos));
+
+		navBar.setAttribute("currentset", set.join(","));
+		navBar.currentSet = set.join(",");
+		document.persist(navBar.id, "currentset");
+		try {
+		  BrowserToolboxCustomizeDone(true);
+		}
+		catch (e) {}
+	  }
+	}
+	catch(e) {}
+	opacusSTP.prefs.setBoolPref('addButtons',true)
+  },
 
   updateServerInfo: function(optionsWindow){
 	opacusSTP.webservice = '';
-	this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
-         .getService(Components.interfaces.nsIPrefService)
-         .getBranch("extensions.opacusSTP.");
-    this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch);
     try{
-		opacusSTP.sugarurl = this.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
-		opacusSTP.sugarcrm_username = this.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
-		opacusSTP.opacus_notify = this.prefs.getBoolPref("opacus_notify");
-		opacusSTP.opacus_cases = this.prefs.getBoolPref("opacus_cases");
+		opacusSTP.sugarurl = opacusSTP.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
+		opacusSTP.sugarcrm_username = opacusSTP.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
+		opacusSTP.opacus_notify = opacusSTP.prefs.getBoolPref("opacus_notify");
+		opacusSTP.opacus_cases = opacusSTP.prefs.getBoolPref("opacus_cases");
 		opacusSTP.session_id = '';
 		if(optionsWindow){ 
 			var password = optionsWindow.document.getElementById('passwordsugarcrm_password').value;
