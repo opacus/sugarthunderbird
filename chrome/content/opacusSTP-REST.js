@@ -107,7 +107,6 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 					opacusSTP.sugarurl = opacusSTP.sugarurl.replace('http://','https://');
 					client.webserviceReference.webservice_url = client.channel.URI.spec;
 					client.webserviceReference.get_server_info();
-					alert('Changing to https');
 				} else {
 					try{
 						var parsed = JSON.parse(client.responseText);
@@ -276,5 +275,3 @@ opacusSTPrest.prototype.md5 = function(str){
 opacusSTPrest.prototype.toHexString = function(charCode){
   return ("0" + charCode.toString(16)).slice(-2);
 };
-
-

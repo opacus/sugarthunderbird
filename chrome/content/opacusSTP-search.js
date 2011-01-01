@@ -244,7 +244,7 @@ opacusSTPsearch.prototype.createListNode = function(label,id,module)
 	var checkbox = document.createElement('checkbox');
 	checkbox.setAttribute('id',module + ':' + id);
 	checkbox.className='resultTick';
-	checkbox.setAttribute('label','  ' + label.replace('&#039;',"'"));
+	checkbox.setAttribute('label','  ' + label.replace(/&#039;/g,"'"));
 	row.setAttribute('allowevents','true');
 	row.setAttribute('flex','1');
 	cell.setAttribute('flex','1');
@@ -272,4 +272,3 @@ opacusSTPsearch.prototype.getCellChecked = function(el,className){
 	opacusSTP.notifyUser('error',opacusSTP.strings.getString('notifyNoSugarObjects'));
 	return false;  
 };
-
