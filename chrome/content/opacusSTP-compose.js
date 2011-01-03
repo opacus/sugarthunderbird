@@ -23,7 +23,7 @@
 // Compose
 function addSendButton(){
 	var wMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-	this.parentWindow = wMediator.getMostRecentWindow("mail:3pane");
+	var parentWindow = wMediator.getMostRecentWindow("mail:3pane");
 	if(parentWindow.opacusSTP.prefs.getBoolPref('addButtons') === true){
 		try {
 		  var myId    = "opacusSTP-send"; // ID of button to add
@@ -66,7 +66,6 @@ SendObserver.prototype = {
      var f = this.observe;
      while (f) {
        if(/Save/.test(f.name)) {
-		   alert(f.name);
            return;
        }
        f = f.caller;
@@ -101,6 +100,8 @@ SendObserver.prototype = {
  * Unregister to prevent memory leaks (as per MDC documentation).
  */
 var sendObserver;
+window.addEventListener('load', function (e) {addSendButton()}, false);
+// Make use of Gecko 1.9.2 activate event too
 window.addEventListener('activate', function (e) {addSendButton()}, false);
 window.addEventListener('load', function (e) {if (e.target == document) sendObserver = new SendObserver(); }, true);
 window.addEventListener('unload', function (e) { if (e.target == document) sendObserver.unregister();}, true);
