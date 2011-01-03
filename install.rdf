@@ -3,7 +3,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>development@opacus.co.uk</em:id>
     <em:type>2</em:type>
-    <em:name>Opacus SugarCRM Thunderbird Plugin</em:name>
+    <em:name>Opacus SugarCRM Thunderbird Extension</em:name>
     <em:version>1.4.3</em:version>
     <em:iconURL>chrome://opacusSTP/content/images/icon.png</em:iconURL>
     <em:creator>Mathew Bland, Jonathan Cutting, Opacus Solutions Ltd (C)2009,2010</em:creator>
