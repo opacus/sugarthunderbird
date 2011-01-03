@@ -94,6 +94,10 @@ opacusSTPMail.prototype.parseHeader = function(){
 	this.msgService = messenger.messageServiceFromURI(this.uri);
 	this.msgHeader = this.msgService.messageURIToMsgHdr(this.uri);
 	this.subject = this.msgHeader.mime2DecodedSubject != '' ? this.msgHeader.mime2DecodedSubject : this.msgHeader.subject;
+	const MsgFlagHasRe = 0x0010; // MSG_FLAG_HAS_RE
+	if(this.msgHeader.flags & MsgFlagHasRe){
+		this.subject = opacusSTP.strings.getString('re') + ' ' + this.subject;
+	}
 	this.recipients = this.msgHeader.mime2DecodedRecipients != '' ? this.msgHeader.mime2DecodedRecipients : this.msgHeader.recipients;
 	this.author = this.msgHeader.mime2DecodedAuthor != '' ? this.msgHeader.mime2DecodedAuthor : this.msgHeader.author;
 	this.ccList = this.msgHeader.ccList;
