@@ -53,7 +53,7 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&pr
 	<groupbox flex='1'>
     <caption label="&opacus_miscoptions.label;"/>
     <hbox align='left'>
-	     <button label="&opacus_addbuttons.label;" onclick="try{opener.opacusSTP.addButtons();}catch(ex){};try{opener.opacusSTP.addButtons();}catch(ex){}"/>
+	     <button label="&opacus_addbuttons.label;" onclick="try{opener.opacusSTP.addButtons();}catch(ex){};try{opener.opener.opacusSTP.addButtons();}catch(ex){}"/>
 	</hbox>
 	</groupbox>
 	</vbox>
