@@ -275,6 +275,7 @@ var opacusSTP = {
 			this.mails[i].creator	= this;
 			this.mails[i].uri	= this.MessageURIArray[i];
 			this.mails[i].type = 'standard';
+			this.mails[i].direction = 'inbound';
 		}
 		this.mails[0].parseHeader();
 		opacusSTP.firstMessageHeader = this.mails[0].msgHeader;
