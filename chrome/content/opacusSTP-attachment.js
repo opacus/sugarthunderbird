@@ -56,11 +56,19 @@ opacusSTPAttachment.prototype.encode = function(){
 	stream.setInputStream(inputStream);
 
 	var encoded = btoa(stream.readBytes(stream.available()));
+	stream.close();
 
 
 	this.contents = encoded;
 	if(this.removeAfterSend === true){
-		this.nsiFileHandle.remove(false);
+		var removeEvent = function(){
+			try{
+				this.nsiFileHandle.remove(false);
+			}
+			catch(ex){}
+		}
+		var removeTimer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
+		removeTimer.initWithCallback(removeEvent,500,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 	}
 	
 	this.worker = new opacusSTPrest();
