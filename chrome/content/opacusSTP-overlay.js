@@ -74,10 +74,11 @@ var opacusSTP = {
         opacusSTP.showInfoTab("chrome://opacusSTP/content/version.html");    
       }             
       if (ver!=current && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
-        Prefs.setCharPref("version",current);  
+        opacusSTP.prefs.setCharPref("version",current);  
+   		opacusSTP.updateServerInfo(false);
       } else {
-			// Update the server details from the preferences
-			opacusSTP.updateServerInfo(false);
+		// Update the server details from the preferences
+		opacusSTP.updateServerInfo(false);
 	  }	    
     }  
 
