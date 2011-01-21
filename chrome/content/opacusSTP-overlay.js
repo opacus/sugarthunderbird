@@ -57,10 +57,19 @@ var opacusSTP = {
 	opacusSTP.strings = document.getElementById("opacus_strings");
 	opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
 
-	var ver = -1, firstrun = true;  
-    var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]  
-                            .getService(Components.interfaces.nsIExtensionManager);  
-    var current = gExtensionManager.getItemForID("development@opacus.co.uk").version;  
+	var ver = -1, firstrun = true;
+	try {
+		// Firefox 4 and later; Mozilla 2 and later
+		Components.utils.import("resource://gre/modules/AddonManager.jsm");
+		AddonManager.getAddonByID("development@opacus.co.uk", function(addon) {
+		var current = addon.version;
+		});
+	}
+	catch(ex){
+		var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]  
+								.getService(Components.interfaces.nsIExtensionManager);  
+		var current = gExtensionManager.getItemForID("development@opacus.co.uk").version;
+	} 
       
     try{  
 	  ver = opacusSTP.prefs.getCharPref("version");  
@@ -402,9 +411,13 @@ var opacusSTP = {
 				title = opacusSTP.strings.getString('newmail');
 			default:
 		}
-		var alertsService = Components.classes["@mozilla.org/alerts-service;1"].  
-			getService(Components.interfaces.nsIAlertsService);
-		alertsService.showAlertNotification(image,title,message);
+		try{
+			var alertsService = Components.classes["@mozilla.org/alerts-service;1"].  
+				getService(Components.interfaces.nsIAlertsService);
+			alertsService.showAlertNotification(image,title,message);
+		}
+		catch(ex){
+		}
 		// Set up timer to find notification window and fix newlines
 		var fixEvent = { notify: function(timer){
 			fixNotifyTimer.cancel();

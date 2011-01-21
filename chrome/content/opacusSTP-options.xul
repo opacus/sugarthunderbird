@@ -25,7 +25,7 @@
 -->
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <!DOCTYPE prefwindow SYSTEM "chrome://opacusSTP/locale/options.dtd">
-<prefwindow flex="1" id="opacusSTP-preferences" buttons="accept,cancel,"
+<prefwindow flex="1" id="opacusSTP-preferences" buttons=","
 onload="try{opener.opacusSTP.fetchPassword(this);}catch(ex){};try{opener.opener.opacusSTP.fetchPassword(this);}catch(ex){}"
 onunload="try{opener.opacusSTP.updateServerInfo(this);}catch(ex){};try{opener.opener.opacusSTP.updateServerInfo(this);}catch(ex){}"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefwindow.title;">
@@ -56,6 +56,9 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&pr
 	     <button label="&opacus_addbuttons.label;" onclick="try{opener.opacusSTP.addButtons();}catch(ex){};try{opener.opener.opacusSTP.addButtons();}catch(ex){}"/>
 	</hbox>
 	</groupbox>
+	<hbox align='right'>
+	     <button label="&opacus_saveprefs.label;" onclick="window.close()"/>
+	</hbox>
 	</vbox>
   </prefpane>
 </prefwindow>

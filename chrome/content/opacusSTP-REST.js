@@ -131,13 +131,13 @@ opacusSTPrest.prototype.parseResponse = function(data,method){
 	switch(method){
 		case "get_server_info":
 		case "set_note_attachment" :
-			return_object = data;
+			var return_object = data;
 			break;
 		case "set_entry" :
-			return_object = data;
+			var return_object = data;
 			break;
 		case "set_relationship" :
-			return_object = data;
+			var return_object = data;
 			break;
 		case "get_entry_list" :
 			if(typeof(data.entry_list[0]) !== 'undefined'){
