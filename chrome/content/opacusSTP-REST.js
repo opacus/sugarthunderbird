@@ -24,6 +24,7 @@ function opacusSTPrest(){
 	this.webservice_url = '';
 	this.user_name = '';
 	this.password = '';
+	this.waitingForLogin = false;
 };
 
 opacusSTPrest.prototype.setCredentials = function(ws_url,ws_username,ws_password){
@@ -43,6 +44,7 @@ opacusSTPrest.prototype.get_server_info_callback = function(response,extraData){
 };
 
 opacusSTPrest.prototype.login = function(){
+	this.waitingForLogin = true;
 	if(opacusSTP.session_id == ""){
 		this.full_login();
 	} else {
@@ -55,6 +57,8 @@ opacusSTPrest.prototype.login = function(){
 opacusSTPrest.prototype.login_callback = function(response,extraData){
 	if(!response.result == 1){
 		this.full_login();
+	} else {
+		this.waitingForLogin = false;
 	}
 };
 
@@ -72,6 +76,7 @@ opacusSTPrest.prototype.full_login = function(){
 };
 
 opacusSTPrest.prototype.full_login_callback = function(response,extraData){
+	this.waitingForLogin = false;
 	if(response.status == 'success'){
 		opacusSTP.session_id = response.session_id;
 		opacusSTP.user_id = response.user_id;
@@ -140,7 +145,7 @@ opacusSTPrest.prototype.parseResponse = function(data,method){
 			var return_object = data;
 			break;
 		case "get_entry_list" :
-			if(typeof(data.entry_list[0]) !== 'undefined'){
+			if(typeof(data.entry_list[0]) !== 'undefined' && typeof(data.entry_list) !== 'undefined'){
 				return_object.module = data.entry_list[0].module_name;
 				return_object.items = new Array();
 				if(return_object.module == 'Contacts' || return_object.module == 'Leads'){

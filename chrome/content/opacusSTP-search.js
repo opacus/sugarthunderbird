@@ -186,18 +186,17 @@ opacusSTPsearch.prototype.runSearch = function(searchObject){
 					var caseRegex = new RegExp(opacusSTP.strings.getString('caseRegex'),'i');
 					try{
 						var caseNumber = searchObject.subject.match(caseRegex)[1];
-						searchByNumber = ' OR (' + module_lowercase +'.case_number = "' + caseNumber + '")';
+						searchByNumber = ' OR (' + module_lowercase +".case_number = '" + caseNumber + "')";
 					}
 					catch(ex){
-						searchByNumber = ' OR (' + module_lowercase +'.case_number LIKE "' + searchObject.searchString + '%")';
+						searchByNumber = ' OR (' + module_lowercase +".case_number LIKE '" + searchObject.searchString + "%')";
 					}
 				} else {
-					searchByNumber = ' OR (' + module_lowercase +'.case_number LIKE "' + searchObject.searchString + '%")';
+					searchByNumber = ' OR (' + module_lowercase +".case_number LIKE '" + searchObject.searchString + "%')";
 				}
 				select_fields.push('case_number');
 			}
 			query = module_lowercase+".name LIKE '%"+searchObject.searchString.replace(/^\s+|\s+$/g,"") +"%'"+extraSearch + searchByNumber;
-
 		}
 		opacusSTP.searchChildren++;
 		opacusSTP.webservice.callback = searchObject.displayResults;
@@ -244,7 +243,7 @@ opacusSTPsearch.prototype.createListNode = function(label,id,module)
 	var checkbox = document.createElement('checkbox');
 	checkbox.setAttribute('id',module + ':' + id);
 	checkbox.className='resultTick';
-	checkbox.setAttribute('label','  ' + label.replace(/&#039;/g,"'"));
+	checkbox.setAttribute('label','  ' + label.replace(/&#039;/g,"'").replace(/&quot;/g,'"'));
 	row.setAttribute('allowevents','true');
 	row.setAttribute('flex','1');
 	cell.setAttribute('flex','1');
@@ -257,7 +256,7 @@ opacusSTPsearch.prototype.createListNode = function(label,id,module)
 	return row;
 };
 
-opacusSTPsearch.prototype.getCellChecked = function(el,className){
+opacusSTPsearch.prototype.getCellChecked = function(el,className){ 
 	var checkBoxes = el.getElementsByClassName(className);
 	var arr = new Array();    
 	for (var i = 0; i < checkBoxes.length; i++){  

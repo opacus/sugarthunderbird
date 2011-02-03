@@ -72,7 +72,9 @@
           </hbox>
         </groupbox>
         <groupbox>
-          <checkbox id="doAttachments" label="&opacus_doAttachments.label;" checked="true"/>
+	  <hbox>
+          	<checkbox id="doAttachments" label="&opacus_doAttachments.label;" checked="true"/>
+	  </hbox>
         </groupbox>
       </vbox>
 </window>

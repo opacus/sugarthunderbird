@@ -50,12 +50,6 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&pr
 	<checkbox id="checkopacus_cases" preference="opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
 	</groupbox>
 
-	<groupbox flex='1'>
-    <caption label="&opacus_miscoptions.label;"/>
-    <hbox align='left'>
-	     <button label="&opacus_addbuttons.label;" onclick="try{opener.opacusSTP.addButtons();}catch(ex){};try{opener.opener.opacusSTP.addButtons();}catch(ex){}"/>
-	</hbox>
-	</groupbox>
 	<hbox align='right'>
 	     <button label="&opacus_saveprefs.label;" onclick="window.close()"/>
 	</hbox>

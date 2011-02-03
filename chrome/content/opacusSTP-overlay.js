@@ -76,7 +76,10 @@ var opacusSTP = {
 	  firstrun = opacusSTP.prefs.getBoolPref("firstrun");  
     }catch(e){  
       //nothing  
-    }finally{  
+    }finally{
+      if(firstrun){
+		opacusSTP.addButtons();
+      }  
       if (firstrun  || ver != current){ 
         opacusSTP.prefs.setBoolPref("firstrun",false);  
         opacusSTP.prefs.setCharPref("version",current);
