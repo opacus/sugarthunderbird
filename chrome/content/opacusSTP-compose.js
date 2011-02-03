@@ -59,26 +59,11 @@ function SendObserver() {
 
 SendObserver.prototype = {
   observe: function(subject, topic, data) {
-
-     /* thunderbird sends a notification even when it's only saving the message as a draft.
-      * We examine the caller chain to check for valid send notifications 
-      */
-     var f = this.observe;
-     while (f) {
-       if(/Save/.test(f.name)) {
-           return;
-       }
-       f = f.caller;
-     }
-     
-	// add your headers here, separated by \r\n
 	if(this.parentWindow.opacusSTP.sendAndArchiveStatus == 'success'){
 		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: onsend\r\n"; 
 	} else {
 		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: none\r\n";
 	}
-
-		
   },
   register: function() {
     var observerService = Components.classes["@mozilla.org/observer-service;1"]
