@@ -55,7 +55,6 @@ var opacusSTP = {
 	// initialization code
 	this.initialized = true;
 	opacusSTP.strings = document.getElementById("opacus_strings");
-	opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
 
 	var ver = -1, firstrun = true;
 	try {
@@ -170,6 +169,9 @@ var opacusSTP = {
   },
 
   fetchPassword: function(optionsWindow){
+	if(opacusSTP.mac){
+		optionsWindow.document.getElementById('saveButton').hidden=false;
+	}
 	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password;
   },
   
@@ -248,6 +250,8 @@ var opacusSTP = {
 		var serverEvent = {
 			notify: function(timer) {
 				opacusSTP.timer.cancel();
+				opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
+				opacusSTP.mac = (navigator.platform.indexOf('Mac') != -1)? true : false;
 				opacusSTP.server_info = opacusSTP.webservice.get_server_info();
 			}
 		}
