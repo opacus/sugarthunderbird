@@ -37,7 +37,7 @@ function opacusSTPsearch(parent,searchSuggestion,subject){
 
 opacusSTPsearch.prototype.check = function(returnFunc){
 	function checkSession(){
-		if(opacusSTP.session_id=='' || onceMore == true){
+		if(opacusSTP.session_id=='' || onceMore == true || opacusSTP.webservice.waitingForLogin == true){
 			searchObject.loginTimer.cancel();
 			if(opacusSTP.session_id != ''){
 				onceMore = false;
