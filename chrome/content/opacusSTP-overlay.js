@@ -21,10 +21,13 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *********************************************************************/
 var opacusSTP = {
+  opacus_ldap	: '',
+  opacus_ldap_key : '',
   webservice	:	'',
   sugarurl	:	'',
   sugarcrm_username :	'',
   sugarcrm_password :	'',
+  sugarcrm_password_plain :	'',
   session_id	:	'',
   sugarObjects	:	'',
   autoSugarObjects	:	'',
@@ -172,7 +175,7 @@ var opacusSTP = {
 	if(opacusSTP.mac){
 		optionsWindow.document.getElementById('saveButton').hidden=false;
 	}
-	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password;
+	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password_plain;
   },
   
   addButtons: function(){
@@ -206,6 +209,8 @@ var opacusSTP = {
 		opacusSTP.sugarcrm_username = opacusSTP.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
 		opacusSTP.opacus_notify = opacusSTP.prefs.getBoolPref("opacus_notify");
 		opacusSTP.opacus_cases = opacusSTP.prefs.getBoolPref("opacus_cases");
+		opacusSTP.opacus_ldap = opacusSTP.prefs.getBoolPref("opacus_ldap");
+		opacusSTP.opacus_ldap_key = opacusSTP.prefs.getCharPref("opacus_ldap_key");
 		opacusSTP.session_id = '';
 		if(optionsWindow){ 
 			var password = optionsWindow.document.getElementById('passwordsugarcrm_password').value;
@@ -239,12 +244,20 @@ var opacusSTP = {
 		   // Find user from returned array of nsILoginInfo objects  
 		   for (var i = 0; i < logins.length; i++) {  
 			  if (logins[i].username == opacusSTP.sugarcrm_username) {  
-				 opacusSTP.sugarcrm_password = logins[i].password;  
+				 opacusSTP.sugarcrm_password_plain = logins[i].password;  
 				 break;  
 			  }  
 		   }  
 		}  
-		catch(ex) {}  
+		catch(ex) {}
+
+		var crypt = new opacusSTPcrypt();
+		if(opacusSTP.opacus_ldap){
+			opacusSTP.sugarcrm_password = crypt.ldapEncrypt(opacusSTP.sugarcrm_password_plain);
+		} else {
+			opacusSTP.sugarcrm_password = crypt.encrypt(opacusSTP.sugarcrm_password_plain);
+		}
+
 		opacusSTP.webservice = new opacusSTPrest();	
 		opacusSTP.webservice.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
 		var serverEvent = {

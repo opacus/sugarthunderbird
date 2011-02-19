@@ -44,7 +44,7 @@ opacusSTPrest.prototype.get_server_info_callback = function(response,extraData){
 };
 
 opacusSTPrest.prototype.login = function(){
-	this.waitingForLogin = true;
+	this.waitingForLogin = true;		
 	if(opacusSTP.session_id == ""){
 		this.full_login();
 	} else {
@@ -66,7 +66,7 @@ opacusSTPrest.prototype.full_login = function(){
 	var rest_data = {
 		user_auth : {
 			user_name : this.user_name,
-			password : this.md5(this.password)
+			password : this.password
 		},
 		application_name : 'Opacus STP',
 		name_value_list : []
@@ -260,23 +260,8 @@ opacusSTPrest.prototype.setAttachment = function(note_id,osa){
 };
 
 
-opacusSTPrest.prototype.md5 = function(str){
-	var converter =
-	Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].
-	createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 
-	converter.charset = "UTF-8";
-	var result = {};
-	var data = converter.convertToByteArray(str, result);
-	var ch = Components.classes["@mozilla.org/security/hash;1"]
-					   .createInstance(Components.interfaces.nsICryptoHash);
-	ch.init(ch.MD5);
-	ch.update(data, data.length);
-	var hash = ch.finish(false);
 
-	return [this.toHexString(hash.charCodeAt(i)) for (i in hash)].join("");
-};
 
-opacusSTPrest.prototype.toHexString = function(charCode){
-  return ("0" + charCode.toString(16)).slice(-2);
-};
+
+

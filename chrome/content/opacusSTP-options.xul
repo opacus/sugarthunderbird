@@ -36,6 +36,8 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&pr
 	<preference id="sugarcrm_username" name="extensions.opacusSTP.sugarcrm_username" type="unichar"/>
 	<preference id="opacus_notify" name="extensions.opacusSTP.opacus_notify" type="bool"/>
 	<preference id="opacus_cases" name="extensions.opacusSTP.opacus_cases" type="bool"/>
+	<preference id="opacus_ldap" name="extensions.opacusSTP.opacus_ldap" type="bool"/>
+	<preference id="opacus_ldap_key" name="extensions.opacusSTP.opacus_ldap_key" type="unichar"/>
     </preferences>
     <groupbox flex="1">
     <caption label="&opacus_serverdetails.label;"/>
@@ -48,6 +50,8 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&pr
     <caption label="&opacus_advanceddetails.label;"/>
 	<checkbox id="checkopacus_notify" preference="opacus_notify" label="&opacus_notify.label;" tooltiptext="&opacus_notify.tooltiptext;" accesskey="&opacus_notify.accesskey;"/>
 	<checkbox id="checkopacus_cases" preference="opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
+	<checkbox id="checkopacus_ldap" preference="opacus_ldap" label="&opacus_ldap.label;"/>
+    <label control="textldap_key">&opacus_ldap_key.label;</label><textbox id="textldap_key" preference="opacus_ldap_key"/>
 	</groupbox>
 
  	<hbox id='saveButton' hidden='true' align='right'>

@@ -34,6 +34,7 @@
 <script src="chrome://opacusSTP/content/opacusSTP-search.js"/>
 <script src="chrome://opacusSTP/content/opacusSTP-mail.js"/>
 <script src="chrome://opacusSTP/content/opacusSTP-attachment.js"/>
+<script src="chrome://opacusSTP/content/opacusSTP-crypt.js"/>
 <menupopup id="taskPopup">
       <menuitem label="&opacus_context.label;" insertbefore="prefSep" oncommand="opacusSTP.showPreferences();"/>
 </menupopup>
