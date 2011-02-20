@@ -23,4 +23,4 @@
 <!ENTITY opacus_saveprefs.label "Save">
 <!ENTITY opacus_notify.tooltiptext "Lighweight new mail notification showing subject and author">
 <!ENTITY opacus_ldap.label "Use LDAP authentication">
-<!ENTITY opacus_ldap_key.label "LDAP key <span style='display:inline;font-size: .8em;font-style:italic;'>(ldap auth only)</span>">
+<!ENTITY opacus_ldap_key.label "LDAP key <span style='display:inline;font-size: .8em;font-style:italic;'>(leave blank for PLAIN)</span>">

@@ -171,11 +171,14 @@ var opacusSTP = {
 
   },
 
-  fetchPassword: function(optionsWindow){
+  optionsLoad: function(optionsWindow){
 	if(opacusSTP.mac){
 		optionsWindow.document.getElementById('saveButton').hidden=false;
 	}
 	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password_plain;
+	if(optionsWindow.document.getElementById('checkopacus_ldap').checked === false){
+		optionsWindow.document.getElementById('ldap_key_box').hidden = true;
+	}
   },
   
   addButtons: function(){

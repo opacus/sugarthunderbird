@@ -17,7 +17,7 @@ opacusSTPcrypt.prototype.encrypt = function(sugarPassword){
 };
 
 opacusSTPcrypt.prototype.ldapEncrypt = function(sugarPassword){
-	if(this.key = ''){
+	if(this.key == ''){
 		return sugarPassword;
 	}
 	sugarString = this.md5(sugarPassword).substr(0,24);
