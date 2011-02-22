@@ -46,12 +46,12 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&pr
 	<label accesskey="&sugarcrm_password.accesskey;" control="textsugarcrm_password">&sugarcrm_password.label;</label><textbox id="passwordsugarcrm_password" type="password"/>	
 	</groupbox>
 
-    <groupbox flex="1" style="min-height: 12em">
+    <groupbox flex="1">
     <caption label="&opacus_advanceddetails.label;"/>
 	<checkbox id="checkopacus_notify" preference="opacus_notify" label="&opacus_notify.label;" tooltiptext="&opacus_notify.tooltiptext;" accesskey="&opacus_notify.accesskey;"/>
 	<checkbox id="checkopacus_cases" preference="opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
 	<checkbox
-		onclick="if(this.checked){document.getElementById('ldap_key_box').hidden=true;}else{document.getElementById('ldap_key_box').hidden=false;}"
+		onclick="if(this.checked){document.getElementById('ldap_key_box').hidden=true;window.sizeToContent();}else{document.getElementById('ldap_key_box').hidden=false;window.sizeToContent();}"
 		id="checkopacus_ldap" preference="opacus_ldap" label="&opacus_ldap.label;"/>
 	<vbox flex='1' id="ldap_key_box" hidden='false'>
 	<label control="textldap_key">&opacus_ldap_key.label;</label><textbox id="textldap_key" preference="opacus_ldap_key"/>
