@@ -263,17 +263,17 @@ var opacusSTP = {
 
 		opacusSTP.webservice = new opacusSTPrest();	
 		opacusSTP.webservice.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
-		var serverEvent = {
-			notify: function(timer) {
-				opacusSTP.timer.cancel();
-				opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
-				opacusSTP.mac = (navigator.platform.indexOf('Mac') != -1)? true : false;
-				opacusSTP.server_info = opacusSTP.webservice.get_server_info();
-			}
-		}
-		opacusSTP.timer.initWithCallback(serverEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 	}
 	catch(ex){}
+	var serverEvent = {
+		notify: function(timer) {
+			opacusSTP.timer.cancel();
+			opacusSTP.windows = (navigator.platform.indexOf('Win') != -1)? true : false;
+			opacusSTP.mac = (navigator.platform.indexOf('Mac') != -1)? true : false;
+			opacusSTP.server_info = opacusSTP.webservice.get_server_info();
+		}
+	}
+	opacusSTP.timer.initWithCallback(serverEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 	return false;
   },
 
