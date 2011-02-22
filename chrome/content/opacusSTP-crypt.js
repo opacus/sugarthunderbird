@@ -20,8 +20,8 @@ opacusSTPcrypt.prototype.ldapEncrypt = function(sugarPassword){
 	if(this.key == ''){
 		return sugarPassword;
 	}
-	sugarString = this.md5(sugarPassword).substr(0,24);
-	var encryptedString = this.des(this.key,sugarString,1,1,this.iv,0);
+	sugarString = this.md5(this.key).substring(0,24);
+	var encryptedString = this.des(sugarString,sugarPassword,1,1,this.iv,0);
 	return [this.toHexString(encryptedString.charCodeAt(i)) for (i in encryptedString)].join("");
 };
 
