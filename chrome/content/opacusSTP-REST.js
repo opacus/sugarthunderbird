@@ -86,14 +86,23 @@ opacusSTPrest.prototype.full_login_callback = function(response,extraData){
 };
 
 opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
+
 	var client = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                         .createInstance(Components.interfaces.nsIXMLHttpRequest);
-    rest_data = JSON.stringify(rest_data);
+
+	// Use serialize for files as json_decode in SugarCRM is really painful
+	if(method == 'set_note_attachment'){
+		input_type='Serialize';
+	} else {
+		input_type='JSON';
+		rest_data = JSON.stringify(rest_data);
+	}
+
     rest_data = encodeURIComponent(rest_data);
 	rest_data = rest_data.replace(new RegExp('\\+','g'),'%2B');
 	rest_data = rest_data.replace(new RegExp('%20','g'),'+');
 
-	var params = 'method=' + method + '&input_type=JSON&response_type=JSON&rest_data=' + rest_data;
+	var params = 'method=' + method + '&input_type='+input_type+'&response_type=JSON&rest_data=' + rest_data;
 
 	client.open("POST", this.webservice_url, true);
 	client.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -225,7 +234,9 @@ opacusSTPrest.prototype.createRelationship = function(emailId,moduleLower,object
 		"module_name"	: 'Emails',
 		"module_id" : emailId,
 		"link_field_name"		: moduleLower,
-		"related_ids"		: [ objectId ]
+		"related_ids"		: [ objectId ],
+		"name_value_list"	: new Array(),
+		"deleted"	: 0
 	};
 	this.makeRequest('set_relationship',rest_data,mailObject);
 };
@@ -247,20 +258,12 @@ opacusSTPrest.prototype.createNote = function(osa){
 
 
 opacusSTPrest.prototype.setAttachment = function(note_id,osa){
-
-	var rest_data = {
-		"session"	: opacusSTP.session_id,
-		"note":	{
-			"filename"	: osa.filename,
-			"file"	: osa.contents,
-			"id"	: note_id
-		}
-	};
+	// setAttachment uses Serialize for speed.
+	var rest_data = 'a:2:{s:7:"session";s:'+opacusSTP.session_id.length+':"'+opacusSTP.session_id+'";s:4:"note";'+
+		'a:3:{s:8:"filename";s:'+osa.filename.length+':"'+osa.filename+'";'+
+			's:4:"file";s:'+osa.contents.length+':"'+osa.contents+'";s:2:"id";s:'+note_id.length+':"'+note_id+'";}}';
 	this.makeRequest('set_note_attachment',rest_data,osa);
 };
-
-
-
 
 
 

@@ -180,6 +180,15 @@ var opacusSTP = {
 		optionsWindow.document.getElementById('ldap_key_box').hidden = true;
 	}
   },
+
+  link: function(identifier){
+    var extProtocolSvc = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
+                                   .getService(Components.interfaces.nsIExternalProtocolService);
+    var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+                              .getService(Components.interfaces.nsIIOService);
+    var uri = ioService.newURI(identifier, null, null);
+    extProtocolSvc.loadUrl(uri);
+  },
   
   addButtons: function(){
 	try {
@@ -301,7 +310,6 @@ var opacusSTP = {
 	catch (ex){}
 
 	if(this.MessageURIArray != null){
-		opacusSTP.webservice.login();
 		this.mails = Array();
 		for(var i=0;i<this.MessageURIArray.length;i++){
 			this.mails[i]		= new opacusSTPMail();

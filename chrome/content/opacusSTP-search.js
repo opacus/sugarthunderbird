@@ -136,6 +136,7 @@ opacusSTPsearch.prototype.getSelectedModules = function(){
 
 
 opacusSTPsearch.prototype.performSearch = function(){
+	opacusSTP.webservice.login();
 	this.check(this.runSearch);
 };
 

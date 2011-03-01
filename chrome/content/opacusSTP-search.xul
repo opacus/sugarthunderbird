@@ -31,7 +31,7 @@
 
       <vbox flex="1">
         <groupbox flex="1">
-        <hbox><hbox><caption label="&opacus_search.label;"/></hbox><hbox flex='1' align='right' style='padding: 3px 5px 0 0' ><image width="63" height="21" src="chrome://opacusSTP/content/images/opacus25.png" /></hbox></hbox>
+        <hbox><hbox><caption label="&opacus_search.label;"/></hbox><hbox flex='1' align='right' style='padding: 3px 5px 0 0' ><image style='cursor:pointer;' onclick="opener.opacusSTP.link('http://www.opacus.co.uk')" width="63" height="21" src="chrome://opacusSTP/content/images/opacus25.png" /></hbox></hbox>
         <label control="searchField" value="&opacus_searchFor.label;" />
           <hbox>
             <textbox id="searchField" value="" flex="1" onkeydown="if (event.keyCode == 13) document.getElementById('searchButton').click()"/>
