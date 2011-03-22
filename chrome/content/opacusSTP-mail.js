@@ -128,7 +128,7 @@ opacusSTPMail.prototype.populateFromCompose = function(composeWindow){
 	for(var i=0;i < totalAddresses;i++){
 		var j = i+1;
 		var addrType = composeWindow.document.getElementById('addressCol1#' + j).value;
-		var addrValue = composeWindow.document.getElementById('addressCol2#' + j).value;
+		var addrValue = composeWindow.document.getElementById('addressCol2#' + j).value.replace(',','');
 		if(addrValue != ''){
 			switch(addrType) {
 				case 'addr_to':
