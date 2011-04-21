@@ -1,0 +1,18 @@
+<!ENTITY searchwindow.title "Opacus Suche">
+<!ENTITY opacus_search.accesskey "S">
+<!ENTITY opacus_create.label "Erstellen">
+<!ENTITY opacus_create_contact.label "Kontakt">
+<!ENTITY opacus_create_lead.label "Interessent">
+<!ENTITY opacus_create_case.label "Fall">
+<!ENTITY opacus_create_opportunity.label "Verkaufschance">
+<!ENTITY opacus_create_account.label "Firma">
+<!ENTITY opacus_archive.accesskey "A">
+<!ENTITY opacus_cancel.accesskey "C">
+<!ENTITY opacus_archive.label "Archivieren">
+<!ENTITY opacus_cancel.label "Abbrechen">
+<!ENTITY opacus_doAttachments.label "Anhänge archivieren">
+<!ENTITY opacus_modules.label "Module">
+<!ENTITY opacus_sugarObjects.label "Sugar Objekte">
+<!ENTITY opacus_search.label "Suchen">
+<!ENTITY opacus_searchFor.label "Suche nach...">
+<!ENTITY opacus_results.label "Resultat">

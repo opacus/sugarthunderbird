@@ -237,33 +237,43 @@ opacusSTPMail.prototype.getOutboundAttachments = function(email_id){
 };
 
 opacusSTPMail.prototype.getAttachments = function(email_id,mime_parts){
-	var tmpDir = Components.classes["@mozilla.org/file/directory_service;1"]
-		.getService(Components.interfaces.nsIProperties)
-		.get("TmpD", Components.interfaces.nsIFile).path;
-	var dest = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	dest.followLinks = true;
-	dest.initWithPath(tmpDir);
-
+	var mailObject = this;
+	var Olistener = {
+		OnStartRunningUrl: function(url){
+			// Empty function to avoid exception
+		},
+		OnStopRunningUrl: function(url){
+			var filename = url.spec.match(/.+filename=(.+)$/)[1];
+			var savedFile = Components.classes["@mozilla.org/file/directory_service;1"]
+				.getService(Components.interfaces.nsIProperties)
+				.get("TmpD", Components.interfaces.nsIFile);
+			savedFile.append(email_id + filename);
+			var osa = new opacusSTPAttachment();
+			osa.filename = decodeURIComponent(filename);
+			osa.email_id = email_id;
+			osa.removeAfterSend = true;
+			osa.mailObject = mailObject;
+			osa.nsiFileHandle = savedFile;
+			osa.checkExists(osa);
+		},
+	};
 	if(typeof(mime_parts) !== 'undefined'){
 		for(var i=0;i<mime_parts.length;i++){
 			if(typeof(mime_parts[i].url) !== 'undefined'){
+				var file = Components.classes["@mozilla.org/file/directory_service;1"]
+					.getService(Components.interfaces.nsIProperties)
+					.get("TmpD", Components.interfaces.nsIFile);
+				file.append(email_id + encodeURIComponent(mime_parts[i].name));
+				file.createUnique(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0666);
 				this.attachmentCalls++;
 				opacusSTP.totalAttachments++;
-				var osa = new opacusSTPAttachment();
-				osa.clear();
-				osa.filename = mime_parts[i].name;
-				osa.contentType = mime_parts[i].contentType;
-				osa.email_id = email_id;
-				osa.removeAfterSend = true;
-				osa.mailObject = this;
-				osa.nsiFileHandle = 
-					messenger.saveAttachmentToFolder(
-					mime_parts[i].contentType,
+				messenger.saveAttachmentToFile(
+					file,
 					mime_parts[i].url,
-					encodeURIComponent(mime_parts[i].name),
 					this.uri,
-					dest);
-				osa.checkExists(osa);
+					mime_parts[i].contentType,
+					Olistener
+				);
 			}
 			if(typeof(mime_parts[i].parts) !== 'undefined'){
 				this.getAttachments(email_id,mime_parts[i].parts);

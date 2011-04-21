@@ -1,0 +1,37 @@
+<!ENTITY prefwindow.title "Opacus Plugin Einstellungen">
+<!ENTITY pane1.title "Verbindung">
+<!ENTITY pane2.title "Erweitert">
+<!ENTITY pane3.title "Module">
+<!ENTITY pane4.title "Sync">
+<!ENTITY pane5.title "Lizenz">
+<!ENTITY sugarcrm_url.label "SugarCRM URL <span style='display:inline;font-size: .8em;font-style:italic;'>e.g. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRM Benutzername">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRM Passwort">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Opacus Lizenzschlüssel <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Autoarchiv für eingehende E-Mails aktivieren">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Anhänge archivieren wenn Autoarchiv aktiv">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "Nur meine Kontakte synchronisieren">
+<!ENTITY honoursynctooutlook.label "'Sync mit Outlook' Häkchen in Sugar berücksichtigen">
+<!ENTITY opacus_notify.label "Opacus Neue Mail Benachrichtigung aktivieren">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Betreffzeile nach Fallnummern durchsuchen">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_serverdetails.label "Serverinformation">
+<!ENTITY opacus_advanceddetails.label "Erweiterte Details">
+<!ENTITY opacus_ldapdetails.label "LDAP Konfiguration">
+<!ENTITY opacus_custommodules.label "Benutzerdefinierte Module">
+<!ENTITY opacus_licencedetails.label "Lizenz Details">
+<!ENTITY opacus_sync.label "Optionen f. Synchronisation">
+<!ENTITY opacus_miscoptions.label "Verschiedene Optionen">
+<!ENTITY opacus_getcustommodules.label "Nach benutzerdefinierten Modulen überprüfen">
+<!ENTITY opacus_addbuttons.label "Schaltflächen hinzufügen">
+<!ENTITY opacus_saveprefs.label "Speichern">
+<!ENTITY opacus_notify.tooltiptext "Schlanke neue Mail-Benachrichtigung zeigt Betreff und Autor">
+<!ENTITY opacus_ldap.label "LDAP Authentifizierung verwenden">
+<!ENTITY opacus_ldap_key.label "LDAP Schlüssel <span style='display:inline;font-size: .8em;font-style:italic;'>(leave blank for PLAIN)</span>">

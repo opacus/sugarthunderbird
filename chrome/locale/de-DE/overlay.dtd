@@ -1,0 +1,11 @@
+<!ENTITY opacus_context.label "Opacus SugarCRM Einstellungen">
+<!ENTITY opacus_contactsync.label "Opacus SugarCRM Kontakt Sync">
+<!ENTITY opacus_context_archive.label "E-Mail(s) in SugarCRM archivieren">
+<!ENTITY opacus_context_contact.label "Kontakt">
+<!ENTITY opacus_context_lead.label "Interessent">
+<!ENTITY opacus_help.label "Opacus Hilfe">
+<!ENTITY opacus_context_button.label "Archivieren">
+<!ENTITY opacus_context_case.label "Fall">
+<!ENTITY opacus_context_create.label "SugarCRM erstellen">
+<!ENTITY opacus_context_opportunity.label "Verkaufschance">
+<!ENTITY opacus_context_account.label "Firma">
