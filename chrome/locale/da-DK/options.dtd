@@ -1,0 +1,38 @@
+<!ENTITY prefwindow.title "Opacus Plugin præferencer">
+<!ENTITY pane1.title "Forbindelse">
+<!ENTITY pane2.title "Avanceret">
+<!ENTITY pane3.title "Moduler">
+<!ENTITY pane4.title "Synk">
+<!ENTITY pane5.title "Licens">
+<!ENTITY sugarcrm_url.label "SugarCRM URL <span style='display:inline;font-size: .8em;font-style:italic;'>Eks. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRM brugernavn">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRM kodeord">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Opacus Licens nøgle <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Aktiver auto arkivering for indgående mails">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Akriver vedhæftede filer ved auto arkivering">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "Synkroniser kun mine kontakter">
+<!ENTITY honoursynctooutlook.label "Benyt 'Sync to Outlook' markeringen i SugarCRM">
+<!ENTITY opacus_notify.label "Benyt Opacus ny e-mail notificeringer">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Fang sags nummer fra emne linien">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_serverdetails.label "Server information">
+<!ENTITY opacus_advanceddetails.label "Udvidede detaljer">
+<!ENTITY opacus_ldapdetails.label "LDAP konfiguration">
+<!ENTITY opacus_custommodules.label "Tilrettede moduler">
+<!ENTITY opacus_licencedetails.label "Licens Detaljer">
+<!ENTITY opacus_sync.label "Synkroniserings muligheder">
+<!ENTITY opacus_miscoptions.label "Diverse muligheder">
+<!ENTITY opacus_getcustommodules.label "Genopfrist tilrettede moduler">
+<!ENTITY opacus_addbuttons.label "Tilføj toolbar knapper">
+<!ENTITY opacus_saveprefs.label "Gem">
+<!ENTITY opacus_notify.tooltiptext "Letvægts ny mail besked der viser emen og forfatter">
+<!ENTITY opacus_ldap.label "Brug LDAP godkendelse">
+<!ENTITY opacus_ldap_key.label "LDAP nøgle <span style='display:inline;font-size: .8em;font-style:italic;'>(Blank for PLAIN)</span>">
+<!ENTITY opacus_conflicts.label "Central program for konflikter">

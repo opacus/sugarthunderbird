@@ -1,0 +1,27 @@
+<!ENTITY createwindow.title "Opacus Oprettelse">
+<!ENTITY opacus_createdetails.label "Detaljer">
+<!ENTITY opacus_firstname.label "Fornavn:">
+<!ENTITY opacus_lastname.label "Efternavn: <span style='display:inline;font-size: .8em;font-style:italic;'>(Påkrævet)</span>">
+<!ENTITY opacus_phone_office.label "Arbejds telefon:">
+<!ENTITY opacus_phone_mobile.label "Mobil telefon:">
+<!ENTITY opacus_title.label "Job titel:">
+<!ENTITY opacus_createaccountdetails.label "Konto:">
+<!ENTITY opacus_account_name.label "Konto navn:">
+<!ENTITY opacus_contact_search.label "Kontakt e-mail eller e-mail adresse:">
+<!ENTITY opacus_email_address.label "E-mail Adresse:">
+<!ENTITY account_search.label "Søg">
+<!ENTITY create.label "Opret">
+<!ENTITY cancel.label "Fortryd">
+<!ENTITY opacus_description.label "Beskrivelse:">
+<!ENTITY opacus_opportunityamount.label "Beløb: <span style='display:inline;font-size: .8em;font-style:italic;'>(Påkrævet)</span>">
+<!ENTITY opacus_opportunityclosedate.label "Lukke dato:">
+<!ENTITY opacus_opportunitysalesstage.label "Salgs stadie: <span style='display:inline;font-size: .8em;font-style:italic;'>(Påkrævet)</span>">
+<!ENTITY opacus_casestatus.label "Status:">
+<!ENTITY opacus_accounttype.label "Type:">
+<!ENTITY opacus_casepriority.label "Prioritet:">
+<!ENTITY opacus_casetype.label "Type:">
+<!ENTITY opacus_add_account.label "Tilføj ny konto">
+<!ENTITY opacus_add_contact.label "Tilføj ny kontakt">
+<!ENTITY opacus_new.label "Ny">
+<!ENTITY opacus_name.label "Navn/Emne: <span style='display:inline;font-size: .8em;font-style:italic;'>(Påkrævet)</span>">
+<!ENTITY opacus_emptymenulist.label "--   choose   --">
