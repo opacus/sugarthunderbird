@@ -59,43 +59,20 @@ var opacusSTP = {
 	this.initialized = true;
 	opacusSTP.strings = document.getElementById("opacus_strings");
 
-	var ver = -1, firstrun = true;
 	try {
 		// Firefox 4 and later; Mozilla 2 and later
 		Components.utils.import("resource://gre/modules/AddonManager.jsm");
 		AddonManager.getAddonByID("development@opacus.co.uk", function(addon) {
-		var current = addon.version;
+			var current = addon.version;
+			opacusSTP.runAtStart(current);
 		});
 	}
 	catch(ex){
 		var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]  
 								.getService(Components.interfaces.nsIExtensionManager);  
-		var current = gExtensionManager.getItemForID("development@opacus.co.uk").version;
-	} 
-      
-    try{  
-	  ver = opacusSTP.prefs.getCharPref("version");  
-	  firstrun = opacusSTP.prefs.getBoolPref("firstrun");  
-    }catch(e){  
-      //nothing  
-    }finally{
-      if(firstrun){
-		opacusSTP.addButtons();
-      }  
-      if (firstrun  || ver != current){ 
-        opacusSTP.prefs.setBoolPref("firstrun",false);  
-        opacusSTP.prefs.setCharPref("version",current);
-        opacusSTP.showInfoTab("chrome://opacusSTP/content/version.html");    
-      }             
-      if (ver!=current && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
-        opacusSTP.prefs.setCharPref("version",current);  
-   		opacusSTP.updateServerInfo(false);
-      } else {
-		// Update the server details from the preferences
-		opacusSTP.updateServerInfo(false);
-	  }	    
-    }  
-
+		var current = gExtensionManager.getItemForID("prodevelopment@opacus.co.uk").version;
+		opacusSTP.runAtStart(current);
+	}
 
 
 	// Tags
@@ -142,6 +119,36 @@ var opacusSTP = {
         .getService(Components.interfaces.nsIMsgFolderNotificationService);
         notificationService.addListener(newMailListener, notificationService.msgAdded);
   },
+
+
+  runAtStart: function(thisVersion){
+	var ver = -1, firstrun = true;
+    try{
+	  var ver = opacusSTP.prefs.getCharPref("version");  
+	  var firstrun = opacusSTP.prefs.getBoolPref("firstrun"); 
+    }catch(e){  
+      //nothing  
+    } finally {
+	  if(firstrun){
+		opacusSTP.addButtons();
+	  }
+      if (firstrun  || ver != thisVersion){ 
+        opacusSTP.prefs.setBoolPref("firstrun",false);  
+        opacusSTP.prefs.setCharPref("version",thisVersion);
+        opacusSTP.showInfoTab("chrome://opacusSTP/content/version.html");    
+      }
+               
+      if (ver!=thisVersion && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
+        opacusSTP.prefs.setCharPref("version",thisVersion);  
+   		opacusSTP.updateServerInfo(false);
+      } else {
+		// Update the server details from the preferences
+		opacusSTP.updateServerInfo(false);
+	  }	    
+    }
+  },
+
+
 
   showPreferences: function(){
   	window.openDialog("chrome://opacusSTP/content/opacusSTP-options.xul","","chrome,resizable=yes,titlebar,modal,centerscreen");
