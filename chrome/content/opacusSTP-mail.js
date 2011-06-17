@@ -243,18 +243,28 @@ opacusSTPMail.prototype.getAttachments = function(email_id,mime_parts){
 			// Empty function to avoid exception
 		},
 		OnStopRunningUrl: function(url){
-			var filename = url.spec.match(/.+filename=(.+)$/)[1];
-			var savedFile = Components.classes["@mozilla.org/file/directory_service;1"]
-				.getService(Components.interfaces.nsIProperties)
-				.get("TmpD", Components.interfaces.nsIFile);
-			savedFile.append(email_id + filename);
-			var osa = new opacusSTPAttachment();
-			osa.filename = decodeURIComponent(filename);
-			osa.email_id = email_id;
-			osa.removeAfterSend = true;
-			osa.mailObject = mailObject;
-			osa.nsiFileHandle = savedFile;
-			osa.checkExists(osa);
+			try{
+				// Some attachments are email parts and don't match regex (they get archived
+				// as part of the plain body) so bail at this point into catch.
+				var filename = url.spec.match(/.+filename=(.+)$/)[1];
+				var savedFile = Components.classes["@mozilla.org/file/directory_service;1"]
+					.getService(Components.interfaces.nsIProperties)
+					.get("TmpD", Components.interfaces.nsIFile);
+				savedFile.append(email_id + filename);
+				var osa = new opacusSTPAttachment();
+				osa.filename = decodeURIComponent(filename);
+				osa.email_id = email_id;
+				osa.removeAfterSend = true;
+				osa.mailObject = mailObject;
+				osa.nsiFileHandle = savedFile;
+				osa.checkExists(osa);
+			}
+			catch(ex){
+				opacusSTP.totalAttachments--;
+				if(mailObject.relationshipCalls == 0 && mailObject.attachmentCalls == 0){
+					opacusSTP.wrapUp(mailObject);
+				}
+			}
 		},
 	};
 	if(typeof(mime_parts) !== 'undefined'){

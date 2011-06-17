@@ -70,7 +70,7 @@ var opacusSTP = {
 	catch(ex){
 		var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]  
 								.getService(Components.interfaces.nsIExtensionManager);  
-		var current = gExtensionManager.getItemForID("prodevelopment@opacus.co.uk").version;
+		var current = gExtensionManager.getItemForID("development@opacus.co.uk").version;
 		opacusSTP.runAtStart(current);
 	}
 
