@@ -77,9 +77,15 @@ opacusSTPAttachment.prototype.encode = function(){
 };
 
 opacusSTPAttachment.prototype.createNote_callback = function(response,osa){
-	if(response.id){
+	if(typeof(response.id) !== 'undefined'){
 		osa.worker.callback = osa.setAttachment_callback;
 		osa.worker.setAttachment(response.id,osa);
+	} else {
+		// Something went wrong. Remove attachment from counter.
+		osa.mailObject.attachmentCalls--;
+		if(osa.mailObject.relationshipCalls == 0 && osa.mailObject.attachmentCalls == 0){
+			opacusSTP.wrapUp(osa.mailObject);
+		}
 	}
 };
 
