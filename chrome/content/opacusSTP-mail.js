@@ -219,7 +219,6 @@ opacusSTPMail.prototype.getOutboundAttachments = function(email_id){
 	if(this.outboundAttachments.length == 0){
 		return;
 	}
-	opacusSTP.totalAttachments = this.outboundAttachments.length;
 	this.attachmentCalls = this.outboundAttachments.length;
 	for(var i=0;i<this.outboundAttachments.length;i++){
 		var osa = new opacusSTPAttachment();
@@ -260,7 +259,7 @@ opacusSTPMail.prototype.getAttachments = function(email_id,mime_parts){
 				osa.checkExists(osa);
 			}
 			catch(ex){
-				opacusSTP.totalAttachments--;
+				mailObject.attachmentCalls--;
 				if(mailObject.relationshipCalls == 0 && mailObject.attachmentCalls == 0){
 					opacusSTP.wrapUp(mailObject);
 				}
@@ -276,7 +275,6 @@ opacusSTPMail.prototype.getAttachments = function(email_id,mime_parts){
 				file.append(email_id + encodeURIComponent(mime_parts[i].name).replace(new RegExp(/\(/g),'%28').replace(new RegExp(/\)/g),'%29').replace(new RegExp("'",'g'),"%27"));
 				file.createUnique(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0666);
 				this.attachmentCalls++;
-				opacusSTP.totalAttachments++;
 				messenger.saveAttachmentToFile(
 					file,
 					mime_parts[i].url,

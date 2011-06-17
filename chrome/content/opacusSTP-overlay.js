@@ -33,7 +33,6 @@ var opacusSTP = {
   autoSugarObjects	:	'',
   allowNotify	:	true,
   totalMails	:	'',
-  totalAttachments : '',
   totalCalls	:	'',
   searchObject	:	'',
   user_id		:	'',
@@ -336,7 +335,6 @@ var opacusSTP = {
   },
 
   archiveMails: function() {
-	opacusSTP.totalAttachments=0;
 	var doAttachments = this.searchObject.searchWindow.document.getElementById('doAttachments').checked;
 	var sugarObjects = this.searchObject.getCellChecked(this.searchObject.searchWindow.document.getElementById('resultList'),'resultTick');
 	if(!sugarObjects){
