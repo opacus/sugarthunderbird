@@ -31,7 +31,7 @@
   <groupbox align="center" orient="horizontal">
     <vbox>
       <text value="Opacus SugarCRM Thunderbird Plugin" style="font-weight: bold; font-size: large;"/>
-      <text value="&version; 1.4.9"/>
+      <text value="&version; 1.5.1"/>
       <separator class="thin"/>
       <text value="&createdBy;" style="font-weight: bold;"/>
       <text value="Opacus Solutions Ltd ©2010"/>
