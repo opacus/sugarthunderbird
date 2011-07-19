@@ -257,7 +257,20 @@ opacusSTPMail.prototype.getAttachments = function(email_id,mime_parts){
 				osa.removeAfterSend = true;
 				osa.mailObject = mailObject;
 				osa.nsiFileHandle = savedFile;
-				osa.checkExists(osa);
+				if(osa.nsiFileHandle.fileSize > 0){
+					osa.checkExists(osa);
+				} else {
+					try{
+						osa.nsiFileHandle.remove(false);
+					}
+					catch(ex){
+						dump("Failed to remove file\n");
+					}
+					mailObject.attachmentCalls--;
+					if(mailObject.relationshipCalls == 0 && mailObject.attachmentCalls == 0){
+						opacusSTP.wrapUp(mailObject);
+					}
+				}
 			}
 			catch(ex){
 				mailObject.attachmentCalls--;

@@ -98,6 +98,7 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 		rest_data = JSON.stringify(rest_data);
 	}
 
+	rest_data = rest_data.replace(new RegExp('(&|&amp;)quot;','g'),'\\"');
     rest_data = encodeURIComponent(rest_data);
 	rest_data = rest_data.replace(new RegExp('\\+','g'),'%2B');
 	rest_data = rest_data.replace(new RegExp('%20','g'),'+');

@@ -98,7 +98,7 @@ opacusSTPAttachment.prototype.setAttachment_callback = function(response,osa){
 
 
 opacusSTPAttachment.prototype.checkExists = function(thisObject){
-	if(!thisObject.nsiFileHandle.exists() || thisObject.nsiFileHandle.fileSize <= 0)
+	if(!thisObject.nsiFileHandle.exists())
 	{
 		var event = { notify: function(timer) {
 			thisObject.checkExists(thisObject);
