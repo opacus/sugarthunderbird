@@ -197,7 +197,7 @@ opacusSTPMail.prototype.archive_callback = function(response,mailObject){
 			mailObject.worker.createRelationship(response.id,sugarObjectArray[0],sugarObjectArray[1],mailObject);
 		}
 	} else if(typeof(mailObject.subject) !== 'undefined') {
-		Components.utils.reportError("OpacusSTP received no email id: "+JSON.stringify(response));
+		opacusSTP.console.logStringMessage("OpacusSTP received no email id: "+JSON.stringify(response));
 		opacusSTP.notifyUser('error',opacusSTP.strings.getString('notifyNoArchive') + ' ' + mailObject.subject);
 	}
 };

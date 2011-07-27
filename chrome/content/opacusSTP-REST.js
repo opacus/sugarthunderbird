@@ -127,7 +127,7 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 						var parsed = JSON.parse(client.responseText);
 					}
 					catch(ex){
-						Components.utils.reportError("OpacusSTP unable to parse response: "+client.responseText);
+						opacusSTP.console.logStringMessage("OpacusSTP unable to parse response: "+client.responseText)
 						opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoConnect'));
 						return;
 					}
@@ -135,7 +135,7 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 				}
 			} else {
 				opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoConnect'));
-				Components.utils.reportError("OpacusSTP bailing on client return status: "+client.status);
+				opacusSTP.console.logStringMessage("OpacusSTP bailing on client return status: "+client.status)
 			}
 		}
 	}

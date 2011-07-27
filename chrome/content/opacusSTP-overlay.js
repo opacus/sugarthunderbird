@@ -52,6 +52,8 @@ var opacusSTP = {
          .getService(Components.interfaces.nsIPrefService)
          .getBranch("extensions.opacusSTP.")
          .QueryInterface(Components.interfaces.nsIPrefBranch),
+  console : Components.classes["@mozilla.org/consoleservice;1"]
+                                 .getService(Components.interfaces.nsIConsoleService),
 
   onLoad: function() {
 	// initialization code
@@ -140,7 +142,7 @@ var opacusSTP = {
       if (ver!=thisVersion && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
         opacusSTP.prefs.setCharPref("version",thisVersion);  
    		opacusSTP.updateServerInfo(false);
-      } else {
+      } else if(!firstrun){
 		// Update the server details from the preferences
 		opacusSTP.updateServerInfo(false);
 	  }	    
@@ -223,8 +225,8 @@ var opacusSTP = {
   updateServerInfo: function(optionsWindow){
 	opacusSTP.webservice = '';
     try{
-		opacusSTP.sugarurl = opacusSTP.prefs.getComplexValue("sugarcrm_url",Components.interfaces.nsIPrefLocalizedString).data.replace(/\/$/,'');
-		opacusSTP.sugarcrm_username = opacusSTP.prefs.getComplexValue("sugarcrm_username",Components.interfaces.nsIPrefLocalizedString).data;
+		opacusSTP.sugarurl = opacusSTP.prefs.getCharPref("sugarcrm_url").replace(/\/$/,'');
+		opacusSTP.sugarcrm_username = opacusSTP.prefs.getCharPref("sugarcrm_username");
 		opacusSTP.opacus_notify = opacusSTP.prefs.getBoolPref("opacus_notify");
 		opacusSTP.opacus_cases = opacusSTP.prefs.getBoolPref("opacus_cases");
 		opacusSTP.opacus_ldap = opacusSTP.prefs.getBoolPref("opacus_ldap");

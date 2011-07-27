@@ -27,11 +27,11 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://opacusSTP/locale/about.dtd">
 
-<dialog title="&about; Opacus SugarCRM Thunderbird Plugin" orient="vertical" autostretch="always" onload="sizeToContent()" buttons="accept" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<dialog title="&about; Opacus SugarCRM Thunderbird Extension" orient="vertical" autostretch="always" onload="sizeToContent()" buttons="accept" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <groupbox align="center" orient="horizontal">
     <vbox>
-      <text value="Opacus SugarCRM Thunderbird Plugin" style="font-weight: bold; font-size: large;"/>
-      <text value="&version; 1.5.1"/>
+      <text value="Opacus SugarCRM Thunderbird Extension" style="font-weight: bold; font-size: large;"/>
+      <text value="&version; 1.5.2"/>
       <separator class="thin"/>
       <text value="&createdBy;" style="font-weight: bold;"/>
       <text value="Opacus Solutions Ltd ©2010"/>
