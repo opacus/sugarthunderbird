@@ -78,8 +78,9 @@ var opacusSTP = {
 	try {
 		Components.utils.import("resource://gre/modules/AddonManager.jsm");
 		AddonManager.getAddonByID("prodevelopment@opacus.co.uk", function(addon) {
-			if(alert('Please disable the Standard Opacus extension while using the Professional version')){
-					opacusSTP.showInfoTab('about:addons');
+			if(addon.isActive){
+				opacusSTP.showInfoTab('about:addons');
+				opacusSTP.notifyUser('critical','Please disable the Standard Opacus Extension when using the Professional edition');
 			}
 		});
 	}
