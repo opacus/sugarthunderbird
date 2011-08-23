@@ -1,0 +1,16 @@
+<!ENTITY opacus_context.label "Opacus Impostazioni SugarCRM">
+<!ENTITY opacus_contactsync.label "Opacus SugarCRM Sincronizza Contatto">
+<!ENTITY opacus_context_archive.label "Archivia mails su SugarCRM">
+<!ENTITY opacus_context_bulk_archive.label "Auto-archivia mails su SugarCRM">
+<!ENTITY opacus_context_contact.label "Contatto">
+<!ENTITY opacus_context_lead.label "Lead">
+<!ENTITY opacus_help.label "Opacus Help">
+<!ENTITY opacus_context_button.label "Archivia">
+<!ENTITY opacus_context_case.label "Caso">
+<!ENTITY opacus_context_create.label "SugarCRM Crea">
+<!ENTITY opacus_context_opportunity.label "Opportunity">
+<!ENTITY opacus_context_account.label "Account">
+<!ENTITY opacus.send_archive.label "Invia+Archivia">
+<!ENTITY opacus.send_auto_archive.label "Invia+Auto-Archivia">
+<!ENTITY opacus.send_archive_tooltip "Archivia su SugarCRM prima di inviare">
+<!ENTITY opacus.send_auto_archive_tooltip "Auto-archiva su SugarCRM durante l'invio">

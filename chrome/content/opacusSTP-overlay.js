@@ -75,6 +75,18 @@ var opacusSTP = {
 		opacusSTP.runAtStart(current);
 	}
 
+	try {
+		Components.utils.import("resource://gre/modules/AddonManager.jsm");
+		AddonManager.getAddonByID("prodevelopment@opacus.co.uk", function(addon) {
+			if(alert('Please disable the Standard Opacus extension while using the Professional version')){
+					opacusSTP.showInfoTab('about:addons');
+			}
+		});
+	}
+	catch(ex){
+	}
+
+
 
 	// Tags
 	var tagService = Components. classes["@mozilla.org/messenger/tagservice;1"].

@@ -3,12 +3,13 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>development@opacus.co.uk</em:id>
     <em:type>2</em:type>
-    <em:name>Opacus SugarCRM Thunderbird Extension</em:name>
-    <em:version>1.5.2</em:version>
+    <em:name>Opacus SugarCRM Thunderbird Extension Standard</em:name>
+    <em:version>1.5.3</em:version>
     <em:iconURL>chrome://opacusSTP/content/images/icon.png</em:iconURL>
     <em:creator>Mathew Bland, Jonathan Cutting, Opacus Solutions Ltd (C)2009,2010,2011</em:creator>
     <em:translator>Robert Laussegger (de-DE)</em:translator>
     <em:translator>Jørn Skifter Andersen (da-DK)</em:translator>
+    <em:translator>Marco Buttafoco (it-IT)</em:translator>
     <em:contributor></em:contributor>
     <em:description>Enables the archiving of emails into SugarCRM from Thunderbird 3 and above.</em:description>
     <em:aboutURL>chrome://opacusSTP/content/opacusSTP-about.xul</em:aboutURL>

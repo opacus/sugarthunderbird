@@ -1,0 +1,29 @@
+<!ENTITY createwindow.title "Opacus Crea">
+<!ENTITY opacus_createdetails.label "Dettagli">
+<!ENTITY opacus_firstname.label "Nome:">
+<!ENTITY opacus_lastname.label "Cognome: <span style='display:inline;font-size: .8em;font-style:italic;'>(campo necessario)</span>">
+<!ENTITY opacus_phone_office.label "Telefono Ufficio:">
+<!ENTITY opacus_phone_mobile.label "Cellulare:">
+<!ENTITY opacus_title.label "Professione:">
+<!ENTITY opacus_createaccountdetails.label "Account:">
+<!ENTITY opacus_account_name.label "Nome Account:">
+<!ENTITY opacus_contact_search.label "Nome Contatto o Email:">
+<!ENTITY opacus_email_address.label "Email:">
+<!ENTITY account_search.label "Cerca">
+<!ENTITY create.label "Crea">
+<!ENTITY cancel.label "Cancella">
+<!ENTITY opacus_description.label "Descrizione:">
+<!ENTITY opacus_opportunityamount.label "Importo: <span style='display:inline;font-size: .8em;font-style:italic;'>(campo necessario)</span>">
+<!ENTITY opacus_opportunityclosedate.label "Previsione di chiusura:">
+<!ENTITY opacus_opportunitysalesstage.label "Fase di vendita: <span style='display:inline;font-size: .8em;font-style:italic;'>(campo necessario)</span>">
+<!ENTITY opacus_casestatus.label "Stato:">
+<!ENTITY opacus_accounttype.label "Tipo:">
+<!ENTITY opacus_casepriority.label "Priorità:">
+<!ENTITY opacus_casetype.label "Tipo:">
+<!ENTITY opacus_add_account.label "Inserisci nuovo Account">
+<!ENTITY opacus_add_contact.label "Inserisci nuovo Contatto">
+<!ENTITY opacus_new.label "Nuovo">
+<!ENTITY opacus_name.label "Nome: <span style='display:inline;font-size: .8em;font-style:italic;'>(campo necessario)</span>">
+<!ENTITY opacus_emptymenulist.label "--   selezionare   --">
+<!ENTITY opacus_resolution.label "Soluzione:">
+<!ENTITY opacus_lead_source.label "Lead Source:">

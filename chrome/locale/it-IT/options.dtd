@@ -1,0 +1,44 @@
+<!ENTITY prefwindow.title "Opacus Impostazioni Avanzate">
+<!ENTITY pane1.title "Connessione">
+<!ENTITY pane2.title "Avanzate">
+<!ENTITY pane3.title "Moduli">
+<!ENTITY pane4.title "Sincronizza">
+<!ENTITY pane5.title "Licenza">
+<!ENTITY sugarcrm_url.label "SugarCRM URL <span style='display:inline;font-size: .8em;font-style:italic;'>es. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRM Nome Utente">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRM Password">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Licenza Opacus <span style='display:inline;font-size: .8em;font-style:italic;'>da http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Abilita archivio automatico per la posta in entrata">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Archivia gli allegati quando esegue auto-archiviazione">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "Sincronizza solo i miei contatti">
+<!ENTITY honoursynctooutlook.label "Rispetta l'impostazione 'Sync to Outlook' in SugarCRM">
+<!ENTITY opacus_notify.label "Abilita notifiche per nuove mail Opacus">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Analizza soggetto per numero di casi">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_addbcc.label "Inserisci il campo ccn per le mail in uscita auto-archiviate">
+<!ENTITY opacus_addbcc.accesskey "B">
+<!ENTITY opacus_serverdetails.label "Informazioni del Server">
+<!ENTITY opacus_advanceddetails.label "Avanzate">
+<!ENTITY opacus_ldapdetails.label "Configurazione LDAP">
+<!ENTITY opacus_custommodules.label "Moduli Personalizzati">
+<!ENTITY opacus_licencedetails.label "Dettagli della Licenza">
+<!ENTITY opacus_sync.label "Opzioni di Sincronizzazione">
+<!ENTITY opacus_miscoptions.label "Altre Opzioni">
+<!ENTITY opacus_getcustommodules.label "Aggiorna i moduli personalizzati">
+<!ENTITY opacus_addbuttons.label "Aggiungi i pulsanti nella barra degli strumenti">
+<!ENTITY opacus_saveprefs.label "Salva">
+<!ENTITY opacus_notify.tooltiptext "Evidenzia le nuove mail mostrando soggetto ed mittente">
+<!ENTITY opacus_ldap.label "Usa autenticazione LDAP">
+<!ENTITY opacus_ldap_key.label "chiave LDAP <span style='display:inline;font-size: .8em;font-style:italic;'>(Per nessuna chiave lasciare vuoto)</span>">
+<!ENTITY opacus_conflicts.label "Applicazione per la gestione dei conflitti">
+<!ENTITY opacus_blacklistdetails.label "Escludi questi indirizzi dall'auto-archiviazione:">
+<!ENTITY opacus_testConnectionSettings.label "Prova le impostazioni">
+<!ENTITY opacus_blacklist.tooltiptext "Inserisci un solo indirizzo mail (bob@example.com) o un dominio (example.com) per ogni riga">
+<!ENTITY opacus_usestoredid.label "Utilizza id Email salvato localmente">
