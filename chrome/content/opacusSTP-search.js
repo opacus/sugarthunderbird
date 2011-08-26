@@ -36,7 +36,7 @@ function opacusSTPsearch(parent,searchSuggestion,subject){
 }
 
 opacusSTPsearch.prototype.check = function(returnFunc){
-	function checkSession(){
+	function checkSession(onceMore){
 		if(opacusSTP.session_id=='' || onceMore == true || opacusSTP.webservice.waitingForLogin == true){
 			searchObject.loginTimer.cancel();
 			if(opacusSTP.session_id != ''){
@@ -45,7 +45,7 @@ opacusSTPsearch.prototype.check = function(returnFunc){
 			var event = { notify: function(timer) {
 				counter++;
 				if(counter < 100){
-					checkSession();
+					checkSession(onceMore);
 				} else {
 					opacusSTP.notifyUser('critical',opacusSTP.strings.getString('notifyNoLogin'));
 					return;
@@ -120,8 +120,8 @@ opacusSTPsearch.prototype.updateFields = function(){
 };
 
 opacusSTPsearch.prototype.getSelectedModules = function(){	
-	cells = this.searchWindow.document.getElementById('moduleList').getElementsByTagName('listcell');
-	return_array = new Array();
+	var cells = this.searchWindow.document.getElementById('moduleList').getElementsByTagName('listcell');
+	var return_array = new Array();
 	for( var i in cells){
 		try{
 			var cellLabel = cells[i].getAttribute('id');
@@ -141,19 +141,22 @@ opacusSTPsearch.prototype.performSearch = function(){
 };
 
 opacusSTPsearch.prototype.runSearch = function(searchObject){
+	var query;
+	var select_fields;
 	opacusSTP.searchChildren=0;
 	var selectedModules = searchObject.getSelectedModules();
 	searchObject.searchString = searchObject.searchWindow.document.getElementById('searchField').value;
 	searchObject.searchWindow.document.getElementById('feedback').setAttribute('mode','undetermined');
 	searchObject.searchWindow.document.getElementById('searchButton').setAttribute('label',opacusSTP.strings.getString('searching'));
 	searchObject.searchString = searchObject.searchString.toLowerCase().replace("'","\\'");
-	resultList = searchObject.searchWindow.document.getElementById('resultList');
+	var resultList = searchObject.searchWindow.document.getElementById('resultList');
 	while(resultList.childNodes.length >= 3){
         	resultList.removeChild( resultList.lastChild );
 	}
 
 	for(var i in selectedModules)
 	{
+		var searchArray;
 		var extraSearch = '';
 		var module = selectedModules[i];
 		var module_lowercase = selectedModules[i].toLowerCase();
