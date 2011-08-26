@@ -67,6 +67,16 @@ var opacusSTP = {
 			var current = addon.version;
 			opacusSTP.runAtStart(current);
 		});
+		try {
+			AddonManager.getAddonByID("prodevelopment@opacus.co.uk", function(addon) {
+				if(addon.isActive){
+					opacusSTP.showInfoTab('about:addons');
+					opacusSTP.notifyUser('critical','Please disable the Standard Opacus Extension when using the Professional edition');
+				}
+			});
+		}
+			catch(ex){
+		}
 	}
 	catch(ex){
 		var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]  
@@ -75,17 +85,7 @@ var opacusSTP = {
 		opacusSTP.runAtStart(current);
 	}
 
-	try {
-		Components.utils.import("resource://gre/modules/AddonManager.jsm");
-		AddonManager.getAddonByID("prodevelopment@opacus.co.uk", function(addon) {
-			if(addon.isActive){
-				opacusSTP.showInfoTab('about:addons');
-				opacusSTP.notifyUser('critical','Please disable the Standard Opacus Extension when using the Professional edition');
-			}
-		});
-	}
-	catch(ex){
-	}
+
 
 
 
