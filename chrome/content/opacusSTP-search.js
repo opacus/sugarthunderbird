@@ -101,31 +101,33 @@ opacusSTPsearch.prototype.updateFields = function(){
 	{
 		var row = document.createElement('listitem');
 		var cell = document.createElement('listcell');
-		cell.setAttribute('label',opacusSTP.strings.getString(this.searchableModules[i]));
-		cell.setAttribute('id',this.searchableModules[i]);
-		cell.setAttribute("onclick",
-			"if(this.nextSibling.checked==false){this.nextSibling.checked=true}else{this.nextSibling.checked=false}");
 		var checkbox = document.createElement('checkbox');
-		row.setAttribute('allowevents','true');
 		
+		checkbox.setAttribute('label',opacusSTP.strings.getString(this.searchableModules[i]));
+		checkbox.setAttribute('id',this.searchableModules[i]);
+		checkbox.setAttribute('flex','1');
+		row.setAttribute('allowevents','true');
+		row.setAttribute('flex','1');
+
 		for(var j in this.selectedModules){
 			if(this.selectedModules[j] == this.searchableModules[i]){
 				checkbox.setAttribute('checked','true');
 			}
 		}
+
+		cell.appendChild(checkbox);
 		row.appendChild(cell);
-		row.appendChild(checkbox);
 		this.searchWindow.document.getElementById('moduleList').appendChild(row);
 	}
 };
 
 opacusSTPsearch.prototype.getSelectedModules = function(){	
-	var cells = this.searchWindow.document.getElementById('moduleList').getElementsByTagName('listcell');
+	var checkboxes = this.searchWindow.document.getElementById('moduleList').getElementsByTagName('checkbox');
 	var return_array = new Array();
-	for( var i in cells){
+	for(var i in checkboxes){
 		try{
-			var cellLabel = cells[i].getAttribute('id');
-			if(cells[i].nextSibling.checked){
+			var cellLabel = checkboxes[i].getAttribute('id');
+			if(checkboxes[i].checked){
 				return_array.push(cellLabel);
 			}
 		}

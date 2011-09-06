@@ -1,82 +1,62 @@
 <?xml version="1.0"?>
-<!--
-/**********************************************************************
- * Portions written by Opacus (C) Mathew Bland, Jonathan Cutting,
- * Opacus Ltd.
- * 
- * This file is part of the Opacus SugarCRM Thunderbird Plugin.
- *
- * The Opacus SugarCRM Thunderbird Plugin
- * is free software:you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * The Opacus SugarCRM Thunderbird Plugin
- * is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with the Opacus SugarCRM Thunderbird Plugin.
- * If not, see <http://www.gnu.org/licenses/>.
- *********************************************************************/
- -->
+<!-- /********************************************************************** * Portions written by Opacus (C) Mathew Bland, Jonathan Cutting, * Opacus Ltd. * * This file is part of the Opacus SugarCRM Thunderbird Plugin. * * The Opacus SugarCRM Thunderbird Plugin * is free software:you can redistribute it and/or modify * it under the terms of the GNU General Public License as published by * the Free Software Foundation, either version 3 of the License, or * (at your option) any later version. * * The Opacus SugarCRM Thunderbird Plugin * is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License for more details. * * You should have received a copy of the GNU General Public License * along with the Opacus SugarCRM Thunderbird Plugin. * If not, see <http://www.gnu.org/licenses/>. *********************************************************************/ -->
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://opacusSTP/content/opacusSTP-css.css" type="text/css"?>
-<!DOCTYPE searchwindow SYSTEM "chrome://opacusSTP/locale/search.dtd">
+<!DOCTYPE searchwindow SYSTEM "chrome://opacusSTP/locale/search.dtd" >
 <window title="&searchwindow.title;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="opener.opacusSTP.searchObject.updateSearchField()" onclose="return opener.opacusSTP.searchObject.searchWindowClose()">
-
-
-      <vbox flex="1">
-        <groupbox flex="1">
-        <hbox><hbox><caption label="&opacus_search.label;"/></hbox><hbox flex='1' align='right' style='padding: 3px 5px 0 0' >
-			<image style='cursor:pointer;' onclick="opener.opacusSTP.link('http://www.opacus.co.uk')" width="63" height="21" src="chrome://opacusSTP/content/images/opacus25.png" />
-        <label onclick="opener.opacusSTP.showInfoTab('https://addons.mozilla.org/en-US/thunderbird/addon/opacus-sugarcrm-thunderbird/?src=external-gopro')" style="font-size: 1em; font-style: italic; margin: 0 .5em;" class="text-link" value="Go pro!" /></hbox></hbox>
-        <label control="searchField" value="&opacus_searchFor.label;" />
-          <hbox>
-            <textbox id="searchField" value="" flex="1" onkeydown="if (event.keyCode == 13) document.getElementById('searchButton').click()"/>
-            <button id="searchButton" label="&opacus_search.label;" accesskey="&opacus_search.accesskey;" onclick="if(!this.disabled==true){this.disabled=true;opener.opacusSTP.searchObject.performSearch();}"/>
-          </hbox>
-          <hbox flex="1" height="300" width="500">
-            <groupbox flex="1" id="resultBox">
-            <caption label="&opacus_results.label;"/>
-		<listbox id="resultList" flex="1" seltype="mutiple">
-			<listhead>
-				<listheader label="&opacus_sugarObjects.label;" flex="1" />
-			</listhead>
-			<listcols>
-				<listcol flex="1" />
-			</listcols>
-		</listbox>
-            </groupbox>
-            <groupbox>
-            <caption label="&opacus_modules.label;"/>
-              	<listbox id="moduleList" seltype="multiple" flex="1">
-			<listhead>
-				<listheader label="Module" flex="4"/>
-				<listheader label="" flex="1"/>
-			</listhead>
-			<listcols>
-				<listcol flex="1"/>
-				<listcol/>
-			</listcols>
-		</listbox>	
-            </groupbox>
-          </hbox>
-          <hbox align="right">
-			<hbox id='feedbackBox' align='center' flex='1' width='50%'>
-				<progressmeter hidden='false' id="feedback" flex='1' mode="determined"/>
-			</hbox>
-            <button label="&opacus_cancel.label;" accesskey="&opacus_cancel.accesskey;" onclick="opener.opacusSTP.searchObject.searchWindowClose();window.close();"/>
-            <button id='archive_button' label="&opacus_archive.label;" accesskey="&opacus_archive.accesskey;" onclick="if(!this.disabled==true){this.disabled=true;opener.opacusSTP.archiveMails();}"/>
-          </hbox>
+  <vbox flex="1">
+    <groupbox flex="1">
+      <hbox>
+        <hbox>
+          <caption label="&opacus_search.label;" />
+        </hbox>
+        <hbox flex='1' align='right' style='padding: 3px 5px 0 0'>
+          <image style='cursor:pointer;' onclick="opener.opacusSTP.link('http://www.opacus.co.uk')" width="63" height="21" src="chrome://opacusSTP/content/images/opacus25.png" />
+          <label onclick="opener.opacusSTP.showInfoTab('https://addons.mozilla.org/en-US/thunderbird/addon/opacus-sugarcrm-thunderbird/?src=external-gopro')" style="font-size: 1em; font-style: italic; margin: 0 .5em;" class="text-link" value="Go pro!" />
+        </hbox>
+      </hbox>
+      <label control="searchField" value="&opacus_searchFor.label;" />
+      <hbox>
+        <textbox id="searchField" value="" flex="1" onkeydown="if (event.keyCode == 13) document.getElementById('searchButton').click()" />
+        <button id="searchButton" label="&opacus_search.label;" accesskey="&opacus_search.accesskey;" onclick="if(!this.disabled==true){this.disabled=true;opener.opacusSTP.searchObject.performSearch();}" />
+      </hbox>
+      <hbox flex="1" height="300" width="500">
+        <groupbox flex="1" id="resultBox">
+          <caption label="&opacus_results.label;" />
+          <listbox id="resultList" flex="1" seltype="mutiple">
+            <listhead>
+              <listheader label="&opacus_sugarObjects.label;" flex="1" />
+            </listhead>
+            <listcols>
+              <listcol flex="1" />
+            </listcols>
+          </listbox>
         </groupbox>
+        <splitter id="opacusSearchSplitter" insertafter="resultBox" hidden="false" />
         <groupbox>
-	  <hbox>
-          	<checkbox id="doAttachments" label="&opacus_doAttachments.label;" checked="true"/>
-	  </hbox>
+          <caption label="&opacus_modules.label;" />
+          <listbox id="moduleList" seltype="multiple" flex="1">
+            <listhead>
+              <listheader label="Module" flex="1" />
+            </listhead>
+            <listcols>
+              <listcol flex="1" />
+            </listcols>
+          </listbox>
         </groupbox>
-      </vbox>
+      </hbox>
+      <hbox align="right">
+        <hbox id='feedbackBox' align='center' flex='1' width='50%'>
+          <progressmeter hidden='false' id="feedback" flex='1' mode="determined" />
+        </hbox>
+        <button label="&opacus_cancel.label;" accesskey="&opacus_cancel.accesskey;" onclick="opener.opacusSTP.searchObject.searchWindowClose();window.close();" />
+        <button id='archive_button' label="&opacus_archive.label;" accesskey="&opacus_archive.accesskey;" onclick="if(!this.disabled==true){this.disabled=true;opener.opacusSTP.archiveMails();}" />
+      </hbox>
+    </groupbox>
+    <groupbox>
+      <hbox>
+        <checkbox id="doAttachments" label="&opacus_doAttachments.label;" checked="true" />
+      </hbox>
+    </groupbox>
+  </vbox>
 </window>
