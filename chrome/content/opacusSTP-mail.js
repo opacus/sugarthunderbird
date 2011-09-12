@@ -192,7 +192,7 @@ opacusSTPMail.prototype.archive_callback = function(response,mailObject){
 		}
 		for(var i=0; i < mailObject.sugarObjects.length; i++){
 			mailObject.relationshipCalls++;
-			sugarObjectArray = mailObject.sugarObjects[i].split(':');
+			var sugarObjectArray = mailObject.sugarObjects[i].split(':');
 			mailObject.worker.callback = mailObject.createRelationship_callback;
 			mailObject.worker.createRelationship(response.id,sugarObjectArray[0],sugarObjectArray[1],mailObject);
 		}

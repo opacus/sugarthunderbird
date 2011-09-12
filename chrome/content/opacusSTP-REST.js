@@ -87,6 +87,7 @@ opacusSTPrest.prototype.full_login_callback = function(response,extraData){
 
 opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 
+	var input_type;
 	var client = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                         .createInstance(Components.interfaces.nsIXMLHttpRequest);
 

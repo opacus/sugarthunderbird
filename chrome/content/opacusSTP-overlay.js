@@ -359,7 +359,7 @@ var opacusSTP = {
 	opacusSTP.searchObject.searchWindow.document.getElementById('feedback').setAttribute('mode','undetermined');
 	opacusSTP.searchObject.searchWindow.document.getElementById('archive_button').setAttribute('label',opacusSTP.strings.getString('archiving'));
 	for(var i=0;i<this.mails.length;i++){
-		worker = new opacusSTPrest();
+		var worker = new opacusSTPrest();
 		worker.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
 		this.mails[i].sugarObjects = sugarObjects;
 		this.mails[i].worker = worker;
@@ -485,4 +485,4 @@ var opacusSTP = {
   }
 };
 
-window.addEventListener("load", opacusSTP.onLoad, false);
+window.addEventListener("load", function() {opacusSTP.onLoad();}, false);
