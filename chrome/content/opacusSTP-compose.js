@@ -21,10 +21,33 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *********************************************************************/
 // Compose
-function addSendButton(){
+function opacusSTPsendObserver() {
 	var wMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-	var parentWindow = wMediator.getMostRecentWindow("mail:3pane");
-	if(parentWindow.opacusSTP.prefs.getBoolPref('addButtons') === true){
+	this.parentWindow = wMediator.getMostRecentWindow("mail:3pane");
+	this.register();
+	this.addSendButton();
+};
+
+opacusSTPsendObserver.prototype = {
+  observe: function(subject, topic, data) {
+	if(this.parentWindow.opacusSTP.sendAndArchiveStatus == 'success'){
+		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: onsend\r\n"; 
+	} else {
+		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: none\r\n";
+	}
+  },
+  register: function() {
+    var observerService = Components.classes["@mozilla.org/observer-service;1"]
+                          .getService(Components.interfaces.nsIObserverService);
+    observerService.addObserver(this, "mail:composeOnSend", false);
+  },
+  unregister: function() {
+    var observerService = Components.classes["@mozilla.org/observer-service;1"]
+                            .getService(Components.interfaces.nsIObserverService);
+    observerService.removeObserver(this, "mail:composeOnSend");
+  },
+  addSendButton: function(){
+	if(this.parentWindow.opacusSTP.prefs.getBoolPref('addButtons') === true){
 		try {
 		  var myId    = "opacusSTP-send"; // ID of button to add
 		  var afterId = "button-send";    // ID of element to insert after
@@ -45,35 +68,8 @@ function addSendButton(){
 		  }
 		}
 		catch(e) {}
-		parentWindow.opacusSTP.prefs.setBoolPref("addButtons",false);
-	}
-}
-
-
-
-function SendObserver() {
-	var wMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-	this.parentWindow = wMediator.getMostRecentWindow("mail:3pane");
-	this.register();
-}
-
-SendObserver.prototype = {
-  observe: function(subject, topic, data) {
-	if(this.parentWindow.opacusSTP.sendAndArchiveStatus == 'success'){
-		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: onsend\r\n"; 
-	} else {
-		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: none\r\n";
-	}
-  },
-  register: function() {
-    var observerService = Components.classes["@mozilla.org/observer-service;1"]
-                          .getService(Components.interfaces.nsIObserverService);
-    observerService.addObserver(this, "mail:composeOnSend", false);
-  },
-  unregister: function() {
-    var observerService = Components.classes["@mozilla.org/observer-service;1"]
-                            .getService(Components.interfaces.nsIObserverService);
-    observerService.removeObserver(this, "mail:composeOnSend");
+		this.parentWindow.opacusSTP.prefs.setBoolPref("addButtons",false);
+    }
   }
 };
 
@@ -84,12 +80,10 @@ SendObserver.prototype = {
  * 
  * Unregister to prevent memory leaks (as per MDC documentation).
  */
-var sendObserver;
-window.addEventListener('load', function (e) {addSendButton()}, false);
 // Make use of Gecko 1.9.2 activate event too
-window.addEventListener('activate', function (e) {addSendButton()}, false);
-window.addEventListener('load', function (e) {if (e.target == document) sendObserver = new SendObserver(); }, true);
-window.addEventListener('unload', function (e) { if (e.target == document) sendObserver.unregister();}, true);
+window.addEventListener('activate', function (e) {opacusSTPsendObserver.addSendButton()}, false);
+window.addEventListener('load', function (e) {if (e.target == document) opacusSTPsendObserver = new opacusSTPsendObserver(); }, true);
+window.addEventListener('unload', function (e) { if (e.target == document) opacusSTPsendObserver.unregister();}, true);
 
 
 

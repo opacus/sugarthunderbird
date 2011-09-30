@@ -85,10 +85,6 @@ var opacusSTP = {
 		opacusSTP.runAtStart(current);
 	}
 
-
-
-
-
 	// Tags
 	var tagService = Components. classes["@mozilla.org/messenger/tagservice;1"].
                  getService (Components.interfaces.nsIMsgTagService);
@@ -128,10 +124,10 @@ var opacusSTP = {
 				}
 			}
     }
-    this.notificationService =  
+    opacusSTP.notificationService =  
         Components.classes["@mozilla.org/messenger/msgnotificationservice;1"]  
         .getService(Components.interfaces.nsIMsgFolderNotificationService);
-        notificationService.addListener(newMailListener, notificationService.msgAdded);
+	opacusSTP.notificationService.addListener(newMailListener, opacusSTP.notificationService.msgAdded);
   },
 
 
@@ -151,17 +147,13 @@ var opacusSTP = {
         opacusSTP.prefs.setCharPref("version",thisVersion);
         opacusSTP.showInfoTab("chrome://opacusSTP/content/version.html");    
       }
-               
-      if (ver!=thisVersion && !firstrun){ // !firstrun ensures that this section does not get loaded if its a first run.  
-        opacusSTP.prefs.setCharPref("version",thisVersion);  
-   		opacusSTP.updateServerInfo(false);
-      } else if(!firstrun){
+
+      if(!firstrun){
 		// Update the server details from the preferences
 		opacusSTP.updateServerInfo(false);
 	  }	    
     }
   },
-
 
 
   showPreferences: function(){

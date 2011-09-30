@@ -33,7 +33,7 @@
   <toolbarbutton id="opacusSTP-send"
   label="Send+Archive"
   tooltiptext="Archive to SugarCRM before sending"
-  oncommand="sendObserver.parentWindow.opacusSTP.sendAndArchive(window);"
+  oncommand="opacusSTPsendObserver.parentWindow.opacusSTP.sendAndArchive(window);"
   class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
   />
 </toolbarpalette>
