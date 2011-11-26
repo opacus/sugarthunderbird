@@ -14,7 +14,7 @@
 <!ENTITY opacus_modules.label "Moduli">
 <!ENTITY opacus_sugarObjects.label "Oggetti in Sugar">
 <!ENTITY opacus_search.label "Cerca">
-<!ENTITY opacus_searchFor.label "Separa le query con ;">
+<!ENTITY opacus_searchFor.label "Ricercare…">
 <!ENTITY opacus_results.label "Risultati">
 <!ENTITY opacus_openInSugar.label "Apri in SugarCRM">
 <!ENTITY opacus_edit_email.label "Modifica Email">

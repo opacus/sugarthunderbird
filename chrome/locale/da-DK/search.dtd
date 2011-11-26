@@ -14,6 +14,6 @@
 <!ENTITY opacus_modules.label "Moduler">
 <!ENTITY opacus_sugarObjects.label "Sugar Objekter">
 <!ENTITY opacus_search.label "Søg">
-<!ENTITY opacus_searchFor.label "Søg efter..">
+<!ENTITY opacus_searchFor.label "Søg efter…">
 <!ENTITY opacus_results.label "Resultat">
 <!ENTITY opacus_openInSugar.label "Åben i SugarCRM">

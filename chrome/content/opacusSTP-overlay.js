@@ -57,7 +57,7 @@ var opacusSTP = {
 
   onLoad: function() {
 	// initialization code
-	this.initialized = true;
+	opacusSTP.initialized = true;
 	opacusSTP.strings = document.getElementById("opacus_strings");
 
 	try {
