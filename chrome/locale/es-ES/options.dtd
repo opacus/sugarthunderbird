@@ -1,0 +1,71 @@
+<!ENTITY prefwindow.title "Opacus Extension Preferencias">
+<!ENTITY pane1.title "Connexión">
+<!ENTITY pane2.title "Avanzado">
+<!ENTITY pane3.title "Módulos">
+<!ENTITY pane4.title "Sincronización">
+<!ENTITY pane5.title "Licencia">
+<!ENTITY sugarcrm_url.label "URL de SugarCRM <span style='display:inline;font-size: .8em;font-style:italic;'>e.g. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "Usuario de SugarCRM">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "Contraseñas de SugarCRM">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Clave de Licencia de Opacus">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Habitlitar autoarchivado de correo entrante">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Archivar los adjuntos cuando se autoarchive">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "Sincronizar solamente mis registros">
+<!ENTITY honoursynctooutlook.label "Honrar la configuración 'Sincronizar con Outlook' en SugarCRM">
+<!ENTITY opacus_notify.label "Habilitar la notificación de correo de Opacus">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Analizar el asunto en busca de números de casos">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_addbcc.label "Añadir recipientes ocultos al autoarchivar">
+<!ENTITY opacus_addbcc.accesskey "B">
+<!ENTITY opacus_serverdetails.label "Información del Servidor">
+<!ENTITY opacus_advanceddetails.label "Detalles Avanzados">
+<!ENTITY opacus_ldapdetails.label "Configuración de LDAP">
+<!ENTITY opacus_custommodules.label "Módulos Personalizados">
+<!ENTITY opacus_licencedetails.label "Detalles de la Licencia">
+<!ENTITY opacus_sync.label "Opciones de Sincronización">
+<!ENTITY opacus_miscoptions.label "Opciones Varias">
+<!ENTITY opacus_getcustommodules.label "Refrescar módulos personalizados">
+<!ENTITY opacus_addbuttons.label "Añadir botones de barra de herramientas">
+<!ENTITY opacus_saveprefs.label "Guardar">
+<!ENTITY opacus_notify.tooltiptext "Notificación de correo nuevo mostrando asunto y remitente">
+<!ENTITY opacus_ldap.label "Usar autenticación LDAP">
+<!ENTITY opacus_ldap_key.label "Clave de LDAP <span style='display:inline;font-size: .8em;font-style:italic;'>(dejar en blanco para PLANA)</span>">
+<!ENTITY opacus_conflicts.label "Applicación principal en caso de conflictos">
+<!ENTITY opacus_blacklistdetails.label "Excluir estas direcciones en autoarchivado:">
+<!ENTITY opacus_testConnectionSettings.label "Probar Configuraciones">
+<!ENTITY opacus_blacklist.tooltiptext "Por favor, introduzca un único correo electrónico (bob@ejemplo.com) o dominio (ejemplo.com) en cada línea">
+<!ENTITY opacus_usestoredid.label "Usar identificadores de correo almacenados localmente">
+<!ENTITY opacus_freetrial.label "Licencia Gratuita de Evaluación">
+<!ENTITY opacus_activate.label "Activar">
+<!ENTITY opacus_activation_key.label "Clave de Activación <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_activatedetails.label "Detalles de la Activación">
+<!ENTITY trialwindow.cancel "Cancelar">
+<!ENTITY trialwindow.confirm "Confirmar">
+<!ENTITY opacus_applicant_name.label "Su Nombre:">
+<!ENTITY opacus_applicant_email.label "Su Correo Electrónico:">
+<!ENTITY opacus_confirm.label "Confirme sus detalles">
+<!ENTITY opacus_trial_text.label "Por favor, confirme sus detalles y le enviaremos por correo electrónico su licencia gratuita de evaluación.">
+<!ENTITY opacus_licenceExplained.label "¿Cómo funciona el licenciamiento?">
+<!ENTITY opacus_searchonopen.label "Buscar al abrir la ventana de búsqueda">
+<!ENTITY opacus_syncatstart.label "Sincronizar después de iniciar">
+<!ENTITY opacus_synchourly.label "Sincronizar cada hora">
+<!ENTITY opacus_contacts "Contactoss">
+<!ENTITY opacus_leads "Clientes Potenciales">
+<!ENTITY opacus_both "Ambos">
+<!ENTITY opacus_syncmodules.label "Sincronizar módulos:">
+<!ENTITY opacus_syncdeletions.label "Sincronizar eliminados">
+<!ENTITY opacus_deletions.label "Elementos Eliminados">
+<!ENTITY opacus_oneitem.label "cualquier registro">
+<!ENTITY opacus_fiveitems.label "Más de 5 registros">
+<!ENTITY opacus_twentyitems.label "Más de 20 registros">
+<!ENTITY opacus_hundreditems.label "Más de 100 registros">
+<!ENTITY opacus_noitems.label "no preguntar nunca">
+<!ENTITY opacus_deletethreshold.label "Preguntar al eliminar">
+<!ENTITY opacus_filtersaftersync.label "Ejecutar los filtros en la carpeta seleccionada después de sincronizar">

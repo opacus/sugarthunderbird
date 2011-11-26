@@ -1,0 +1,58 @@
+<!ENTITY prefwindow.title "Opacus Préférences de l'extension">
+<!ENTITY pane1.title "Connexion">
+<!ENTITY pane2.title "Avancé">
+<!ENTITY pane3.title "Modules">
+<!ENTITY pane4.title "Sync">
+<!ENTITY pane5.title "License">
+<!ENTITY sugarcrm_url.label "URL SugarCRM <span style='display:inline;font-size: .8em;font-style:italic;'>e.g. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRM Login">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRM Mot de passe">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Opacus Clé de License">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Activer l'archivage automatique pour les emails entrants">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Archiver les pièces jointes lors de l'archivage automatique">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "Synchroniser seulement mes contacts">
+<!ENTITY honoursynctooutlook.label "Respecter le paramètre 'Synchroniser Contact' dans SugarCRM">
+<!ENTITY opacus_notify.label "Activer lma notification de nouveaux emails Opacus">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Parser le sujet pour les numéro de tickets">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_addbcc.label "Ajouter le champ BCC pour l'archive automatique des emails sortants">
+<!ENTITY opacus_addbcc.accesskey "B">
+<!ENTITY opacus_serverdetails.label "Information Serveur">
+<!ENTITY opacus_advanceddetails.label "Informations avancées">
+<!ENTITY opacus_ldapdetails.label "Configuration LDAP">
+<!ENTITY opacus_custommodules.label "Modules Personalisés">
+<!ENTITY opacus_licencedetails.label "Information de la License">
+<!ENTITY opacus_sync.label "Options de Synchronisation">
+<!ENTITY opacus_miscoptions.label "Options diverses">
+<!ENTITY opacus_getcustommodules.label "Rafraichir la liste des modules personnalisés">
+<!ENTITY opacus_addbuttons.label "Ajouter la barre d'outils des boutons">
+<!ENTITY opacus_saveprefs.label "Sauvegarder">
+<!ENTITY opacus_notify.tooltiptext "Nouvelle notification par mail allégée montrant le sujet et l'auteur">
+<!ENTITY opacus_ldap.label "Utilisation de l'authentification LDAP">
+<!ENTITY opacus_ldap_key.label "clé LDAP <span style='display:inline;font-size: .8em;font-style:italic;'>(laisser vide si inexistant [PLAIN])</span>">
+<!ENTITY opacus_conflicts.label "L'application est maitre pour la gestion des conflits">
+<!ENTITY opacus_blacklistdetails.label "Exclure ces adresses pour l'auto archivage:">
+<!ENTITY opacus_testConnectionSettings.label "Tester les paramètres">
+<!ENTITY opacus_blacklist.tooltiptext "Veuillez entrer une seule adresse email (bob@example.com) ou domaine (example.com) pour chaque ligne">
+<!ENTITY opacus_usestoredid.label "Utiliser les emails ID stockés localement">
+<!ENTITY opacus_freetrial.label "License d'évaluation gratuite">
+<!ENTITY opacus_activate.label "Activer">
+<!ENTITY opacus_activation_key.label "Clé d'activation <span style='display:inline;font-size: .8em;font-style:italic;'>depuis http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_activatedetails.label "Informations d'activation">
+<!ENTITY trialwindow.cancel "Annuler">
+<!ENTITY trialwindow.confirm "Confirmer">
+<!ENTITY opacus_applicant_name.label "Votre Nom:">
+<!ENTITY opacus_applicant_email.label "Votre adresse email:">
+<!ENTITY opacus_confirm.label "Confirmer vos informations">
+<!ENTITY opacus_trial_text.label "Veuillez confirmer vos informations et nous vous recontacterons pour une license d'évaluation gratuite.">
+<!ENTITY opacus_licenceExplained.label "Comment fonctionne le mode de license ?">
+<!ENTITY opacus_searchonopen.label "Rechercher dés que la fenêtre de recherche s'ouvre">
+<!ENTITY opacus_syncatstart.label "Synchro après le démarrage">
+<!ENTITY opacus_synchourly.label "Synchro chaque heure">

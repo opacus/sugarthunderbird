@@ -1,0 +1,30 @@
+<!ENTITY searchwindow.title "Opacus Recherche">
+<!ENTITY opacus_search.accesskey "S">
+<!ENTITY opacus_create.label "Créer">
+<!ENTITY opacus_create_contact.label "Contact">
+<!ENTITY opacus_create_lead.label "Lead">
+<!ENTITY opacus_create_case.label "Ticket">
+<!ENTITY opacus_create_opportunity.label "Affaire">
+<!ENTITY opacus_create_account.label "Compte">
+<!ENTITY opacus_archive.accesskey "A">
+<!ENTITY opacus_cancel.accesskey "C">
+<!ENTITY opacus_archive.label "Archiver">
+<!ENTITY opacus_cancel.label "Annuler">
+<!ENTITY opacus_doAttachments.label "Archiver les pièces jointes">
+<!ENTITY opacus_modules.label "Modules">
+<!ENTITY opacus_sugarObjects.label "Objets Sugar">
+<!ENTITY opacus_search.label "Rechercher">
+<!ENTITY opacus_searchFor.label "Séparer les requêtes avec ;">
+<!ENTITY opacus_results.label "Resultats">
+<!ENTITY opacus_openInSugar.label "Ouvrir dans SugarCRM">
+<!ENTITY opacus_edit_email.label "Editer Email">
+<!ENTITY opacus_subject.label "Sujet:">
+<!ENTITY opacus_body.label "Corps:">
+<!ENTITY opacus_forceReachive.label "Forcer le réarchivage complet">
+<!ENTITY opacus_advancedSearch.label "options avancées">
+<!ENTITY opacus_leadOpp.label "Utiliser la relation Lead vers Affaire">
+<!ENTITY opacus_myRelatedItemsOnly.label "Mes éléments liés seulement">
+<!ENTITY opacus_noClosedOpps.label "Aucune Affaire terminée">
+<!ENTITY opacus_noClosedCases.label "Aucune Ticket terminé">
+<!ENTITY opacus_accSearch.label "Rechercher les relations">
+<!ENTITY opacus_quickEdit.label "Edition rapide">

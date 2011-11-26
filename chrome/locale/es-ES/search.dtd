@@ -1,0 +1,30 @@
+<!ENTITY searchwindow.title "Búsqueda Opacus">
+<!ENTITY opacus_search.accesskey "S">
+<!ENTITY opacus_create.label "Crear">
+<!ENTITY opacus_create_contact.label "Contacto">
+<!ENTITY opacus_create_lead.label "Cliente Potencial">
+<!ENTITY opacus_create_case.label "Caso">
+<!ENTITY opacus_create_opportunity.label "Oportunidad">
+<!ENTITY opacus_create_account.label "Cuenta">
+<!ENTITY opacus_archive.accesskey "A">
+<!ENTITY opacus_cancel.accesskey "C">
+<!ENTITY opacus_archive.label "Archivar">
+<!ENTITY opacus_cancel.label "Cancelar">
+<!ENTITY opacus_doAttachments.label "Archivar Adjuntos">
+<!ENTITY opacus_modules.label "Módulos">
+<!ENTITY opacus_sugarObjects.label "Objetos de Sugar">
+<!ENTITY opacus_search.label "Buscar">
+<!ENTITY opacus_searchFor.label "Separar consultas con ;">
+<!ENTITY opacus_results.label "Resultados">
+<!ENTITY opacus_openInSugar.label "Abrir en SugarCRM">
+<!ENTITY opacus_edit_email.label "Editar Correo Electrónico">
+<!ENTITY opacus_subject.label "Asunto:">
+<!ENTITY opacus_body.label "Cuerpo:">
+<!ENTITY opacus_forceReachive.label "Forzar rearchivado completo">
+<!ENTITY opacus_advancedSearch.label "mostrar avanzado">
+<!ENTITY opacus_leadOpp.label "Usar la relación Cliente Potencia con Oportunidad">
+<!ENTITY opacus_myRelatedItemsOnly.label "Solmanete mis items relacionados">
+<!ENTITY opacus_noClosedOpps.label "Sin Oportunidades Cerradas">
+<!ENTITY opacus_noClosedCases.label "Sin Casos Cerrados">
+<!ENTITY opacus_accSearch.label "Buscar relacionados">
+<!ENTITY opacus_quickEdit.label "Edición rápida">

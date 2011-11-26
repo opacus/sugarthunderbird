@@ -1,0 +1,25 @@
+<!ENTITY opacus_context.label "Opacus Configuración de SugarCRM">
+<!ENTITY opacus_contactsync.label "Opacus Sincronización de Contacto SugarCRM">
+<!ENTITY opacus_context_archive.label "Archivos Correo(s) a SugarCRM">
+<!ENTITY opacus_context_bulk_archive.label "Autoarchivar Correo(s) a SugarCRM">
+<!ENTITY opacus_context_contact.label "Contacto">
+<!ENTITY opacus_context_lead.label "Cliente Potencial">
+<!ENTITY opacus_help.label "Ayuda de Opacus">
+<!ENTITY opacus_context_button.label "Archivar">
+<!ENTITY opacus_context_case.label "Caso">
+<!ENTITY opacus_context_create.label "SugarCRM Crear">
+<!ENTITY opacus_create.label "Crear">
+<!ENTITY opacus_context_opportunity.label "Oportunidad">
+<!ENTITY opacus_context_account.label "Cuenta">
+<!ENTITY opacus.send_archive.label "Enviar+Archivar">
+<!ENTITY opacus.send_auto_archive.label "Enviar+Autoarchivar">
+<!ENTITY opacus.send_archive_tooltip "Archivar a SugarCRM antes de enviar">
+<!ENTITY opacus.send_auto_archive_tooltip "Autoarchivar ar SugarCRM mientras se envía">
+<!ENTITY opacus_quickEditRelated.label "Edición Rápida">
+<!ENTITY opacus_context_task.label "Tarea">
+<!ENTITY opacus_syncbutton.label "Sincronizar">
+<!ENTITY opacus_abLeadbutton.label "Nuevo Potencial">
+<!ENTITY opacus_abContactbutton.label "Nuevo Contacto">
+<!ENTITY contactswindow.title "Confirmar Eliminados">
+<!ENTITY opacus_syncbutton.label "Sincronizar">
+<!ENTITY deletewindow_records "Registros">
