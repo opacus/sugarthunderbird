@@ -52,6 +52,10 @@ var opacusSTP = {
          .getService(Components.interfaces.nsIPrefService)
          .getBranch("extensions.opacusSTP.")
          .QueryInterface(Components.interfaces.nsIPrefBranch),
+  mailNewsPrefs: Components.classes["@mozilla.org/preferences-service;1"]
+         .getService(Components.interfaces.nsIPrefService)
+         .getBranch("mailnews.")
+         .QueryInterface(Components.interfaces.nsIPrefBranch),
   console : Components.classes["@mozilla.org/consoleservice;1"]
                                  .getService(Components.interfaces.nsIConsoleService),
 
@@ -59,6 +63,25 @@ var opacusSTP = {
 	// initialization code
 	opacusSTP.initialized = true;
 	opacusSTP.strings = document.getElementById("opacus_strings");
+
+
+	// Add our custom header to the custom headers pref
+	try{
+		var prefCheck = opacusSTP.mailNewsPrefs.getCharPref('customDBHeaders');
+		if(prefCheck.toLowerCase().indexOf('x-opacus-archived') == -1){
+			if(prefCheck.toString() == ''){
+				opacusSTP.mailNewsPrefs.setCharPref('customDBHeaders','x-opacus-archived');
+			} else {
+				opacusSTP.mailNewsPrefs.setCharPref('customDBHeaders',prefCheck.toString() + ' x-opacus-archived');
+			}
+		}
+	}
+	catch(ex){
+		opacusSTP.mailNewsPrefs.setCharPref('customDBHeaders','x-opacus-archived');
+	}
+
+
+
 
 	try {
 		// Firefox 4 and later; Mozilla 2 and later

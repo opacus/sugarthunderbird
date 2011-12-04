@@ -286,7 +286,12 @@ opacusSTPMail.prototype.getAttachments = function(email_id,mime_parts){
 				var file = Components.classes["@mozilla.org/file/directory_service;1"]
 					.getService(Components.interfaces.nsIProperties)
 					.get("TmpD", Components.interfaces.nsIFile);
-				file.append(email_id + encodeURIComponent(mime_parts[i].name).replace(new RegExp(/\(/g),'%28').replace(new RegExp(/\)/g),'%29').replace(new RegExp("'",'g'),"%27"));
+				var attFilename = encodeURIComponent(mime_parts[i].name);
+				attFilename = attFilename.replace(new RegExp(/\(/g),'%28');
+				attFilename = attFilename.replace(new RegExp(/\)/g),'%29');
+				attFilename = attFilename.replace(new RegExp("'",'g'),"%27");
+				attFilename = attFilename.replace(new RegExp("!",'g'),"%21");
+				file.append(email_id + attFilename);
 				file.createUnique(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0666);
 				this.attachmentCalls++;
 				messenger.saveAttachmentToFile(
