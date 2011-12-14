@@ -1,0 +1,72 @@
+<!ENTITY prefwindow.title "Preferências Extensão Opacus">
+<!ENTITY pane1.title "Conexão">
+<!ENTITY pane2.title "Avançado">
+<!ENTITY pane3.title "Módulos">
+<!ENTITY pane4.title "Sincronizar">
+<!ENTITY pane5.title "Licença">
+<!ENTITY sugarcrm_url.label "SugarCRM URL <span style='display:inline;font-size: .8em;font-style:italic;'> por exemplo http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRM Usuário">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRM Senha">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Chave de Licença Opacus">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "Arquivo Automatico para o Correio de Entrada">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "Arquivo Anexos">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "Somente Sincronize Meus Registros">
+<!ENTITY honoursynctooutlook.label "'Sync para Outlook' Honra Configuração no SugarCRM">
+<!ENTITY opacus_notify.label "Opacus Notificação de Correio Novos">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Analisar Linha de Assunto Para o Número de Casos">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_addbcc.label "Adicionar Destinatários bcc Para Arquivar Auto Outbound">
+<!ENTITY opacus_addbcc.accesskey "B">
+<!ENTITY opacus_serverdetails.label "Informação do Servidor">
+<!ENTITY opacus_advanceddetails.label "Detalhes Avançados">
+<!ENTITY opacus_ldapdetails.label "LDAP Configuração">
+<!ENTITY opacus_custommodules.label "Módulos de Usuário">
+<!ENTITY opacus_licencedetails.label "Detalhes da Licença">
+<!ENTITY opacus_sync.label "Opções de Sincronização">
+<!ENTITY opacus_miscoptions.label "Miscellaneous Options">
+<!ENTITY opacus_getcustommodules.label "Opções Diversas">
+<!ENTITY opacus_addbuttons.label "Adicione Botões">
+<!ENTITY opacus_saveprefs.label "Save">
+<!ENTITY opacus_notify.tooltiptext "Notificação de Correio Novos Mostrando Assunto e Autor">
+<!ENTITY opacus_ldap.label "Utilizar a Autenticação LDAP">
+<!ENTITY opacus_ldap_key.label "LDAP chave <span style='display:inline;font-size: .8em;font-style:italic;'>(opcionalmente, deixe em branco)</span>">
+<!ENTITY opacus_conflicts.label "Aplicação Mestre para Conflitos">
+<!ENTITY opacus_blacklistdetails.label "Excluir esses endereços de auto-arquivamento:">
+<!ENTITY opacus_testConnectionSettings.label "Testar essas Configurações">
+<!ENTITY opacus_blacklist.tooltiptext "Por favor insira os endereços de e-mail simples (bob@example.com) ou URL (example.com) em cada linha">
+<!ENTITY opacus_usestoredid.label "Use id-mail local">
+<!ENTITY opacus_freetrial.label "Licença de Teste Gratuito">
+<!ENTITY opacus_activate.label "Ativar">
+<!ENTITY opacus_activation_key.label "Chave de Ativação <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_activatedetails.label "Detalhes Ativação">
+<!ENTITY trialwindow.cancel "Cancelar">
+<!ENTITY trialwindow.confirm "Confirmar">
+<!ENTITY opacus_applicant_name.label "Seu Nome:">
+<!ENTITY opacus_applicant_email.label "Seu Endereço de Email:">
+<!ENTITY opacus_confirm.label "Confirmar seus Dados">
+<!ENTITY opacus_trial_text.label "Por favor, confirme seus dados e nós lhe enviaremos a sua licença de teste gratuita.">
+<!ENTITY opacus_licenceExplained.label "Como funciona o licenciamento?">
+<!ENTITY opacus_searchonopen.label "Busca quando abre janela de busca">
+<!ENTITY opacus_syncatstart.label "Sincronização Após a Inicialização">
+<!ENTITY opacus_synchourly.label "Sincronização de Hora em Hora">
+<!ENTITY opacus_contacts "Contactos">
+<!ENTITY opacus_leads "Potenciais">
+<!ENTITY opacus_both "Os Dois">
+<!ENTITY opacus_syncmodules.label "Sincronizar os Módulos:">
+<!ENTITY opacus_syncdeletions.label "Sincronize Registros Deletados">
+<!ENTITY opacus_deletions.label "Registros Deletados">
+<!ENTITY opacus_oneitem.label "Todos os Registros">
+<!ENTITY opacus_fiveitems.label "5+ Registros">
+<!ENTITY opacus_twentyitems.label "20+ Registros">
+<!ENTITY opacus_hundreditems.label "100+ Registros">
+<!ENTITY opacus_noitems.label "Nunca Pergunta">
+<!ENTITY opacus_deletethreshold.label "Pergunte ao Remover">
+<!ENTITY opacus_filtersaftersync.label "Executar Filtros em Pasta Selecionada Após a Sincronização">
+<!ENTITY opacus_ignoreconverted.label "Ignorar os potenciais convertidos">
