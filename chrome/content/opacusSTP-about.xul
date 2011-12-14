@@ -34,7 +34,7 @@
       <text value="&version; 1.5.6"/>
       <separator class="thin"/>
       <text value="&createdBy;" style="font-weight: bold;"/>
-      <text value="Opacus Solutions Ltd ©2010"/>
+      <text value="Opacus Solutions Ltd ©2010,2011"/>
       <separator class="thin"/>
     </vbox>
   </groupbox>
