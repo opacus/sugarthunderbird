@@ -8,4 +8,3 @@ pref("extensions.opacusSTP.opacus_ldap_key","");
 
 // See http://kb.mozillazine.org/Localize_extension_descriptions
 pref("extensions.development@opacus.co.uk.description", "chrome://opacusSTP/locale/opacusSTP.properties");
-pref( "mailnews.customDBHeaders", "x-opacus-archived");
