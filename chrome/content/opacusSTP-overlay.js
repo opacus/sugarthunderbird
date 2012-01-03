@@ -93,7 +93,7 @@ var opacusSTP = {
 		try {
 			AddonManager.getAddonByID("prodevelopment@opacus.co.uk", function(addon) {
 				try{
-					if(addon.isActive){
+					if(addon != null && addon.isActive){
 						opacusSTP.showInfoTab('about:addons');
 						opacusSTP.notifyUser('critical','Please disable the Standard Opacus Extension when using the Professional edition');
 					}
