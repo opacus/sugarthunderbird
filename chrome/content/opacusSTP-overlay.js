@@ -31,6 +31,7 @@ var opacusSTP = {
   session_id	:	'',
   sugarObjects	:	'',
   autoSugarObjects	:	'',
+  fixNotifications	:	true,
   allowNotify	:	true,
   totalMails	:	'',
   totalCalls	:	'',
@@ -81,6 +82,14 @@ var opacusSTP = {
 	}
 
 
+
+	var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+                        .getService(Components.interfaces.nsIXULAppInfo);
+	var versionChecker = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+                               .getService(Components.interfaces.nsIVersionComparator);
+	if(versionChecker.compare(appInfo.version, "17") >= 0) {
+		opacusSTP.fixNotifications = false;
+	}
 
 
 	try {
@@ -457,7 +466,9 @@ var opacusSTP = {
 		if (!fixed){
 			var notifyEvent = { notify: function(timer) {
 				fixNotifyTimer.cancel();
-				fixAlertNotification();
+				if(opacusSTP.fixNotifications){
+					fixAlertNotification();
+				}
 			}}
 			fixNotifyTimer.initWithCallback(notifyEvent,100,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 		}
@@ -490,7 +501,9 @@ var opacusSTP = {
 		// Set up timer to find notification window and fix newlines
 		var fixEvent = { notify: function(timer){
 			fixNotifyTimer.cancel();
-			fixAlertNotification();
+			if(opacusSTP.fixNotifications){
+				fixAlertNotification();
+			}
 		}}
 		fixNotifyTimer.initWithCallback(fixEvent,20,Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 		opacusSTP.allowNotify = false;
