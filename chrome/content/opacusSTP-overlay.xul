@@ -38,9 +38,15 @@
 <menupopup id="taskPopup">
       <menuitem label="&opacus_context.label;" insertbefore="prefSep" oncommand="opacusSTP.showPreferences();"/>
 </menupopup>
+  <menupopup id="appmenu_taskPopup">
+    <menuitem label="&opacus_context.label;" insertbefore="prefSep" oncommand="opacusSTP.showPreferences();" />
+  </menupopup>
 <menupopup id="menu_HelpPopup">
       <menuitem label="&opacus_help.label;" insertbefore="prefSep" oncommand="opacusSTP.showInfoTab('chrome://opacusSTP/content/version.html');"/>
 </menupopup>
+  <menupopup id="appmenu_helpMenupopup">
+    <menuitem label="&opacus_help.label;" insertbefore="prefSep" oncommand="opacusSTP.showInfoTab('chrome://opacusSTP/content/version.html');" />
+  </menupopup>
 <menupopup id="mailContext">
       <menuitem id="mailContext-opacusSTP-archive" label="&opacus_context_archive.label;" insertafter="mailContext-sep-open2" oncommand="opacusSTP.archive();"/>
 	  <menuseparator id="opacusSeperator" insertbefore="mailContext-archive"/>
