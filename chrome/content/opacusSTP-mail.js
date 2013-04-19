@@ -162,6 +162,7 @@ opacusSTPMail.prototype.archiveMail = function(){
 			this.mimeCallback(aMimeMsg,aMsgHdr,this);
 		}
 		,true
+        ,{"examineEncryptedParts":true}
 	);
 };
 

@@ -1,0 +1,25 @@
+<!ENTITY opacus_context.label "Opacus SugarCRM設定">
+<!ENTITY opacus_contactsync.label "Opacus SugarCRMコンタクト同期">
+<!ENTITY opacus_context_archive.label "EmailをSugarCRMへアーカイブ保存">
+<!ENTITY opacus_context_bulk_archive.label "EmailをSugarCRMへ自動アーカイブ保存">
+<!ENTITY opacus_context_contact.label "コンタクト">
+<!ENTITY opacus_context_lead.label "リード/引き合い">
+<!ENTITY opacus_help.label "Opacusヘルプ">
+<!ENTITY opacus_context_button.label "アーカイブ">
+<!ENTITY opacus_context_case.label "Case">
+<!ENTITY opacus_context_create.label "SugarCRM作成">
+<!ENTITY opacus_create.label "作成">
+<!ENTITY opacus_context_opportunity.label "オポチュニティ/商談">
+<!ENTITY opacus_context_account.label "アカウント">
+<!ENTITY opacus.send_archive.label "送信+アーカイブ">
+<!ENTITY opacus.send_auto_archive.label "送信+自動アーカイブ保存">
+<!ENTITY opacus.send_archive_tooltip "送信前にSugarCRMにアーカイブ保存">
+<!ENTITY opacus.send_auto_archive_tooltip "送信時にSugarCRMにアーカイブ保存">
+<!ENTITY opacus_quickEditRelated.label "クイック編集">
+<!ENTITY opacus_context_task.label "タスク">
+<!ENTITY opacus_syncbutton.label "同期">
+<!ENTITY opacus_abLeadbutton.label "新規リード">
+<!ENTITY opacus_abContactbutton.label "新規コンタクト">
+<!ENTITY contactswindow.title "削除しますか">
+<!ENTITY opacus_syncbutton.label "同期">
+<!ENTITY deletewindow_records "レコード">

@@ -1,0 +1,32 @@
+<!ENTITY searchwindow.title "Opacus検索">
+<!ENTITY opacus_search.accesskey "S">
+<!ENTITY opacus_create.label "作成">
+<!ENTITY opacus_create_contact.label "コンタクト">
+<!ENTITY opacus_create_lead.label "リード/引き合い">
+<!ENTITY opacus_create_case.label "Case">
+<!ENTITY opacus_create_opportunity.label "オポチュニティ/商談">
+<!ENTITY opacus_create_account.label "アカウント">
+<!ENTITY opacus_archive.accesskey "A">
+<!ENTITY opacus_cancel.accesskey "C">
+<!ENTITY opacus_archive.label "アーカイブ">
+<!ENTITY opacus_cancel.label "キャンセル">
+<!ENTITY opacus_doAttachments.label "添付をアーカイブ保存">
+<!ENTITY opacus_modules.label "モジュール">
+<!ENTITY opacus_sugarObjects.label "Sugarオブジェクト">
+<!ENTITY opacus_search.label "検索">
+<!ENTITY opacus_searchFor.label "検索クエリを ; で分割">
+<!ENTITY opacus_results.label "結果">
+<!ENTITY opacus_openInSugar.label "SugarCRMで開く">
+<!ENTITY opacus_edit_email.label "Emailを編集">
+<!ENTITY opacus_subject.label "件名:">
+<!ENTITY opacus_body.label "本文:">
+<!ENTITY opacus_forceReachive.label "再度フルアーカイブ保存を強制">
+<!ENTITY opacus_advancedSearch.label "詳細を確認">
+<!ENTITY opacus_leadOpp.label "リード/引き合いとオポチュニティ/商談間の関係を使用">
+<!ENTITY opacus_myRelatedItemsOnly.label "My relatedアイテムのみ">
+<!ENTITY opacus_noClosedOpps.label "クローズされたオポチュニティ/商談無し">
+<!ENTITY opacus_noClosedCases.label "クローズされたケース無し">
+<!ENTITY opacus_accSearch.label "関連を検索">
+<!ENTITY opacus_quickEdit.label "クイック編集">
+<!ENTITY opacus_attachments.label "添付">
+<!ENTITY opacus_create_task.label "タスク">

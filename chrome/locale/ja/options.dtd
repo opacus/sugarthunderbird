@@ -1,0 +1,74 @@
+<!ENTITY prefwindow.title "Opacus拡張設定">
+<!ENTITY pane1.title "接続">
+<!ENTITY pane2.title "詳細">
+<!ENTITY pane3.title "モジュール">
+<!ENTITY pane4.title "同期">
+<!ENTITY pane5.title "ライセンス">
+<!ENTITY sugarcrm_url.label "SugarCRM URL <span style='display:inline;font-size: .8em;font-style:italic;'>e.g. http://mycrm.com/crm</span>">
+<!ENTITY sugarcrm_url.accesskey "U">
+<!ENTITY sugarcrm_username.label "SugarCRMユーザー名">
+<!ENTITY sugarcrm_username.accesskey "S">
+<!ENTITY sugarcrm_password.label "SugarCRMパスワード">
+<!ENTITY sugarcrm_password.accesskey "W">
+<!ENTITY opacus_licence_key.label "Opacusライセンスキー">
+<!ENTITY opacus_licence_key.accesskey "O">
+<!ENTITY auto_archive.label "受信メールの自動アーカイブをON">
+<!ENTITY auto_archive.accesskey "A">
+<!ENTITY auto_archive_attachments.label "自動アーカイブ時に添付をアーカイブ">
+<!ENTITY auto_archive_attachments.accesskey "H">
+<!ENTITY mycontactsonly.label "My recordsのみ同期">
+<!ENTITY honoursynctooutlook.label "SugarCRMの'Sync to Outlook'設定を反映">
+<!ENTITY opacus_notify.label "Opacusの新規メール通知をON">
+<!ENTITY opacus_notify.accesskey "N">
+<!ENTITY opacus_cases.label "Case numberで件名を検索">
+<!ENTITY opacus_cases.accesskey "C">
+<!ENTITY opacus_addbcc.label "BCC受信者を送信メールアーカイブに追加">
+<!ENTITY opacus_addbcc.accesskey "B">
+<!ENTITY opacus_serverdetails.label "サーバー情報">
+<!ENTITY opacus_advanceddetails.label "詳細設定">
+<!ENTITY opacus_ldapdetails.label "LDAP設定">
+<!ENTITY opacus_custommodules.label "カスタムモジュール">
+<!ENTITY opacus_licencedetails.label "ライセンス詳細">
+<!ENTITY opacus_sync.label "同期オプション">
+<!ENTITY opacus_miscoptions.label "その他オプション">
+<!ENTITY opacus_getcustommodules.label "カスタムモジュールのリフレッシュ">
+<!ENTITY opacus_addbuttons.label "ツールバーボタンの追加">
+<!ENTITY opacus_saveprefs.label "保存">
+<!ENTITY opacus_notify.tooltiptext "新規メール簡易通知(件名と送信者のみ表示)">
+<!ENTITY opacus_ldap.label "LDAP認証を使用">
+<!ENTITY opacus_ldap_key.label "LDAP キー <span style='display:inline;font-size: .8em;font-style:italic;'>(leave blank for PLAIN)</span>">
+<!ENTITY opacus_conflicts.label "コンフリクト発生時のマスターアプリケーション">
+<!ENTITY opacus_blacklistdetails.label "自動アーカイブ時にこれらのアドレスを除外:">
+<!ENTITY opacus_testConnectionSettings.label "設定をテスト">
+<!ENTITY opacus_blacklist.tooltiptext "各行に1つのEmailアドレス(例：bob@example.com)もしくはドメイン名(例：example.com)を入力してください。">
+<!ENTITY opacus_usestoredid.label "ローカルに保存されたemail idを使用">
+<!ENTITY opacus_freetrial.label "無償評価ライセンス">
+<!ENTITY opacus_activate.label " アクティベート">
+<!ENTITY opacus_activation_key.label "アクティべーションキー <span style='display:inline;font-size: .8em;font-style:italic;'>from http://www.opacus.co.uk/</span>">
+<!ENTITY opacus_activatedetails.label "アクティべーション詳細">
+<!ENTITY trialwindow.cancel "キャンセル">
+<!ENTITY trialwindow.confirm "確認">
+<!ENTITY opacus_applicant_name.label "氏名:">
+<!ENTITY opacus_applicant_email.label "Emailアドレス:">
+<!ENTITY opacus_confirm.label "登録情報を確認して下さい">
+<!ENTITY opacus_trial_text.label "無償評価ライセンスを送付いたしますので登録情報を確認して下さい。">
+<!ENTITY opacus_licenceExplained.label "ライセンスはどのようになっていますか。">
+<!ENTITY opacus_searchonopen.label "検索ウインドウが開かれた時に検索する">
+<!ENTITY opacus_syncatstart.label "起動時に同期">
+<!ENTITY opacus_synchourly.label "毎時に同期">
+<!ENTITY opacus_contacts "コンタクト">
+<!ENTITY opacus_leads "リード/引き合い">
+<!ENTITY opacus_both "両方">
+<!ENTITY opacus_syncmodules.label "モジュールの同期:">
+<!ENTITY opacus_syncdeletions.label "削除したアイテムの同期">
+<!ENTITY opacus_deletions.label "削除したアイテム">
+<!ENTITY opacus_oneitem.label "全てのレコード">
+<!ENTITY opacus_fiveitems.label "5件を越えるレコード">
+<!ENTITY opacus_twentyitems.label "20件を越えるレコード">
+<!ENTITY opacus_hundreditems.label "100件を越えるレコード">
+<!ENTITY opacus_noitems.label "確認不要">
+<!ENTITY opacus_deletethreshold.label "削除時確認する">
+<!ENTITY opacus_filtersaftersync.label "同期後に指定フォルダにフィルタを実行">
+<!ENTITY opacus_ignoreconverted.label "Convert済みのリード/引き合いを無視">
+<!ENTITY opacus_twowaysync.label "双方向同期">
+<!ENTITY opacus_twowaysync.tooltiptext "SugarCRMからThunderbirdへのみの同期であればチェックを外す">

@@ -1,0 +1,36 @@
+<!ENTITY createwindow.title "Opacus作成">
+<!ENTITY opacus_createdetails.label "詳細">
+<!ENTITY opacus_firstname.label "名:">
+<!ENTITY opacus_lastname.label "姓: <span style='display:inline;font-size: .8em;font-style:italic;'>(Required)</span>">
+<!ENTITY opacus_phone_office.label "会社電話:">
+<!ENTITY opacus_phone_mobile.label "携帯電話:">
+<!ENTITY opacus_title.label "役職:">
+<!ENTITY opacus_createaccountdetails.label "アカウント:">
+<!ENTITY opacus_account_name.label "アカウント名:">
+<!ENTITY opacus_contact_search.label "コンタクト氏名もしくはEmailアドレス:">
+<!ENTITY opacus_email_address.label "Emailアドレス:">
+<!ENTITY account_search.label "検索">
+<!ENTITY create.label "作成">
+<!ENTITY cancel.label "キャンセル">
+<!ENTITY opacus_description.label "内容:">
+<!ENTITY opacus_opportunityamount.label "金額: <span style='display:inline;font-size: .8em;font-style:italic;'>(Required)</span>">
+<!ENTITY opacus_opportunityclosedate.label "受注日:">
+<!ENTITY opacus_opportunitysalesstage.label "セールスステージ: <span style='display:inline;font-size: .8em;font-style:italic;'>(Required)</span>">
+<!ENTITY opacus_casestatus.label "現在の状況:">
+<!ENTITY opacus_accounttype.label "種別:">
+<!ENTITY opacus_casepriority.label "優先度:">
+<!ENTITY opacus_casetype.label "種別:">
+<!ENTITY opacus_add_account.label "新規アカウントを追加">
+<!ENTITY opacus_add_contact.label "新規コンタクトを追加">
+<!ENTITY opacus_new.label "新規">
+<!ENTITY opacus_name.label "名称/件名: <span style='display:inline;font-size: .8em;font-style:italic;'>(Required)</span>">
+<!ENTITY opacus_emptymenulist.label "--   選択   --">
+<!ENTITY opacus_resolution.label "最終処理:">
+<!ENTITY opacus_lead_source.label "ソース:">
+<!ENTITY opacus_taskstartdate.label "開始日:">
+<!ENTITY opacus_taskduedate.label "期限:">
+<!ENTITY opacus_assigned_to.label "担当者:">
+<!ENTITY opacus_module_chooser.label "アカウントにのみ関連">
+<!ENTITY opacus_module_chooser_account.label "コンタクトとアカウントに関連">
+<!ENTITY opacus_createDefault.label "標準フィールド">
+<!ENTITY opacus_createCustom.label "追加フィールド">
