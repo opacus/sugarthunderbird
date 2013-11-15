@@ -150,7 +150,7 @@ opacusSTPsearch.prototype.runSearch = function(searchObject){
 	searchObject.searchString = searchObject.searchWindow.document.getElementById('searchField').value;
 	searchObject.searchWindow.document.getElementById('feedback').setAttribute('mode','undetermined');
 	searchObject.searchWindow.document.getElementById('searchButton').setAttribute('label',opacusSTP.strings.getString('searching'));
-	searchObject.searchString = searchObject.searchString.toLowerCase().replace("'","\\'");
+	searchObject.searchString = searchObject.searchString.toLowerCase().replace(/'/g, "\\'");
 	var resultList = searchObject.searchWindow.document.getElementById('resultList');
 	while(resultList.childNodes.length >= 3){
         	resultList.removeChild( resultList.lastChild );
