@@ -31,9 +31,19 @@ function opacusSTPsendObserver() {
 opacusSTPsendObserver.prototype = {
   observe: function(subject, topic, data) {
 	if(this.parentWindow.opacusSTP.sendAndArchiveStatus == 'success'){
-		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: onsend\r\n"; 
+        try {
+		    subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: onsend\r\n"; 
+        }
+        catch (ex) {
+            subject.gMsgCompose.compFields.setHeader("X-Opacus-Archived", "onsend");
+        }
 	} else {
-		subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: none\r\n";
+        try {
+		    subject.gMsgCompose.compFields.otherRandomHeaders += "X-Opacus-Archived: none\r\n";
+        }
+        catch (ex) {
+            subject.gMsgCompose.compFields.setHeader("X-Opacus-Archived", "none");
+        }
 	}
   },
   register: function() {
