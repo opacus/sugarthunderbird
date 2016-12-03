@@ -17,12 +17,17 @@ opacusSTPcrypt.prototype.encrypt = function(sugarPassword){
 };
 
 opacusSTPcrypt.prototype.ldapEncrypt = function(sugarPassword){
+    var charArr = [];
 	if(this.key == ''){
 		return sugarPassword;
 	}
 	var sugarString = this.md5(this.key).substring(0,24);
 	var encryptedString = this.des(sugarString,sugarPassword,1,1,this.iv,0);
-	return [this.toHexString(encryptedString.charCodeAt(i)) for (i in encryptedString)].join("");
+    for (i in encryptedString) {
+        charArr.push(this.toHexString(encryptedString.charCodeAt(i)));
+    }
+
+    return charArr.join("");
 };
 
 opacusSTPcrypt.prototype.md5 = function(str){
@@ -31,7 +36,7 @@ opacusSTPcrypt.prototype.md5 = function(str){
 	createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 
 	converter.charset = "UTF-8";
-	var result = {};
+	var charArr = [], result = {};
 	var data = converter.convertToByteArray(str, result);
 	var ch = Components.classes["@mozilla.org/security/hash;1"]
 					   .createInstance(Components.interfaces.nsICryptoHash);
@@ -39,7 +44,11 @@ opacusSTPcrypt.prototype.md5 = function(str){
 	ch.update(data, data.length);
 	var hash = ch.finish(false);
 
-	return [this.toHexString(hash.charCodeAt(i)) for (i in hash)].join("");
+    for (i in hash) {
+        charArr.push(this.toHexString(hash.charCodeAt(i)));
+    }
+
+    return charArr.join("");
 };
 
 opacusSTPcrypt.prototype.toHexString = function(charCode){

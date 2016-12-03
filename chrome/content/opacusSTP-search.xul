@@ -12,7 +12,7 @@
         </hbox>
         <hbox flex='1' align='right' style='padding: 3px 5px 0 0'>
           <image style='cursor:pointer;' onclick="opener.opacusSTP.link('http://www.opacus.co.uk')" width="63" height="21" src="chrome://opacusSTP/content/images/opacus25.png" />
-          <label onclick="opener.opacusSTP.showInfoTab('https://addons.mozilla.org/en-US/thunderbird/addon/opacus-sugarcrm-thunderbird/?src=external-gopro')" style="font-size: 1em; font-style: italic; margin: 0 .5em;" class="text-link" value="Go pro!" />
+          <label onclick="opener.opacusSTP.showInfoTab('https://addons.mozilla.org/en-US/thunderbird/addon/sugarcrm-thunderbird-integr/?src=external-gopro')" style="font-size: 1em; font-style: italic; margin: 0 .5em;" class="text-link" value="Go pro!" />
         </hbox>
       </hbox>
       <label control="searchField" value="&opacus_searchFor.label;" />

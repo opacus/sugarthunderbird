@@ -31,10 +31,10 @@
   <groupbox align="center" orient="horizontal">
     <vbox>
       <text value="Opacus SugarCRM Thunderbird Extension Standard" style="font-weight: bold; font-size: large;"/>
-      <text value="&version; 1.6.1"/>
+      <text value="&version; 1.6.2"/>
       <separator class="thin"/>
       <text value="&createdBy;" style="font-weight: bold;"/>
-      <text value="Opacus Solutions Ltd ©2010,2011,2012,2013"/>
+      <text value="Opacus Solutions Ltd ©2010,2011,2012,2013,2014,2015,2016"/>
       <separator class="thin"/>
     </vbox>
   </groupbox>
