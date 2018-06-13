@@ -91,13 +91,8 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 	var client = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                         .createInstance(Components.interfaces.nsIXMLHttpRequest);
 
-	// Use serialize for files as json_decode in SugarCRM is really painful
-	if(method == 'set_note_attachment'){
-		input_type='Serialize';
-	} else {
-		input_type='JSON';
-		rest_data = JSON.stringify(rest_data);
-	}
+    input_type='JSON';
+	rest_data = JSON.stringify(rest_data);
 
 	rest_data = rest_data.replace(new RegExp('(&|&amp;)quot;','g'),'\\"');
     rest_data = encodeURIComponent(rest_data);
@@ -261,80 +256,16 @@ opacusSTPrest.prototype.createNote = function(osa){
 };
 
 
-opacusSTPrest.prototype.setAttachment = function(note_id,osa){
-	// setAttachment uses Serialize for speed.
-	var rest_data = 'a:2:{s:7:"session";s:'+opacusSTP.session_id.length+':"'+opacusSTP.session_id+'";s:4:"note";'+
-		'a:3:{s:8:"filename";s:'+this.utf8ByteCount(osa.filename)+':"'+osa.filename+'";'+
-			's:4:"file";s:'+osa.contents.length+':"'+osa.contents+'";s:2:"id";s:'+note_id.length+':"'+note_id+'";}}';
+opacusSTPrest.prototype.setAttachment = function(note_id, osa) {
+	var rest_data = {
+        "session": opacusSTP.session_id,
+        "note": {
+            "id": note_id,
+            "filename": osa.filename,
+            "file": osa.contents
+        }
+    };
 	this.makeRequest('set_note_attachment',rest_data,osa);
 };
-
-/**
- * Functions to calculate length in bytes of string that may
- * contain UTF-8 chars as PHP unserialize function unable to
- * calculate actual length in chars.
- * 
- * This code is not included within the scope of the Opacus
- * licence. Our thanks to the original author.
- * 
- * See http://illegalargumentexception.blogspot.com/2010/12/javascript-validating-utf-8-string.html
- */
-
-/**
- * codePoint - an integer containing a Unicode code point
- * return - the number of bytes required to store the code point in UTF-8
- */
-opacusSTPrest.prototype.utf8Len = function(codePoint) {
-  if(codePoint >= 0xD800 && codePoint <= 0xDFFF)
-    throw new Error("Illegal argument: "+codePoint);
-  if(codePoint < 0) throw new Error("Illegal argument: "+codePoint);
-  if(codePoint <= 0x7F) return 1;
-  if(codePoint <= 0x7FF) return 2;
-  if(codePoint <= 0xFFFF) return 3;
-  if(codePoint <= 0x1FFFFF) return 4;
-  if(codePoint <= 0x3FFFFFF) return 5;
-  if(codePoint <= 0x7FFFFFFF) return 6;
-  throw new Error("Illegal argument: "+codePoint);
-}
-
-opacusSTPrest.prototype.isHighSurrogate = function(codeUnit) {
-  return codeUnit >= 0xD800 && codeUnit <= 0xDBFF;
-}
-
-opacusSTPrest.prototype.isLowSurrogate = function(codeUnit) {
-  return codeUnit >= 0xDC00 && codeUnit <= 0xDFFF;
-}
-
-/**
- * Transforms UTF-16 surrogate pairs to a code point.
- * See RFC2781
- */
-opacusSTPrest.prototype.toCodepoint = function(highCodeUnit, lowCodeUnit) {
-  if(!this.isHighSurrogate(highCodeUnit)) throw new Error("Illegal argument: "+highCodeUnit);
-  if(!this.isLowSurrogate(lowCodeUnit)) throw new Error("Illegal argument: "+lowCodeUnit);
-  highCodeUnit = (0x3FF & highCodeUnit) << 10;
-  var u = highCodeUnit | (0x3FF & lowCodeUnit);
-  return u + 0x10000;
-}
-
-/**
- * Counts the length in bytes of a string when encoded as UTF-8.
- * str - a string
- * return - the length as an integer
- */
-opacusSTPrest.prototype.utf8ByteCount = function(str) {
-  var count = 0;
-  for(var i=0; i<str.length; i++) {
-    var ch = str.charCodeAt(i);
-    if(this.isHighSurrogate(ch)) {
-      var high = ch;
-      var low = str.charCodeAt(++i);
-      count += this.utf8Len(this.toCodepoint(high, low));
-    } else {
-      count += this.utf8Len(ch);
-    }
-  }
-  return count;
-}
 
 
