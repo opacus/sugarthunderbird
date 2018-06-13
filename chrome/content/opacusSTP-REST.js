@@ -91,13 +91,8 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 	var client = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                         .createInstance(Components.interfaces.nsIXMLHttpRequest);
 
-	// Use serialize for files as json_decode in SugarCRM is really painful
-	if(method == 'set_note_attachment'){
-		input_type='Serialize';
-	} else {
-		input_type='JSON';
-		rest_data = JSON.stringify(rest_data);
-	}
+	input_type='JSON';
+	rest_data = JSON.stringify(rest_data);
 
 	rest_data = rest_data.replace(new RegExp('(&|&amp;)quot;','g'),'\\"');
     rest_data = encodeURIComponent(rest_data);
@@ -263,9 +258,14 @@ opacusSTPrest.prototype.createNote = function(osa){
 
 opacusSTPrest.prototype.setAttachment = function(note_id,osa){
 	// setAttachment uses Serialize for speed.
-	var rest_data = 'a:2:{s:7:"session";s:'+opacusSTP.session_id.length+':"'+opacusSTP.session_id+'";s:4:"note";'+
-		'a:3:{s:8:"filename";s:'+this.utf8ByteCount(osa.filename)+':"'+osa.filename+'";'+
-			's:4:"file";s:'+osa.contents.length+':"'+osa.contents+'";s:2:"id";s:'+note_id.length+':"'+note_id+'";}}';
+	var rest_data = {
+		session: opacusSTP.session_id,
+		note:{
+			id: note_id,
+			filename: osa.filename,
+			file: osa.contents
+		}
+	}
 	this.makeRequest('set_note_attachment',rest_data,osa);
 };
 
