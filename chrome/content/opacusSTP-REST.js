@@ -91,11 +91,7 @@ opacusSTPrest.prototype.makeRequest = function(method,rest_data,extraData){
 	var client = Components.classes["@mozilla.org/xmlextras/xmlhttprequest;1"]
                         .createInstance(Components.interfaces.nsIXMLHttpRequest);
 
-<<<<<<< HEAD
     input_type='JSON';
-=======
-	input_type='JSON';
->>>>>>> d0e8ebeb8e7d30253e00513d361aa1fc6e3643ac
 	rest_data = JSON.stringify(rest_data);
 
 	rest_data = rest_data.replace(new RegExp('(&|&amp;)quot;','g'),'\\"');
