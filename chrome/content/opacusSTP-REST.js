@@ -242,17 +242,21 @@ opacusSTPrest.prototype.createRelationship = function(emailId,moduleLower,object
 
 
 opacusSTPrest.prototype.createNote = function(osa){
-
 	var rest_data = {
 		"session"	: opacusSTP.session_id,
 		"module"	: 'Notes',
 		"name_value_list" : {
 			"name"		: osa.filename,
-			"parent_type"		: 'Emails',
-			"parent_id"	: osa.email_id,
 		}
 	};
-	this.makeRequest('set_entry',rest_data,osa);
+    if (parseInt(opacustep.server_info.version.substring(0, 1)) >= 8) {
+        rest_data.name_value_list.email_id = osa.email_id;
+        rest_data.name_value_list.email_type = 'Emails';
+    } else {
+        rest_data.name_value_list.parent_id = osa.email_id;
+        rest_data.name_value_list.parent_type = 'Emails';
+    }
+	this.makeRequest('set_entry', rest_data, osa);
 };
 
 
