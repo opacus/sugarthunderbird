@@ -99,7 +99,7 @@ opacusSTPsearch.prototype.updateFields = function(){
 	
 	for(var i in this.searchableModules)
 	{
-		var row = document.createElement('listitem');
+		var row = document.createElement('richlistitem');
 		var cell = document.createElement('listcell');
 		var checkbox = document.createElement('checkbox');
 		
@@ -152,7 +152,7 @@ opacusSTPsearch.prototype.runSearch = function(searchObject){
 	searchObject.searchWindow.document.getElementById('searchButton').setAttribute('label',opacusSTP.strings.getString('searching'));
 	searchObject.searchString = searchObject.searchString.toLowerCase().replace(/'/g, "\\'");
 	var resultList = searchObject.searchWindow.document.getElementById('resultList');
-	while(resultList.childNodes.length >= 3){
+	while(resultList.childNodes.length > 0){
         	resultList.removeChild( resultList.lastChild );
 	}
 
@@ -232,18 +232,23 @@ opacusSTPsearch.prototype.displayResults = function(dataObject)
 
 opacusSTPsearch.prototype.createParentListNode = function(label,id)
 {
-	var row = document.createElement('listitem');
-	var cell = document.createElement('listcell');
-	cell.className='parentCell';
-	cell.setAttribute('label',label);
-	row.appendChild(cell);
+    dump("creating parent node");
+    var row = document.createElement('richlistitem');
+    row.style.fontWeight = '700';
+    row.style.margin = '2px';
+    row.style.padding = '2px';
+    row.style.borderBottom = '1px solid #BBB';
+    var labelEl = document.createElement('label');
+    labelEl.setAttribute('value', label);
+    row.appendChild(labelEl);
 
-	return row;
+    return row;
 };
 
 opacusSTPsearch.prototype.createListNode = function(label,id,module)
 {
-	var row = document.createElement('listitem');
+    dump("creating child node");
+	var row = document.createElement('richlistitem');
 	var cell = document.createElement('listcell');
 	cell.className='resultCell';
 	var checkbox = document.createElement('checkbox');
@@ -251,7 +256,6 @@ opacusSTPsearch.prototype.createListNode = function(label,id,module)
 	checkbox.className='resultTick';
 	checkbox.setAttribute('label','  ' + label.replace(/&#039;/g,"'").replace(/&quot;/g,'"'));
 	row.setAttribute('allowevents','true');
-	row.setAttribute('flex','1');
 	cell.setAttribute('flex','1');
 	cell.style.overflow = 'hidden';
 	checkbox.setAttribute('flex','1');

@@ -225,7 +225,8 @@ opacusSTPrest.prototype.archive = function(mailObject){
 			"bcc_addrs"	: mailObject.bccList,
 			"from_addr" : mailObject.author,
 			"from_addr_name" : mailObject.authorName,
-			"date_sent" : mailObject.formatDate(mailObject.unixTime)
+			"date_sent" : mailObject.formatDate(mailObject.unixTime),
+			"date_sent_received" : mailObject.formatDate(mailObject.unixTime)
 		}
 	};
 	this.makeRequest('set_entry',rest_data,mailObject);

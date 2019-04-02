@@ -24,6 +24,7 @@
  *********************************************************************/
  -->
 <?xml-stylesheet type="text/css" href="chrome://opacusSTP/content/opacusSTP-button.css"?>
+<?xml-stylesheet href="chrome://messenger/content/bindings.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://opacusSTP/locale/overlay.dtd">
 <overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 <stringbundleset id="stringbundleset">

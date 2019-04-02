@@ -61,7 +61,7 @@
 	</vbox>
 	</groupbox>
 
- 	<hbox style="min-height: 3em" flex='1' id='saveButton' hidden='true' align='right'>
+ 	<hbox style="min-height: 3em" flex='1' id='saveButton' align='right'>
 	     <button label="&opacus_saveprefs.label;" onclick="window.close()"/>
 	</hbox>
 	</vbox>

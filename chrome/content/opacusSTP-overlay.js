@@ -95,7 +95,7 @@ var opacusSTP = {
 	try {
 		// Firefox 4 and later; Mozilla 2 and later
 		Components.utils.import("resource://gre/modules/AddonManager.jsm");
-		AddonManager.getAddonByID("development@opacus.co.uk", function(addon) {
+		AddonManager.getAddonByID("development@opacus.co.uk").then(function(addon) {
 			var current = addon.version;
 			opacusSTP.runAtStart(current);
 		});
