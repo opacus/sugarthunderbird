@@ -73,6 +73,7 @@ opacusSTPAttachment.prototype.encode = function(){
 	this.worker = new opacusSTPrest();
 	this.worker.setCredentials(opacusSTP.sugarurl,opacusSTP.sugarcrm_username,opacusSTP.sugarcrm_password);
 	this.worker.callback = this.createNote_callback;
+
 	this.worker.createNote(this);
 };
 

@@ -255,7 +255,7 @@ opacusSTPrest.prototype.createNote = function(osa){
 			"name"		: osa.filename,
 		}
 	};
-    if (parseInt(opacustep.server_info.version.substring(0, 1)) >= 8) {
+    if (parseInt(opacusSTP.server_info.version.substring(0, 1)) >= 8) {
         rest_data.name_value_list.email_id = osa.email_id;
         rest_data.name_value_list.email_type = 'Emails';
     } else {

@@ -232,7 +232,6 @@ opacusSTPsearch.prototype.displayResults = function(dataObject)
 
 opacusSTPsearch.prototype.createParentListNode = function(label,id)
 {
-    dump("creating parent node");
     var row = document.createElement('richlistitem');
     row.style.fontWeight = '700';
     row.style.margin = '2px';
@@ -247,7 +246,6 @@ opacusSTPsearch.prototype.createParentListNode = function(label,id)
 
 opacusSTPsearch.prototype.createListNode = function(label,id,module)
 {
-    dump("creating child node");
 	var row = document.createElement('richlistitem');
 	var cell = document.createElement('listcell');
 	cell.className='resultCell';
