@@ -107,7 +107,6 @@ opacusSTPsearch.prototype.updateFields = function(){
 		checkbox.setAttribute('id',this.searchableModules[i]);
 		checkbox.setAttribute('flex','1');
 		row.setAttribute('allowevents','true');
-		row.setAttribute('flex','1');
 
 		for(var j in this.selectedModules){
 			if(this.selectedModules[j] == this.searchableModules[i]){

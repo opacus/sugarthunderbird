@@ -3,7 +3,7 @@
   "name": "Opacus SugarCRM Integration Standard",
   "description": "Synchronises data between Thunderbird and SugarCRM",
   "version": "1.6.6",
-  "author": "Jonathan Cutting [Opacus]",
+  "author": "Jonathan Cutting, Mathew Bland, Daniel Cherrington [Opacus]",
   "homepage_url": "https://www.opacus.co.uk/",
   "legacy": true,
   "applications": {

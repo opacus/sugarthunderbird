@@ -22,13 +22,11 @@
       </hbox>
       <hbox flex="1" height="300" width="500">
         <groupbox flex="1" id="resultBox">
-          <caption label="&opacus_results.label;" />
           <richlistbox id="resultList" flex="1" seltype="mutiple">
           </richlistbox>
         </groupbox>
         <splitter id="opacusSearchSplitter" insertafter="resultBox" hidden="false" />
               <groupbox>
-                <caption label="&opacus_modules.label;" flex="1" />
                 <richlistbox id="moduleList" seltype="multiple" flex="1" style="width: 150px !important;">
                 </richlistbox>
               </groupbox>
