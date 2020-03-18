@@ -27,7 +27,7 @@ function opacusSTPsearch(parent,searchSuggestion,subject){
 	this.subject = subject;
 	this.searchWindow;
 	this.searchableModules = new Array('Leads','Bugs','Contacts','Accounts','Cases','Opportunities','Project','ProjectTask');
-	if(opacusSTP.server_info.flavor == 'PRO'){
+	if (opacusSTP.server_info.flavor == 'PRO' || opacusSTP.server_info.flavor == 'ENT') {
 		this.searchableModules.push('Quotes');
 	}
 	this.selectedModules;
@@ -100,38 +100,32 @@ opacusSTPsearch.prototype.updateFields = function(){
 	for(var i in this.searchableModules)
 	{
 		var row = document.createElement('richlistitem');
-		var cell = document.createElement('listcell');
-		var checkbox = document.createElement('checkbox');
-		
-		checkbox.setAttribute('label',opacusSTP.strings.getString(this.searchableModules[i]));
-		checkbox.setAttribute('id',this.searchableModules[i]);
-		checkbox.setAttribute('flex','1');
-		row.setAttribute('allowevents','true');
+        row.value = this.searchableModules[i];
 
+        var label = document.createElement('label');
+        label.value = opacusSTP.strings.getString(this.searchableModules[i]);
+
+		var moduleList = this.searchWindow.document.getElementById('moduleList');
+        moduleList.appendChild(row);
+        row.appendChild(label);
 		for(var j in this.selectedModules){
 			if(this.selectedModules[j] == this.searchableModules[i]){
-				checkbox.setAttribute('checked','true');
+                moduleList.addItemToSelection(row);
 			}
 		}
-
-		cell.appendChild(checkbox);
-		row.appendChild(cell);
-		this.searchWindow.document.getElementById('moduleList').appendChild(row);
 	}
 };
 
 opacusSTPsearch.prototype.getSelectedModules = function(){	
-	var checkboxes = this.searchWindow.document.getElementById('moduleList').getElementsByTagName('checkbox');
-	var return_array = new Array();
-	for(var i in checkboxes){
-		try{
-			var cellLabel = checkboxes[i].getAttribute('id');
-			if(checkboxes[i].checked){
-				return_array.push(cellLabel);
-			}
-		}
-		catch(ex){}
-	}
+	var items = this.searchWindow.document.getElementById('moduleList').selectedItems;
+	var return_array = [];
+    if (items !== null) {
+        for(var i in items){
+            if (items[i].value) {
+                return_array.push(items[i].value);
+            }
+        }
+    }
 	return return_array;
 };
 
@@ -221,7 +215,7 @@ opacusSTPsearch.prototype.displayResults = function(dataObject)
 		var module = dataObject.module;
 		var module_lowercase = module.toLowerCase();	
 		var resultList = opacusSTP.searchObject.searchWindow.document.getElementById('resultList');
-		resultList.appendChild(opacusSTP.searchObject.createParentListNode(opacusSTP.strings.getString(module),module_lowercase+'ParentNode'));
+		opacusSTP.searchObject.createParentListNode(resultList,module);
 		for(var i in dataObject.items)
 		{
 			resultList.appendChild(opacusSTP.searchObject.createListNode(dataObject.items[i][1],dataObject.items[i][0],module_lowercase));
@@ -229,51 +223,55 @@ opacusSTPsearch.prototype.displayResults = function(dataObject)
 	}
 };
 
-opacusSTPsearch.prototype.createParentListNode = function(label,id)
+opacusSTPsearch.prototype.createParentListNode = function(resultBox,module)
 {
-    var row = document.createElement('richlistitem');
-    row.style.fontWeight = '700';
-    row.style.margin = '2px';
-    row.style.padding = '2px';
-    row.style.borderBottom = '1px solid #BBB';
-    var labelEl = document.createElement('label');
-    labelEl.setAttribute('value', label);
-    row.appendChild(labelEl);
-
-    return row;
+	var module_lowercase = module.toLowerCase();
+	var id = module_lowercase+"ParentNode";
+	if(opacusSTP.searchObject.searchWindow.document.getElementById(id) == null ){
+		var labelText = module;
+		var row = document.createElement('richlistitem');
+        row.style.padding = '4px';
+        row.style.borderBottom = '1px solid #BBB';
+		var label = document.createElement('label');
+        label.setAttribute('value', labelText);
+		row.setAttribute('id',id);
+        var span = document.createElement('html:span');
+        span.className = 'moduleIcon moduleIcon' + module;
+        span.appendChild(document.createTextNode(module.slice(0,2)));
+        row.appendChild(span);
+		row.appendChild(label);
+		resultBox.appendChild(row);
+        row.disabled = true;
+	}
+	return false
 };
 
 opacusSTPsearch.prototype.createListNode = function(label,id,module)
 {
 	var row = document.createElement('richlistitem');
-	var cell = document.createElement('listcell');
-	cell.className='resultCell';
-	var checkbox = document.createElement('checkbox');
-	checkbox.setAttribute('id',module + ':' + id);
-	checkbox.className='resultTick';
-	checkbox.setAttribute('label','  ' + label.replace(/&#039;/g,"'").replace(/&quot;/g,'"'));
+    var recordName = document.createElement('label');
+	row.id = module + ':' + id;
+	recordName.value = '  ' + label.replace(/&#039;/g,"'").replace(/&quot;/g,'"');
 	row.setAttribute('allowevents','true');
-	cell.setAttribute('flex','1');
-	cell.style.overflow = 'hidden';
-	checkbox.setAttribute('flex','1');
-
-	cell.appendChild(checkbox);
-	row.appendChild(cell);
+	row.appendChild(recordName);
 
 	return row;
 };
 
-opacusSTPsearch.prototype.getCellChecked = function(el,className){ 
-	var checkBoxes = el.getElementsByClassName(className);
-	var arr = new Array();    
-	for (var i = 0; i < checkBoxes.length; i++){  
-		if (checkBoxes[i].hasAttribute('checked')){
-			arr.push(checkBoxes[i].getAttribute('id'));  
-		}
-	}
-	if(arr.length > 0){
-		return arr;
-	}
+opacusSTPsearch.prototype.getCellChecked = function() { 
+	var items = opacusSTP.searchObject.searchWindow.document.getElementById('resultList').selectedItems;
+	var return_array = [];
+    if (items !== null) {
+        for(var i in items){
+            if (items[i].id) {
+                return_array.push(items[i].id);
+            }
+        }
+    }
+    if (return_array.length > 0) {
+	    return return_array;
+    }
+
 	opacusSTP.searchObject.searchWindow.document.getElementById('archive_button').disabled=false;
 	opacusSTP.notifyUser('error',opacusSTP.strings.getString('notifyNoSugarObjects'));
 	return false;  

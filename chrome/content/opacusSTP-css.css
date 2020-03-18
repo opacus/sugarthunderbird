@@ -57,3 +57,135 @@ treechildren::-moz-tree-checkbox(disabled)
 #feedbackBox {
 	padding: 6px 30px 0 20px;
 }
+.moduleIcon {
+    color: white;
+    height: 22px;
+    width: 22px;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 11px;
+    padding: 0;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C4C4C4;
+}
+
+.moduleIconContacts {
+    background-color: #51b71a;
+}
+
+.moduleIconAccounts {
+ background-color: #51cd15 !important
+}
+.moduleIconBugs {
+ background-color: #e61718 !important
+}
+.moduleIconCalendar {
+ background-color: #00bd9c !important
+}
+.moduleIconCalls {
+ background-color: #01d1ff !important
+}
+.moduleIconCampaigns {
+ background-color: #ffcf00 !important
+}
+.moduleIconCampaignLog {
+ background-color: #ffcf00 !important
+}
+.moduleIconCases {
+ background-color: #e85479 !important
+}
+.moduleIconContacts {
+ background-color: #51b71a; !important
+}
+.moduleIconDocuments {
+ background-color: #fb8724 !important
+}
+.moduleIconEmails {
+ background-color: #2c97de !important
+}
+.moduleIconFiles {
+ background-color: #ef6907 !important
+}
+.moduleIconForecasts {
+ background-color: #1fce6d !important
+}
+.moduleIconKBArticles {
+ background-color: #3590eb !important
+}
+.moduleIconKBContents {
+ background-color: #3590eb !important
+}
+.moduleIconKBDocuments {
+ background-color: #3590eb !important
+}
+.moduleIconKBLocalizations {
+ background-color: #183cc8 !important
+}
+.moduleIconKBRevisions {
+ background-color: #7541c5 !important
+}
+.moduleIconLeads {
+ background-color: #7651fc !important
+}
+.moduleIconMeetings {
+ background-color: #2ee0cd !important
+}
+.moduleIconNotes {
+ background-color: #198cc6 !important
+}
+.moduleIconOpportunities {
+ background-color: #a05cff !important
+}
+.moduleIconpmse_Business_Rules {
+ background-color: #9aa5ad !important
+}
+.moduleIconpmse_Emails_Templates {
+ background-color: #9aa5ad !important
+}
+.moduleIconpmse_Inbox {
+ background-color: #9aa5ad !important
+}
+.moduleIconpmse_Project {
+ background-color: #9aa5ad !important
+}
+.moduleIconProducts {
+ background-color: #011523 !important
+}
+.moduleIconProspects {
+ background-color: #429e10 !important
+}
+.moduleIconProspectLists {
+ background-color: #429e10 !important
+}
+.moduleIconQuotas {
+ background-color: #18e7d2 !important
+}
+.moduleIconQuotes {
+ background-color: #00beab !important
+}
+.moduleIconReports {
+ background-color: #ff973e !important
+}
+.moduleIconRevenueLineItems {
+ background-color: #00cbf3 !important
+}
+.moduleIconTags {
+ background-color: #9aa5ad !important
+}
+.moduleIconTasks {
+ background-color: #de5af1 !important
+}
+.moduleIconUsers {
+ background-color: #6b7479 !important
+}
+.moduleIconWorkflow {
+ background-color: #41b7d1 !important
+}
+.moduleIconDataPrivacy {
+ background-color: #9aa5ad !important
+}
+

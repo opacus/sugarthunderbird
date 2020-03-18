@@ -220,9 +220,6 @@ var opacusSTP = {
   },
 
   optionsLoad: function(optionsWindow){
-	if(opacusSTP.mac){
-		optionsWindow.document.getElementById('saveButton').hidden=false;
-	}
 	optionsWindow.document.getElementById('passwordsugarcrm_password').value = opacusSTP.sugarcrm_password_plain;
 	if(optionsWindow.document.getElementById('checkopacus_ldap').checked === false){
 		optionsWindow.document.getElementById('ldap_key_box').hidden = true;
@@ -262,7 +259,7 @@ var opacusSTP = {
 	opacusSTP.prefs.setBoolPref('addButtons',true)
   },
 
-  updateServerInfo: function(optionsWindow){
+  updateServerInfo: function(optionsWindow) {
 	opacusSTP.webservice = '';
     try{
 		opacusSTP.sugarurl = opacusSTP.prefs.getCharPref("sugarcrm_url").replace(/\/$/,'');
@@ -297,19 +294,17 @@ var opacusSTP = {
 				opacusSTP.passwordManager.addLogin(sugarLogin);
 			}
 		}
-		try {     
-		   // Find users for the given parameters  
-		   var logins = opacusSTP.passwordManager.findLogins({}, 'chrome://opacusSTP', '', 'SugarCRM Login');  
-				
-		   // Find user from returned array of nsILoginInfo objects  
-		   for (var i = 0; i < logins.length; i++) {  
-			  if (logins[i].username == opacusSTP.sugarcrm_username) {  
-				 opacusSTP.sugarcrm_password_plain = logins[i].password;  
-				 break;  
-			  }  
-		   }  
-		}  
-		catch(ex) {}
+        try {
+            // Find users for the given parameters  
+            logins = opacusSTP.passwordManager.getAllLogins();
+            for (i = 0; i < logins.length; i++) {  
+                if (logins[i].hostname == 'chrome://opacusSTP' && logins[i].username == opacusSTP.sugarcrm_username) {  
+                    opacusSTP.sugarcrm_password_plain = logins[i].password;
+                    break;  
+                }  
+            }  
+        }  
+        catch(ex) {}
 
 		var crypt = new opacusSTPcrypt();
 		if(opacusSTP.opacus_ldap){
@@ -378,7 +373,7 @@ var opacusSTP = {
 
   archiveMails: function() {
 	var doAttachments = this.searchObject.searchWindow.document.getElementById('doAttachments').checked;
-	var sugarObjects = this.searchObject.getCellChecked(this.searchObject.searchWindow.document.getElementById('resultList'),'resultTick');
+	var sugarObjects = this.searchObject.getCellChecked();
 	if(!sugarObjects){
 		return false;
 	}

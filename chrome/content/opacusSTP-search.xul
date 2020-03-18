@@ -1,14 +1,21 @@
 <?xml version="1.0"?>
 <!-- /********************************************************************** * Portions written by Opacus (C) Mathew Bland, Jonathan Cutting, * Opacus Ltd. * * This file is part of the Opacus SugarCRM Thunderbird Plugin. * * The Opacus SugarCRM Thunderbird Plugin * is free software:you can redistribute it and/or modify * it under the terms of the GNU General Public License as published by * the Free Software Foundation, either version 3 of the License, or * (at your option) any later version. * * The Opacus SugarCRM Thunderbird Plugin * is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License for more details. * * You should have received a copy of the GNU General Public License * along with the Opacus SugarCRM Thunderbird Plugin. * If not, see <http://www.gnu.org/licenses/>. *********************************************************************/ -->
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
 <?xml-stylesheet href="chrome://opacusSTP/content/opacusSTP-css.css" type="text/css"?>
 <!DOCTYPE searchwindow SYSTEM "chrome://opacusSTP/locale/search.dtd" >
-<window title="&searchwindow.title;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="opener.opacusSTP.searchObject.updateSearchField()" onclose="return opener.opacusSTP.searchObject.searchWindowClose()">
+<window
+    title="&searchwindow.title;"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    onload="opener.opacusSTP.searchObject.updateSearchField()"
+    onclose="return opener.opacusSTP.searchObject.searchWindowClose()"
+    >
   <vbox flex="1">
     <groupbox flex="1">
       <hbox>
         <hbox>
-          <caption label="&opacus_search.label;" />
+                  <label class='header'>&opacus_search.label;</label>
         </hbox>
         <hbox flex='1' align='right' style='padding: 3px 5px 0 0'>
           <image style='cursor:pointer;' onclick="opener.opacusSTP.link('http://www.opacus.co.uk')" width="63" height="21" src="chrome://opacusSTP/content/images/opacus25.png" />
@@ -22,7 +29,7 @@
       </hbox>
       <hbox flex="1" height="300" width="500">
         <groupbox flex="1" id="resultBox">
-          <richlistbox id="resultList" flex="1" seltype="mutiple">
+          <richlistbox id="resultList" flex="1" seltype="multiple">
           </richlistbox>
         </groupbox>
         <splitter id="opacusSearchSplitter" insertafter="resultBox" hidden="false" />
@@ -33,7 +40,7 @@
       </hbox>
       <hbox align="right">
         <hbox id='feedbackBox' align='center' flex='1' width='50%'>
-          <progressmeter hidden='false' id="feedback" flex='1' mode="determined" />
+          <html:progress xmlns:html="http://www.w3.org/1999/xhtml" class="progressmeter-statusbar" flex='1' id="feedback" hidden='true'></html:progress>
         </hbox>
         <button label="&opacus_cancel.label;" accesskey="&opacus_cancel.accesskey;" onclick="opener.opacusSTP.searchObject.searchWindowClose();window.close();" />
         <button id='archive_button' label="&opacus_archive.label;" accesskey="&opacus_archive.accesskey;" onclick="if(!this.disabled==true){this.disabled=true;opener.opacusSTP.archiveMails();}" />
@@ -45,4 +52,5 @@
       </hbox>
     </groupbox>
   </vbox>
+  <script type="application/javascript" src="chrome://messenger/content/customElements.js"/>
 </window>

@@ -26,44 +26,33 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/preferences/preferences.css"?>
 <!DOCTYPE prefwindow SYSTEM "chrome://opacusSTP/locale/options.dtd">
-<prefwindow flex="1" id="opacusSTP-preferences" buttons="accept,cancel" onload='
+<dialog flex="1" id="opacusSTP-preferences" buttons="accept" onload='
 	var wMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
 	this.parentWindow = wMediator.getMostRecentWindow("mail:3pane");
 	this.parentWindow.opacusSTP.optionsLoad(this);'
 	onbeforeunload="this.parentWindow.opacusSTP.updateServerInfo(this);" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	title="&prefwindow.title;">
-  <prefpane flex='1' id="pane1" label="&pane1.title;">
    <vbox flex="1" width="400">
-    <preferences>
-      	<preference id="sugarcrm_url" name="extensions.opacusSTP.sugarcrm_url" type="unichar"/>
-	<preference id="sugarcrm_username" name="extensions.opacusSTP.sugarcrm_username" type="unichar"/>
-	<preference id="opacus_notify" name="extensions.opacusSTP.opacus_notify" type="bool"/>
-	<preference id="opacus_cases" name="extensions.opacusSTP.opacus_cases" type="bool"/>
-	<preference id="opacus_ldap" name="extensions.opacusSTP.opacus_ldap" type="bool"/>
-	<preference id="opacus_ldap_key" name="extensions.opacusSTP.opacus_ldap_key" type="unichar"/>
-    </preferences>
     <groupbox flex="1">
     <caption label="&opacus_serverdetails.label;"/>
-    <label accesskey="&sugarcrm_url.accesskey;" control="textsugarcrm_url">&sugarcrm_url.label;</label><textbox id="textsugarcrm_url" preference="sugarcrm_url"/>
-	<label accesskey="&sugarcrm_username.accesskey;" control="textsugarcrm_username">&sugarcrm_username.label;</label><textbox id="textsugarcrm_username" preference="sugarcrm_username"/>
+    <label accesskey="&sugarcrm_url.accesskey;" control="textsugarcrm_url">&sugarcrm_url.label;</label><textbox id="textsugarcrm_url" preference="extensions.opacusSTP.sugarcrm_url"/>
+	<label accesskey="&sugarcrm_username.accesskey;" control="textsugarcrm_username">&sugarcrm_username.label;</label><textbox id="textsugarcrm_username" preference="extensions.opacusSTP.sugarcrm_username"/>
 	<label accesskey="&sugarcrm_password.accesskey;" control="textsugarcrm_password">&sugarcrm_password.label;</label><textbox id="passwordsugarcrm_password" type="password"/>	
 	</groupbox>
 
     <groupbox flex="1">
     <caption label="&opacus_advanceddetails.label;"/>
-	<checkbox id="checkopacus_notify" preference="opacus_notify" label="&opacus_notify.label;" tooltiptext="&opacus_notify.tooltiptext;" accesskey="&opacus_notify.accesskey;"/>
-	<checkbox id="checkopacus_cases" preference="opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
+	<checkbox id="checkopacus_notify" preference="extensions.opacusSTP.opacus_notify" label="&opacus_notify.label;" tooltiptext="&opacus_notify.tooltiptext;" accesskey="&opacus_notify.accesskey;"/>
+	<checkbox id="checkopacus_cases" preference="extensions.opacusSTP.opacus_cases" label="&opacus_cases.label;" accesskey="&opacus_cases.accesskey;"/>
 	<checkbox
 		onclick="if(this.checked){document.getElementById('ldap_key_box').hidden=true;window.sizeToContent();}else{document.getElementById('ldap_key_box').hidden=false;window.sizeToContent();}"
-		id="checkopacus_ldap" preference="opacus_ldap" label="&opacus_ldap.label;"/>
+		id="checkopacus_ldap" preference="extensions.opacusSTP.opacus_ldap" label="&opacus_ldap.label;"/>
 	<vbox flex='1' id="ldap_key_box" hidden='false'>
-	<label control="textldap_key">&opacus_ldap_key.label;</label><textbox id="textldap_key" preference="opacus_ldap_key"/>
+	<label control="textldap_key">&opacus_ldap_key.label;</label><textbox id="textldap_key" preference="extensions.opacusSTP.opacus_ldap_key"/>
 	</vbox>
 	</groupbox>
 
- 	<hbox style="min-height: 3em" flex='1' id='saveButton' align='right'>
-	     <button label="&opacus_saveprefs.label;" onclick="window.close()"/>
-	</hbox>
 	</vbox>
-  </prefpane>
-</prefwindow>
+  <script src="chrome://global/content/preferencesBindings.js" type="application/javascript" />
+  <script src="chrome://opacusSTP/content/opacusSTP-prefdefs.js" type="application/javascript" />
+</dialog>
